@@ -2,7 +2,7 @@
 
 Jejak Adventure merupakan sebuah platfrom yang membantu para customer yang ingin berlibur menggunakan travel agent berbasis website. Jejak adventure menampung para travel agent yang ingin bergabung dan memasarkan trip mereka. Fitur lainya yaitu dapat membaca berita terkait wisata.
 
-Tampilan Utama                              | Tampilan Kata                              | Tampilan Praktik
+Landing Page                                | Tampilan menu paket trip                   | Tampilan Berita
 --------------------------------------------|--------------------------------------------|--------------------------------------------
 <img src="screenshots/pic1.png" width="200">|<img src="screenshots/pic2.png" width="200">|<img src="screenshots/pic3.png" width="200">
 
