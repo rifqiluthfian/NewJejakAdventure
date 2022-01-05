@@ -1,6 +1,6 @@
-# Judul PA Bahasa Indonesia
+# JEJAK ADVENTURE
 
-Ganti paragraf ini dengan penjelasan singkat mengenai aplikasi. Beri tahu pembaca, repository ini isinya aplikasi apa, siapa target penggunanya, dan apa saja fitur utamanya. Penjelasan dibuat **minimal** 250 karakter. Setelah penjelasan, beri screenshot **maksimal 3** buah. Jika aplikasi belum jadi, screenshot boleh diambil dari Bab 3 (perancangan antarmuka aplikasi).
+Jejak Adventure merupakan sebuah platfrom yang membantu para customer yang ingin berlibur menggunakan travel agent berbasis website. Jejak adventure menampung para travel agent yang ingin bergabung dan memasarkan trip mereka. Fitur lainya yaitu dapat membaca berita terkait wisata.
 
 Tampilan Utama                              | Tampilan Kata                              | Tampilan Praktik
 --------------------------------------------|--------------------------------------------|--------------------------------------------
@@ -8,13 +8,13 @@ Tampilan Utama                              | Tampilan Kata                     
 
 ### Link Berkas PA
 
-(diisi link Google Drive kelompok PA yang telah disiapkan oleh Tim PA)
+https://drive.google.com/drive/folders/107rfp-XcWU5MiE09E06nIJTniT3HGFLc?usp=sharing
 
 ### Susunan Tim
 
 Nama            | Username Github | Posisi
 ----------------|-----------------|-----------
-Nama Mahasiswa1 | usernameMhs1    | Mahasiswa
-Nama Mahasiswa2 | usernameMhs2    | Mahasiswa
-Nama Pembimbing | usernamePbb     | Pembimbing
-Nama Reviewer   | usernameRev     | Reviewer
+Bagus Pahlefi   | baguspahlefi2000| Mahasiswa
+Rifqi Luthfian  | rifqiluthfian   | Mahasiswa
+Dahliar Ananda  | dahliar         | Pembimbing
+Indra Azimi     | indraazimi      | Reviewer
