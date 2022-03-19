@@ -13,6 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])
+->name('home');
+
+Route::get('/menutrip', [App\Http\Controllers\MenuTripController::class, 'index'])
+->name('menutrip');
+
+Route::get('/detailpage', [App\Http\Controllers\DetailController::class, 'index'])
+->name('detailpage');
+
+Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])
+->name('checkout');
+Route::get('/checkout/success', [App\Http\Controllers\CheckoutController::class, 'success'])
+->name('success');
+
+Route::get('/admin', [App\Http\Controllers\Admin\DashboardController::class, 'index'])
+->name('admin');
+
