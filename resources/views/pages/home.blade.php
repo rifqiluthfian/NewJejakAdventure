@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jejak Adventure</title>
     <link rel="stylesheet" href="{{url('frontend/libraries/bootstrap/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{url('frontend/styles/main.css')}} ">
+    <link rel="stylesheet" href="{{url('frontend/styles/main.css')}}">
+    <link rel="icon" href="{{url('frontend/images/logo-tab.png')}}">
 </head>
 <body>
   <section class="atas">
@@ -14,7 +15,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-trasnparent">
                 <a class="navbar-brand" href="{{route('home')}}">
-                    <h2>Jejak</h2>
+                    <img src="frontend/images/logo.png" width="200" alt="">
                 </a>
 
                 <button class="navbar-toggler navbar-toggler-right" 
@@ -34,7 +35,7 @@
                             <a class="nav-link" href="{{route('menutrip')}}">Trip</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="###">Berita</a>
+                            <a class="nav-link" href="{{route('berita')}}">Berita</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Galeri</a>
@@ -148,20 +149,21 @@
                         <p>jejakdewaadventure</p>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 ">
-                    <<a href="{{route('detailpage')}}">
-                      <div class="card-travel mx-auto d-flex flex-column">
-                          <div class="text-card mt-auto mb">
-                              <div class="travel-price">Rp.1.200.000</div>
-                              <div class="travel-days mt-2">3D2N</div>
-                          </div>
-                      </div>
-                    </a>
-                    <div class="text-trip ml-3 mx-auto">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <a href="{{route('detailpage')}}">
+                    <div class="card-travel mx-auto d-flex flex-column">
+                        <div class="text-card mt-auto mb">
+                            <div class="travel-price">Rp.1.200.000</div>
+                            <div class="travel-days mt-2">3D2N</div>
+                        </div>
+                    </div>
+                  </a>
+                    <div class="text-trip ml-3">
                         <h3 style="font-weight: bold;">Pulau Komodo</h3>
                         <p>jejakdewaadventure</p>
                     </div>
                 </div>
+
             </div>
         </div>
         <!--Tutup popular-trip -->

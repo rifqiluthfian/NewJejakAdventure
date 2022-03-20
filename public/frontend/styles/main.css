@@ -234,11 +234,21 @@ header .book-trip {
 .details-header .section-details-content .breadcrumb {
   background-color: transparent;
   margin-top: 30px;
+  color: #fff;
 }
 
 .details-header .section-details-content .breadcrumb-item.active {
   font-weight: bold;
-  color: #000000;
+  color: #fff;
+}
+
+.details-header .section-details-content .breadcrumb-item-berita.active {
+  color: #fff;
+  font-size: xxx-large;
+}
+
+.details-header .section-details-content img {
+  border-radius: 10px;
 }
 
 .details-header .section-details-content .gallery .xzoom-container {
@@ -275,6 +285,24 @@ header .book-trip {
   border-radius: 0px;
   background-color: #165337;
   color: #fff;
+}
+
+.menu-berita img {
+  width: 350px !important;
+  color: white;
+  padding: 0px;
+  background-size: cover;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 0;
+}
+
+.menu-berita img .text-card {
+  font-size: x-large;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -20px;
 }
 
 .btn-add-now {

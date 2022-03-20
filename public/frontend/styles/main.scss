@@ -235,55 +235,90 @@ header{
   z-index: 0;
 
     .section-details-content{
-        margin-top: -100px;
-        min-height: 100vh;
-        display: block;
-        .breadcrumb{
-            background-color: transparent;
-            margin-top: 30px;
-        }
+      margin-top: -100px;
+      min-height: 100vh;
+      display: block;
+      .breadcrumb{
+          background-color: transparent;
+          margin-top: 30px;
+      }
 
-        .breadcrumb-item{
-            &.active{
-                font-weight: bold;
-                color: #000000;
-            }
-        }
-
-        .gallery{
-          .xzoom-container{
-            display: block;
-
-            .xzoom{
-              box-shadow: none;
-              margin-bottom: 15px;
-            }
-          }
-        }
-        .card-details{
-          padding: 30px;
-          border-radius: 11px;
-        }
-        .card-details-right{
-          padding: 30px;
-          border-radius: 11px 11px 0px 0px;
-        }
-
-        .join-container{
-          margin-top: -16px;
-        }
-        
-        .btn-join-now{
-          border-radius: 0px;
-          background-color: #2BB272;
+      .breadcrumb-item{
           color: #fff;
-          &:hover{
-            border-radius: 0px;
-            background-color: #165337;
-            color: #fff;
+          &.active{
+              font-weight: bold;
+              color: #000;
           }
+      }
+      //Berita
+      .breadcrumb-item-berita{
+        &.active{
+            color: #fff;
+            font-size: xxx-large;
         }
     }
+    img{
+      border-radius: 10px;
+    }
+      
+      
+
+      .gallery{
+        .xzoom-container{
+          display: block;
+
+          .xzoom{
+            box-shadow: none;
+            margin-bottom: 15px;
+          }
+        }
+      }
+      .card-details{
+        padding: 30px;
+        border-radius: 11px;
+      }
+      .card-details-right{
+        padding: 30px;
+        border-radius: 11px 11px 0px 0px;
+      }
+
+      .join-container{
+        margin-top: -16px;
+      }
+      
+      .btn-join-now{
+        border-radius: 0px;
+        background-color: #2BB272;
+        color: #fff;
+        &:hover{
+          border-radius: 0px;
+          background-color: #165337;
+          color: #fff;
+        }
+      }
+    }
+}
+
+//Menu Berita
+.menu-berita{
+  img{ 
+    width: 350px !important;
+    color: white;
+    padding: 0px;
+    background-size: cover;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 0;
+
+    .text-card{
+        font-size: x-large;
+        position: relative;
+        z-index: 2;
+        margin-bottom: -20px;
+    }
+}
+
 }
 
 //checkout

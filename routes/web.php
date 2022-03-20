@@ -27,6 +27,11 @@ Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'
 Route::get('/checkout/success', [App\Http\Controllers\CheckoutController::class, 'success'])
 ->name('success');
 
+Route::get('/berita', [App\Http\Controllers\BeritaController::class,'index'])
+->name('berita');
+Route::get('/berita/detailberita', [App\Http\Controllers\BeritaController::class,'detailberita'])
+->name('detailberita');
+
 Route::get('/admin', [App\Http\Controllers\Admin\DashboardController::class, 'index'])
 ->name('admin');
 

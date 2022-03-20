@@ -5,7 +5,7 @@
             <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-trasnparent">
                 <a class="navbar-brand" href="{{route('home')}}">
-                    <h2>Jejak</h2>
+                    <img src="frontend/images/logo.png" width="200" alt="">
                 </a>
 
                 <button class="navbar-toggler navbar-toggler-right" 
@@ -25,7 +25,7 @@
                             <a class="nav-link" href="{{route('menutrip')}}">Trip</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="###">Berita</a>
+                            <a class="nav-link" href="{{route('berita')}}">Berita</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Galeri</a>
