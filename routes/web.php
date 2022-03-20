@@ -32,6 +32,10 @@ Route::get('/berita', [App\Http\Controllers\BeritaController::class,'index'])
 Route::get('/berita/detailberita', [App\Http\Controllers\BeritaController::class,'detailberita'])
 ->name('detailberita');
 
-Route::get('/admin', [App\Http\Controllers\Admin\DashboardController::class, 'index'])
+//Travel Agent
+Route::get('/admin', [App\Http\Controllers\Admin\DashboardController::class,'index'])
+->middleware(['auth','travelagent'])
 ->name('admin');
 
+
+Auth::routes();
