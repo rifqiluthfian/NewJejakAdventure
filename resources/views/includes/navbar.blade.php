@@ -33,18 +33,41 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Kontak</a>
                         </li>
-                        <!--Button Mobile-->
-                        <form action="" class="form-inline d-sm-block d-md-block d-lg-none">
-                            <button class="btn btn-login my-2 my-sm-0">
+
+                        @guest
+                         <!--Button Mobile-->
+                        <form class="form-inline d-sm-block d-md-block d-lg-none">
+                            <button class="btn btn-login my-2 my-sm-0" type="button" onclick="event.preventDefault();
+                            location.href='{{url('login')}}';">
                                 Login
                             </button>
                         </form>
                         <!--Button Desktop-->
-                        <form action="" class="form-inline my-lg-0 d-none d-lg-block">
-                            <button class="btn btn-login btn-navbar-right my-sm-0 px-4">
+                        <form class="form-inline my-lg-0 d-none d-lg-block">
+                            <button class="btn btn-login btn-navbar-right my-sm-0 px-4" type="button" onclick="event.preventDefault();
+                            location.href='{{url('login')}}';">
                                 Login
                             </button>
                         </form>
+                        @endguest
+
+                        @auth
+                        <!--Button Mobile-->
+                        <form class="form-inline d-sm-block d-md-block d-lg-none" action="{{url('logout')}}" method="POST">
+                            @csrf
+                            <button class="btn btn-login my-2 my-sm-0" type="submit">
+                                Logout
+                            </button>
+                        </form>
+                        <!--Button Desktop-->
+                        <form class="form-inline my-lg-0 d-none d-lg-block" action="{{url('logout')}}" method="POST">
+                            @csrf
+                            <button class="btn btn-login btn-navbar-right my-sm-0 px-4" type="submit">
+                                Logout
+                            </button>
+                        </form>
+                        @endauth
+                        
                     </ul>
                 </div>
             </nav>

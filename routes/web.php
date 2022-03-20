@@ -38,4 +38,4 @@ Route::get('/admin', [App\Http\Controllers\Admin\DashboardController::class,'ind
 ->name('admin');
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
