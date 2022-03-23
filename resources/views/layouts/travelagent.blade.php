@@ -25,7 +25,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-text mx-3">Admin</div>
+                <div class="sidebar-brand-text mx-3">travel agent</div>
             </a>
 
             <!-- Divider -->
@@ -43,11 +43,7 @@
                 </a>
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-images"></i>
-                    <span>Berita</span>
-                </a>
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-images"></i>
-                    <span>Gallery</span>
+                    <span>Gallery Travel</span>
                 </a>
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-dollar-sign"></i>

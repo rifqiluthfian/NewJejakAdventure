@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Middleware; 
+namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class IsTravelAgent
+class IsAdmin
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class IsTravelAgent
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->roles == 'TRAVELAGENT') {
+        if (auth()->check() && auth()->user()->roles == 'ADMIN') {
             return $next($request);
         } 
         else

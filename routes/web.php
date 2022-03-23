@@ -32,10 +32,15 @@ Route::get('/berita', [App\Http\Controllers\BeritaController::class,'index'])
 Route::get('/berita/detailberita', [App\Http\Controllers\BeritaController::class,'detailberita'])
 ->name('detailberita');
 
-//Travel Agent
+//Admin
 Route::get('/admin', [App\Http\Controllers\Admin\DashboardController::class,'index'])
-->middleware(['auth','travelagent'])
+->middleware(['auth','admin'])
 ->name('admin');
+
+//TravelAgent
+Route::get('/travelagent', [App\Http\Controllers\TravelAgent\DashboardController::class,'index'])
+->middleware(['auth','travelagent'])
+->name('travelagent');
 
 
 Auth::routes(['verify' => true]);
