@@ -39,11 +39,11 @@
                 </a>
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-hotel"></i>
-                    <span>Paket Travel</span>
+                    <span>Travel Package</span>
                 </a>
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-images"></i>
-                    <span>Berita</span>
+                    <span>News</span>
                 </a>
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-images"></i>
@@ -51,7 +51,11 @@
                 </a>
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-dollar-sign"></i>
-                    <span>Transaksi</span>
+                    <span>Transaction</span>
+                </a>
+                <a class="nav-link" href="{{{route('usermanagement')}}}">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>User Management</span>
                 </a>
             </li>
 
@@ -116,7 +120,6 @@
 
 
     @include('includes.admin.script')
-    
 
 </body>
 

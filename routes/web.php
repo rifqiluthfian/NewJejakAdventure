@@ -36,6 +36,9 @@ Route::get('/berita/detailberita', [App\Http\Controllers\BeritaController::class
 Route::get('/admin', [App\Http\Controllers\Admin\DashboardController::class,'index'])
 ->middleware(['auth','admin'])
 ->name('admin');
+Route::get('/admin/usermanagement', [App\Http\Controllers\Admin\UserManagementController::class,'index'])
+->middleware(['auth','admin'])
+->name('usermanagement');
 
 //TravelAgent
 Route::get('/travelagent', [App\Http\Controllers\TravelAgent\DashboardController::class,'index'])

@@ -15,3 +15,17 @@
 <!-- Page level custom scripts -->
 <script src="{{url('backend/js/demo/chart-area-demo.js')}} "></script>
 <script src="{{url('backend/js/demo/chart-pie-demo.js')}} "></script>
+
+
+{{-- DataTables --}}
+<script type="text/javascript" src="{{ url('frontend/scripts/jquery-3.5.1.js') }}"></script>
+<script type="text/javascript" src="{{ url('frontend/libraries/DataTables/js/dataTables.bootstrap5.min') }}"></script>
+<script type="text/javascript" src="{{ url('frontend/libraries/DataTables/js/jquery.dataTables.min.js') }}"></script>
+
+
+<script>
+    $(document).ready(function() {
+    $('#table_id').DataTable();
+} );
+
+</script>
