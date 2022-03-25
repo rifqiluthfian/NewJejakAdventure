@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="{{url('frontend/libraries/bootstrap/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{url('frontend/styles/main.css')}}">
     <link rel="icon" href="{{url('frontend/images/logo-tab.png')}}">
+    <script src="{{url('frontend/libraries/jquery/jquery-3.3.1.slim.min.js')}}"></script>
+    <script src="{{url('frontend/libraries/bootstrap/js/bootstrap.min.js')}}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 </head>
 <body>
   <section class="atas">
