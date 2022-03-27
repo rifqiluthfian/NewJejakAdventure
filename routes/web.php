@@ -45,5 +45,17 @@ Route::get('/travelagent', [App\Http\Controllers\TravelAgent\DashboardController
 ->middleware(['auth','travelagent'])
 ->name('travelagent');
 
+Route::get('/travelagent/travelpackage', [App\Http\Controllers\TravelAgent\TravelPackageController::class,'index'])
+->middleware(['auth','travelagent'])
+->name('travelpackage.index');
+
+Route::get('/travelagent/travelpackage/create', [App\Http\Controllers\TravelAgent\TravelPackageController::class,'create'])
+->middleware(['auth','travelagent'])
+->name('travelpackage.create');
+
+Route::post('/travelagent/travelpackage/store', [App\Http\Controllers\TravelAgent\TravelPackageController::class,'store'])
+->middleware(['auth','travelagent'])
+->name('travelpackage.store');
+
 
 Auth::routes(['verify' => true]);

@@ -33,11 +33,11 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{route('travelagent')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{route('travelpackage.index')}}">
                     <i class="fas fa-fw fa-hotel"></i>
                     <span>Paket Travel</span>
                 </a>
