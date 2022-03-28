@@ -31,6 +31,7 @@
                                         <th scope="col">Duration</th>
                                         <th scope="col">Type</th>
                                         <th scope="col">Price</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,6 +46,18 @@
                                         <td>{{ $item->duration }}</td>
                                         <td>{{ $item->type }}</td>
                                         <td>{{ $item->price }}</td>
+                                        <td>
+                                            <a href=" {{route('travelpackage.edit',$item->id)}} " class="btn btn-info">
+                                                <i class="fa fa-pencil-alt"></i>
+                                            </a>
+                                            <form action=" {{route('travelpackage.delete',$item->id)}} " method="POST" class="d-inline">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="btn btn-danger" type="submit">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     @empty
                                     <tr>

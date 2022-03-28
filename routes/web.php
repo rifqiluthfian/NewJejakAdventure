@@ -57,5 +57,17 @@ Route::post('/travelagent/travelpackage/store', [App\Http\Controllers\TravelAgen
 ->middleware(['auth','travelagent'])
 ->name('travelpackage.store');
 
+Route::get('/travelagent/travelpackage/edit/{id}', [App\Http\Controllers\TravelAgent\TravelPackageController::class,'edit'])
+->middleware(['auth','travelagent'])
+->name('travelpackage.edit');
+
+Route::put('/travelagent/travelpackage/update/{id}', [App\Http\Controllers\TravelAgent\TravelPackageController::class,'update'])
+->middleware(['auth','travelagent'])
+->name('travelpackage.update');
+
+Route::delete('/travelagent/travelpackage/delete/{id}', [App\Http\Controllers\TravelAgent\TravelPackageController::class,'destroy'])
+->middleware(['auth','travelagent'])
+->name('travelpackage.delete');
+
 
 Auth::routes(['verify' => true]);

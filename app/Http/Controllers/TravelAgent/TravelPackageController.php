@@ -21,7 +21,7 @@ class TravelPackageController extends Controller
 
     public function index(Request $request){
         $user = $request->user()->username;
-        $items = DB::select('select * from travel_packages where username = :username', ['username' => $user]);
+        $items = DB::select('select * from travel_packages WHERE username = :username AND deleted_at IS NULL', ['username' => $user]);
        
         return view('pages.travelagent.travelpackage.index',
         [ 'items' =>$items]);
@@ -73,7 +73,10 @@ class TravelPackageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = TravelPackage::findOrFail($id);
+        return view ('pages.travelagent.travelpackage.edit',[
+            'item' => $item
+        ]);
     }
 
     /**
@@ -85,7 +88,13 @@ class TravelPackageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        
+        $data['slug'] = Str::slug($request->title);
+
+        $item = TravelPackage::findOrFail($id);
+        $item->update($data);
+        return redirect('travelagent/travelpackage');
     }
 
     /**
@@ -96,6 +105,9 @@ class TravelPackageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = TravelPackage::findOrFail($id);
+        $item->delete();
+        sleep(1);
+        return redirect()->route('travelpackage.index');
     }
 }
