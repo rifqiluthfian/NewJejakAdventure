@@ -46,6 +46,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Kontak</a>
                         </li>
+
+                        @if (!Auth::guest() && Auth::user()->roles == 'TRAVELAGENT')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('travelagent')}}">Travel Agent</a>
+                        </li>
+                        @endif
+
                         @guest
                          <!--Button Mobile-->
                         <form class="form-inline d-sm-block d-md-block d-lg-none">
