@@ -9,11 +9,11 @@
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col">
-                            <h2 class="">Travel Package</h2>
+                            <h2 class="">Gallery Travel Package</h2>
                         </div>
                         <div class="col text-right">
-                            <a href="{{route('travelpackage.create')}}" class="btn btn-second ml-2">
-                                <i class="las la-plus"></i> Add Travel
+                            <a href=" {{route('gallery.create')}} " class="btn btn-second ml-2">
+                                <i class="las la-plus"></i> Add Picture
                             </a>
                         </div>
                     </div>
@@ -22,15 +22,10 @@
                             <table class="table table-responsive table-hover" id="table_id">
                                 <thead>
                                     <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Slug</th>
-                                        <th scope="col">Location</th>
-                                        <th scope="col">About</th>
-                                        <th scope="col">Deparature Date</th>
-                                        <th scope="col">Duration</th>
-                                        <th scope="col">Type</th>
-                                        <th scope="col">Price</th>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Travel</th>
+                                        <th scope="col">Picture</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -38,23 +33,16 @@
                                     @forelse ($items as $item)
                                     <tr>
                                         <td class="text-center">{{$item->id}}</td>
-                                        <td>{{ $item->title }}</td>
-                                        <td>{{ $item->slug }}</td>
-                                        <td>{{ $item->location }}</td>
-                                        <td>{{ $item->about }}</td>
-                                        <td>{{ $item->departure_date }}</td>
-                                        <td>{{ $item->duration }}</td>
-                                        <td>{{ $item->type }}</td>
-                                        <td>Rp. 
-                                            @php
-                                            echo number_format("$item->price")."<br>";
-                                            @endphp
+                                        <td class="text-center">{{$item->username}}</td>
+                                        <td>{{ $item->travel_package->title }}</td>
+                                        <td>
+                                            <img src="{{Storage::url($item->image)}}" alt="" width="200" class="img-thumbnail">
                                         </td>
                                         <td>
-                                            <a href=" {{route('travelpackage.edit',$item->id)}} " class="btn btn-info">
+                                            <a href=" # " class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
-                                            <form action=" {{route('travelpackage.delete',$item->id)}} " method="POST" class="d-inline">
+                                            <form action=" # " method="POST" class="d-inline">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger" type="submit">

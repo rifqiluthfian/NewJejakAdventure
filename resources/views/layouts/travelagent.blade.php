@@ -41,13 +41,13 @@
                     <i class="fas fa-fw fa-hotel"></i>
                     <span>Paket Travel</span>
                 </a>
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href=" {{route('gallery.index')}} ">
                     <i class="fas fa-fw fa-images"></i>
                     <span>Gallery Travel</span>
                 </a>
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-dollar-sign"></i>
-                    <span>Transaksi</span>
+                    <span>Transaction</span>
                 </a>
             </li>
 

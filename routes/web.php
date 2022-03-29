@@ -70,4 +70,20 @@ Route::delete('/travelagent/travelpackage/delete/{id}', [App\Http\Controllers\Tr
 ->name('travelpackage.delete');
 
 
+//Gallery
+Route::get('/gallery', [App\Http\Controllers\TravelAgent\GalleryController::class,'index'])
+->middleware(['auth','travelagent'])
+->name('gallery.index');
+
+Route::get('/gallery/create', [App\Http\Controllers\TravelAgent\GalleryController::class,'create'])
+->middleware(['auth','travelagent'])
+->name('gallery.create');
+
+Route::post('/gallery/store', [App\Http\Controllers\TravelAgent\GalleryController::class,'store'])
+->middleware(['auth','travelagent'])
+->name('gallery.store');
+
+
+
+
 Auth::routes(['verify' => true]);
