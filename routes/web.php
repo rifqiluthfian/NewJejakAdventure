@@ -83,6 +83,19 @@ Route::post('/gallery/store', [App\Http\Controllers\TravelAgent\GalleryControlle
 ->middleware(['auth','travelagent'])
 ->name('gallery.store');
 
+Route::get('/gallery/edit/{id}', [App\Http\Controllers\TravelAgent\GalleryController::class,'edit'])
+->middleware(['auth','travelagent'])
+->name('gallery.edit');
+
+Route::put('/gallery/update/{id}', [App\Http\Controllers\TravelAgent\GalleryController::class,'update'])
+->middleware(['auth','travelagent'])
+->name('gallery.update');
+
+Route::delete('/gallery/delete/{id}', [App\Http\Controllers\TravelAgent\GalleryController::class,'destroy'])
+->middleware(['auth','travelagent'])
+->name('gallery.delete');
+
+
 
 
 

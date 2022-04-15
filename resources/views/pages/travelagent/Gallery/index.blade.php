@@ -23,7 +23,6 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Id</th>
-                                        <th scope="col">Username</th>
                                         <th scope="col">Travel</th>
                                         <th scope="col">Picture</th>
                                         <th scope="col">Action</th>
@@ -33,16 +32,15 @@
                                     @forelse ($items as $item)
                                     <tr>
                                         <td class="text-center">{{$item->id}}</td>
-                                        <td class="text-center">{{$item->username}}</td>
                                         <td>{{ $item->travel_package->title }}</td>
                                         <td>
                                             <img src="{{Storage::url($item->image)}}" alt="" width="200" class="img-thumbnail">
                                         </td>
                                         <td>
-                                            <a href=" # " class="btn btn-info">
+                                            <a href=" {{route('gallery.edit',$item->id)}} " class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
-                                            <form action=" # " method="POST" class="d-inline">
+                                            <form action=" {{route('gallery.delete',$item->id)}} " method="POST" class="d-inline">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger" type="submit">

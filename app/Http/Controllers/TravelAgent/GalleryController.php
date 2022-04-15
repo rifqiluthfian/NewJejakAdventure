@@ -22,7 +22,7 @@ class GalleryController extends Controller
 
     public function index(Request $request){
         $user = $request->user()->username;
-        $items = Gallery::with(['travel_package'])->get();
+        $items = Gallery::all()->where('username', $user);
        
         return view('pages.travelagent.gallery.index',
         [ 'items' =>$items]);
@@ -76,11 +76,14 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
+        $user = $request->user()->username;
+        $travel_packages = DB::select('select * from travel_packages WHERE username = :username AND deleted_at IS NULL', ['username' => $user]);
         $item = Gallery::findOrFail($id);
         return view ('pages.travelagent.gallery.edit',[
-            'item' => $item
+            'item' => $item,
+            'travel_packages' => $travel_packages
         ]);
     }
 
@@ -91,15 +94,17 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request ,$id)
     {
         $data = $request->all();
         
-        $data['slug'] = Str::slug($request->title);
+        $data['image'] = $request->file('image')->store(
+            'assets/gallery','public'
+        );
 
         $item = Gallery::findOrFail($id);
         $item->update($data);
-        return redirect('travelagent/gallery');
+        return redirect('/gallery');
     }
 
     /**

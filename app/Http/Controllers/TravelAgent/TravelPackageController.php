@@ -21,7 +21,7 @@ class TravelPackageController extends Controller
 
     public function index(Request $request){
         $user = $request->user()->username;
-        $items = DB::select('select * from travel_packages WHERE username = :username AND deleted_at IS NULL', ['username' => $user]);
+        $items = TravelPackage::all()->where('username',$user);
        
         return view('pages.travelagent.travelpackage.index',
         [ 'items' =>$items]);
@@ -74,6 +74,7 @@ class TravelPackageController extends Controller
     public function edit($id)
     {
         $item = TravelPackage::findOrFail($id);
+        $travel_packages = TravelPackage::all();
         return view ('pages.travelagent.travelpackage.edit',[
             'item' => $item
         ]);
