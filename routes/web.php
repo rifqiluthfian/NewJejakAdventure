@@ -71,27 +71,27 @@ Route::delete('/travelagent/travelpackage/delete/{id}', [App\Http\Controllers\Tr
 
 
 //Gallery
-Route::get('/gallery', [App\Http\Controllers\TravelAgent\GalleryController::class,'index'])
+Route::get('/travelagent/gallery', [App\Http\Controllers\TravelAgent\GalleryController::class,'index'])
 ->middleware(['auth','travelagent'])
 ->name('gallery.index');
 
-Route::get('/gallery/create', [App\Http\Controllers\TravelAgent\GalleryController::class,'create'])
+Route::get('/travelagent/gallery/create', [App\Http\Controllers\TravelAgent\GalleryController::class,'create'])
 ->middleware(['auth','travelagent'])
 ->name('gallery.create');
 
-Route::post('/gallery/store', [App\Http\Controllers\TravelAgent\GalleryController::class,'store'])
+Route::post('/travelagent/gallery/store', [App\Http\Controllers\TravelAgent\GalleryController::class,'store'])
 ->middleware(['auth','travelagent'])
 ->name('gallery.store');
 
-Route::get('/gallery/edit/{id}', [App\Http\Controllers\TravelAgent\GalleryController::class,'edit'])
+Route::get('/travelagent/gallery/edit/{id}', [App\Http\Controllers\TravelAgent\GalleryController::class,'edit'])
 ->middleware(['auth','travelagent'])
 ->name('gallery.edit');
 
-Route::put('/gallery/update/{id}', [App\Http\Controllers\TravelAgent\GalleryController::class,'update'])
+Route::put('/travelagent/gallery/update/{id}', [App\Http\Controllers\TravelAgent\GalleryController::class,'update'])
 ->middleware(['auth','travelagent'])
 ->name('gallery.update');
 
-Route::delete('/gallery/delete/{id}', [App\Http\Controllers\TravelAgent\GalleryController::class,'destroy'])
+Route::delete('/travelagent/gallery/delete/{id}', [App\Http\Controllers\TravelAgent\GalleryController::class,'destroy'])
 ->middleware(['auth','travelagent'])
 ->name('gallery.delete');
 
