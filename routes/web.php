@@ -95,6 +95,15 @@ Route::delete('/travelagent/gallery/delete/{id}', [App\Http\Controllers\TravelAg
 ->middleware(['auth','travelagent'])
 ->name('gallery.delete');
 
+//Transaction
+Route::get('/travelagent/transaction/index', [App\Http\Controllers\TravelAgent\TransactionController::class,'index'])
+->middleware(['auth','travelagent'])
+->name('transaction.index');
+
+Route::get('/travelagent/transaction/detail/{id}', [App\Http\Controllers\TravelAgent\TransactionController::class,'show'])
+->middleware(['auth','travelagent'])
+->name('transaction.detail');
+
 
 
 
