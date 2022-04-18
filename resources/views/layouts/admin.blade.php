@@ -49,7 +49,7 @@
                     <i class="fas fa-fw fa-images"></i>
                     <span>Gallery</span>
                 </a>
-                <a class="nav-link" href=" {{route('transaction.index')}} ">
+                <a class="nav-link" href=" {{route('transactionadmin.index')}} ">
                     <i class="fas fa-fw fa-dollar-sign"></i>
                     <span>Transaction</span>
                 </a>

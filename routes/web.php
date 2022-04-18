@@ -36,9 +36,12 @@ Route::get('/berita/detailberita', [App\Http\Controllers\BeritaController::class
 Route::get('/admin', [App\Http\Controllers\Admin\DashboardController::class,'index'])
 ->middleware(['auth','admin'])
 ->name('admin');
+
+//Admin UserManagement
 Route::get('/admin/usermanagement', [App\Http\Controllers\Admin\UserManagementController::class,'index'])
 ->middleware(['auth','admin'])
 ->name('usermanagement');
+
 
 //TravelAgent
 Route::get('/travelagent', [App\Http\Controllers\TravelAgent\DashboardController::class,'index'])
@@ -95,7 +98,7 @@ Route::delete('/travelagent/gallery/delete/{id}', [App\Http\Controllers\TravelAg
 ->middleware(['auth','travelagent'])
 ->name('gallery.delete');
 
-//Transaction
+//Transaction Travel Agent
 Route::get('/travelagent/transaction/index', [App\Http\Controllers\TravelAgent\TransactionController::class,'index'])
 ->middleware(['auth','travelagent'])
 ->name('transaction.index');
@@ -103,6 +106,27 @@ Route::get('/travelagent/transaction/index', [App\Http\Controllers\TravelAgent\T
 Route::get('/travelagent/transaction/detail/{id}', [App\Http\Controllers\TravelAgent\TransactionController::class,'show'])
 ->middleware(['auth','travelagent'])
 ->name('transaction.detail');
+
+//Transaction Admin
+Route::get('/admin/transaction/index', [App\Http\Controllers\Admin\TransactionController::class,'index'])
+->middleware(['auth','admin'])
+->name('transactionadmin.index');
+
+Route::get('/admin/transaction/detail/{id}', [App\Http\Controllers\Admin\TransactionController::class,'show'])
+->middleware(['auth','admin'])
+->name('transactionadmin.detail');
+
+Route::get('/admin/transaction/edit/{id}', [App\Http\Controllers\Admin\TransactionController::class,'edit'])
+->middleware(['auth','admin'])
+->name('transactionadmin.edit');
+
+Route::put('/admin/transaction/update/{id}', [App\Http\Controllers\Admin\TransactionController::class,'update'])
+->middleware(['auth','admin'])
+->name('transactionadmin.update');
+
+Route::delete('/admin/transaction/delete/{id}', [App\Http\Controllers\Admin\TransactionController::class,'destroy'])
+->middleware(['auth','admin'])
+->name('transactionadmin.destroy');
 
 
 
