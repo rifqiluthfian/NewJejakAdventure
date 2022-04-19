@@ -5,11 +5,10 @@
     <div class="row">
         <div class="d-sm-flex align-items-center justify-content between mb-4">
             <h1 class="h3 mb-0 text-gray-800">
-                Edit Package Travel {{$item->title}}
+                Edit Status User {{$item->name}}
             </h1>
         </div>
     </div>
-
 
     <div class="card-shadow">
         <div class="card-body">

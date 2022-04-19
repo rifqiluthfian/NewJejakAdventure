@@ -25,16 +25,29 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Roles</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($management as $item)
+                            @foreach ($user as $item)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->username }}</td>
                                 <td>{{ $item->roles }}</td>
+                                <td>
+                                    <a href=" {{route('usermanagement.edit',$item->id)}} " class="btn btn-info">
+                                        <i class="fa fa-pencil-alt"></i>
+                                    </a>
+                                    <form action=" {{route('usermanagement.destroy',$item->id)}} " method="POST" class="d-inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-danger" type="submit">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

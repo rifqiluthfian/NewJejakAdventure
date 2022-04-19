@@ -42,6 +42,18 @@ Route::get('/admin/usermanagement', [App\Http\Controllers\Admin\UserManagementCo
 ->middleware(['auth','admin'])
 ->name('usermanagement');
 
+Route::get('/admin/usermanagement/edit/{id}', [App\Http\Controllers\Admin\UserManagementController::class,'edit'])
+->middleware(['auth','admin'])
+->name('usermanagement.edit');
+
+Route::put('/admin/usermanagement/update/{id}', [App\Http\Controllers\Admin\UserManagementController::class,'update'])
+->middleware(['auth','admin'])
+->name('usermanagement.update');
+
+Route::delete('/admin/usermanagement/delete/{id}', [App\Http\Controllers\Admin\UserManagementController::class,'destroy'])
+->middleware(['auth','admin'])
+->name('usermanagement.destroy');
+
 
 //TravelAgent
 Route::get('/travelagent', [App\Http\Controllers\TravelAgent\DashboardController::class,'index'])
