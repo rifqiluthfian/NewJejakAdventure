@@ -20,7 +20,6 @@ class TransactionController extends Controller
 
 
     public function index(Request $request){
-        $user = $request->user()->username;
         $items = Transaction::with([
             'details','travel_package','user'
         ])->get();

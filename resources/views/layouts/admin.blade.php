@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Travel Agent</title>
+    <title>Admin Dashboard</title>
 
     <!-- Custom fonts for this template-->
     @include('includes.admin.style')
