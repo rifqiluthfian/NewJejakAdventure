@@ -11,11 +11,6 @@
                         <div class="col">
                             <h2 class="">User Management</h2>
                         </div>
-                        <div class="col text-right">
-                            <a href="#" class="btn btn-second ml-2">
-                                <i class="las la-plus"></i> Tambah User
-                            </a>
-                        </div>
                     </div>
                     <table class="table table-responsive-xl table-hover" id="table_id">
                         <thead>

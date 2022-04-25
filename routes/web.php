@@ -140,6 +140,24 @@ Route::delete('/admin/transaction/delete/{id}', [App\Http\Controllers\Admin\Tran
 ->middleware(['auth','admin'])
 ->name('transactionadmin.destroy');
 
+//TravelAgent Admin
+
+Route::get('/admin/travelpackage', [App\Http\Controllers\Admin\TravelPackageController::class,'index'])
+->middleware(['auth','admin'])
+->name('travelpackageadmin.index');
+
+Route::get('/admin/travelpackage/edit/{id}', [App\Http\Controllers\Admin\TravelPackageController::class,'edit'])
+->middleware(['auth','admin'])
+->name('travelpackageadmin.edit');
+
+Route::put('/admin/travelpackage/update/{id}', [App\Http\Controllers\Admin\TravelPackageController::class,'update'])
+->middleware(['auth','admin'])
+->name('travelpackageadmin.update');
+
+Route::delete('/admin/travelpackage/delete/{id}', [App\Http\Controllers\Admin\TravelPackageController::class,'destroy'])
+->middleware(['auth','admin'])
+->name('travelpackageadmin.delete');
+
 
 
 

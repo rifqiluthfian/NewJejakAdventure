@@ -37,7 +37,7 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
-                <a class="nav-link" href=" # ">
+                <a class="nav-link" href=" {{route('travelpackageadmin.index')}} ">
                     <i class="fas fa-fw fa-hotel"></i>
                     <span>Travel Package</span>
                 </a>
