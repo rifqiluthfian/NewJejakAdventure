@@ -19,13 +19,25 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])
 Route::get('/menutrip', [App\Http\Controllers\MenuTripController::class, 'index'])
 ->name('menutrip');
 
-Route::get('/detailpage', [App\Http\Controllers\DetailController::class, 'index'])
+Route::get('/detailpage/{slug}', [App\Http\Controllers\DetailController::class, 'index'])
 ->name('detailpage');
 
-Route::get('/checkout', [App\Http\Controllers\CheckoutController::class, 'index'])
-->name('checkout');
-Route::get('/checkout/success', [App\Http\Controllers\CheckoutController::class, 'success'])
-->name('success');
+//Checkout
+Route::get('/checkout/{id}', [App\Http\Controllers\CheckoutController::class, 'process'])
+->middleware(['auth','verified'])
+->name('checkout.process');
+Route::get('/checkout/{id}', [App\Http\Controllers\CheckoutController::class, 'index'])
+->middleware(['auth','verified'])
+->name('checkout.process');
+Route::get('/checkout/create/{detail_id}', [App\Http\Controllers\CheckoutController::class, 'create'])
+->middleware(['auth','verified'])
+->name('checkout.create');
+Route::get('/checkout/remove/{detail_id}', [App\Http\Controllers\CheckoutController::class, 'remove'])
+->middleware(['auth','verified'])
+->name('checkout.remove');
+Route::get('/checkout/confirm/{id}', [App\Http\Controllers\CheckoutController::class, 'confirm'])
+->middleware(['auth','verified'])
+->name('checkout.success');
 
 Route::get('/berita', [App\Http\Controllers\BeritaController::class,'index'])
 ->name('berita');
@@ -140,7 +152,7 @@ Route::delete('/admin/transaction/delete/{id}', [App\Http\Controllers\Admin\Tran
 ->middleware(['auth','admin'])
 ->name('transactionadmin.destroy');
 
-//TravelAgent Admin
+//TravelPackage Admin
 
 Route::get('/admin/travelpackage', [App\Http\Controllers\Admin\TravelPackageController::class,'index'])
 ->middleware(['auth','admin'])

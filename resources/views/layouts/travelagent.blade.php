@@ -24,7 +24,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href=" {{route('gallery.index')}} ">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href=" {{route('travelagent')}} ">
                 <div class="sidebar-brand-text mx-3">travel agent</div>
             </a>
 

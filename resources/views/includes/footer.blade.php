@@ -41,10 +41,10 @@
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase mb-4">
-                Tentang Jejak Adventure
+                About Jejak Adventure
             </h6>
             <p class="text-left">
-                Jejak Adventure menawarkan jasa pelayanan untuk travel gunung di Indonesia maupun internasional, dengan jasa pelayanan yang pastinya bersertifikasi dan terpercaya.
+                Jejak Adventure offers services for mountain travel in Indonesia and internationally, with services that are certainly certified and trusted.
             </p>
             </div>
             <!-- Grid column -->

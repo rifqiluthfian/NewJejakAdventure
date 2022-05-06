@@ -175,10 +175,8 @@ header{
 
     .card-travel{
         min-height: 400px;
-        background: url(../images/trip-2.png);
         color: white;
         padding: 30px;
-        background-size: cover;
         margin-bottom: 20px;
         border-radius: 10px;
         position: relative;
@@ -246,8 +244,7 @@ header{
       .breadcrumb-item{
           color: #fff;
           &.active{
-              font-weight: bold;
-              color: #000;
+              color: #ffff;
           }
       }
       //Berita

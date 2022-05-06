@@ -168,10 +168,8 @@ header .book-trip {
 
 .menu-trip .card-travel {
   min-height: 400px;
-  background: url(../images/trip-2.png);
   color: white;
   padding: 30px;
-  background-size: cover;
   margin-bottom: 20px;
   border-radius: 10px;
   position: relative;
@@ -234,12 +232,14 @@ header .book-trip {
 .details-header .section-details-content .breadcrumb {
   background-color: transparent;
   margin-top: 30px;
+}
+
+.details-header .section-details-content .breadcrumb-item {
   color: #fff;
 }
 
 .details-header .section-details-content .breadcrumb-item.active {
-  font-weight: bold;
-  color: #fff;
+  color: #ffff;
 }
 
 .details-header .section-details-content .breadcrumb-item-berita.active {

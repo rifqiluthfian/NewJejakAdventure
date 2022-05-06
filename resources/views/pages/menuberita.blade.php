@@ -14,7 +14,7 @@ Menu Berita
                 <nav>
                     <ol class="breadcrumb">
                     <li class="breadcrumb-item-berita active">
-                        Berita
+                        News
                     </li>
                     </ol>
                 </nav>

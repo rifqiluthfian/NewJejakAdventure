@@ -23,7 +23,7 @@ class TravelPackageController extends Controller
         $items = TravelPackage::all();
        
         return view('pages.admin.travelpackage.index',
-        [ 'items' =>$items]);
+        ['items' =>$items]);
     }
 
 
@@ -103,6 +103,6 @@ class TravelPackageController extends Controller
         $item = TravelPackage::findOrFail($id);
         $item->delete();
         sleep(1);
-        return redirect()->route('admin.index');
+        return redirect()('admin/travelpackage');
     }
 }

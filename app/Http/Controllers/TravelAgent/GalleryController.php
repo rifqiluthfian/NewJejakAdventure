@@ -104,7 +104,7 @@ class GalleryController extends Controller
 
         $item = Gallery::findOrFail($id);
         $item->update($data);
-        return redirect('/gallery');
+        return redirect()->route('gallery.index');
     }
 
     /**

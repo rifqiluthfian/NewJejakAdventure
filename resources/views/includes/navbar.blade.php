@@ -25,14 +25,20 @@
                             <a class="nav-link" href="{{route('menutrip')}}">Trip</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('berita')}}">Berita</a>
+                            <a class="nav-link" href="{{route('berita')}}">News</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Galeri</a>
+                            <a class="nav-link" href="#">Gallery</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Kontak</a>
+                            <a class="nav-link" href="#">Contact</a>
                         </li>
+
+                        @if (!Auth::guest() && Auth::user()->roles == 'TRAVELAGENT')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('travelagent')}}">Travel Agent</a>
+                        </li>
+                        @endif
 
                         @guest
                          <!--Button Mobile-->

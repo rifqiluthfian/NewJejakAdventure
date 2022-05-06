@@ -38,13 +38,13 @@
                             <a class="nav-link" href="{{route('menutrip')}}">Trip</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('berita')}}">Berita</a>
+                            <a class="nav-link" href="{{route('berita')}}">News</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Galeri</a>
+                            <a class="nav-link" href="#">Galley</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Kontak</a>
+                            <a class="nav-link" href="#">Contact</a>
                         </li>
 
                         @if (!Auth::guest() && Auth::user()->roles == 'TRAVELAGENT')
@@ -153,7 +153,7 @@
         <div class="container popular-trip">
             <div class="section-popular-trip row justify-content-center">
                 <div class="col-sm-6 col-md-4 col-lg-3">
-                  <a href="{{route('detailpage')}}">
+                  <a href="#">
                     <div class="card-travel mx-auto d-flex flex-column">
                         <div class="text-card mt-auto mb">
                             <div class="travel-price">Rp.1.200.000</div>
@@ -167,7 +167,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
-                  <a href="{{route('detailpage')}}">
+                  <a href="#">
                     <div class="card-travel mx-auto d-flex flex-column">
                         <div class="text-card mt-auto mb">
                             <div class="travel-price">Rp.1.200.000</div>
@@ -181,7 +181,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
-                  <a href="{{route('detailpage')}}">
+                  <a href="#">
                     <div class="card-travel mx-auto d-flex flex-column">
                         <div class="text-card mt-auto mb">
                             <div class="travel-price">Rp.1.200.000</div>
@@ -282,10 +282,10 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase mb-4">
-              Tentang Jejak Adventure
+              About Jejak Adventure
             </h6>
             <p class="text-left">
-              Jejak Adventure menawarkan jasa pelayanan untuk travel gunung di Indonesia maupun internasional, dengan jasa pelayanan yang pastinya bersertifikasi dan terpercaya.
+              Jejak Adventure offers services for mountain travel in Indonesia and internationally, with services that are certainly certified and trusted.
             </p>
           </div>
           <!-- Grid column -->
