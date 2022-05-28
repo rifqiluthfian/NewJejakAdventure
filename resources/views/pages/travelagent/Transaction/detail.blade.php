@@ -47,7 +47,7 @@
                             </tr>
                             @foreach ($item->details as $details)
                                 <td>{{$details->id}}</td>
-                                <td>{{$details->name}}</td>
+                                <td>{{$details->username}}</td>
                                 <td>{{$details->no_identity}}</td>
                                 <td>{{$details->no_phone}}</td>
                             @endforeach

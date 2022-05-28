@@ -30,9 +30,18 @@ Checkout Page
         <div class="row">
             <div class="col-lg-8 pl-lg-0">
             <div class="card card-details">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li> {{$error}} </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <h1 class="ml-5 mt-3">Whos is Going?</h1>
                 <p class="ml-5 text-muted">
-                Trip To Bromo
+                Trip To {{$item->travel_package->title}},{{$item->travel_package->location}}
                 </p>
                 <div class="attendee">
                 <table class="table table-responsive-sm text-center">
@@ -45,64 +54,50 @@ Checkout Page
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>
-                        <img src="{{url('frontend/images/avatar-2.png')}}" width="60" alt="">
+                    @forelse ($item->details as $detail)
+                        <tr>
+                            <td>
+                                <img src="https://ui-avatars.com/api/?name={{$detail->username}} " height="60" 
+                                class="rounded-circle" alt="">
+                            </td>
+                            <td class="align-middle">
+                                {{$detail->username}}
+                            </td>
+                            <td class="align-middle">
+                                {{$detail->no_identity}}
+                            </td>
+                            <td class="align-middle">
+                                {{$detail->no_phone}}
+                            </td>
+                            <td class="align-middle">
+                                <a href=" {{route('checkout.remove',$detail->id)}} ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                                    <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                                    </svg>
+                                </a>
+                            </td>
+                        </tr>
+                    @empty
+                        <td colspan="6" class="text-center">
+                            No Visitor
                         </td>
-                        <td class="align-middle">
-                        Bagus Pahlefi
-                        </td>
-                        <td class="align-middle">
-                        3521737278172
-                        </td>
-                        <td class="align-middle">
-                        0856457821272
-                        </td>
-                        <td class="align-middle">
-                        <a href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
-                            <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
-                            </svg>
-                        </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                        <img src="{{url('frontend/images/avatar-3.png')}}" width="60" alt="">
-                        </td>
-                        <td class="align-middle">
-                        Bagus Pahlefi
-                        </td>
-                        <td class="align-middle">
-                        3521737278172
-                        </td>
-                        <td class="align-middle">
-                        0856457821272
-                        </td>
-                        <td class="align-middle">
-                        <a href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
-                            <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
-                            </svg>
-                        </a>
-                        </td>
-                    </tr>
+                    @endforelse
                     </tbody>
                 </table>
                 </div>
                 <div class="member mt-3">
                 <h2>Add member</h2>
-                <form action="" class="form-inline">
-                    <label for="" class="sr-only">Name</label>
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="inputUsername" placeholder="Username">
+                <form action="{{route('checkout.create',$item->id)}}" method="POST" class="form-inline">
+                    @csrf
+                    <label for="username" class="sr-only">Name</label>
+                    <input type="text" name="username" class="form-control mb-2 mr-sm-2" id="username" required placeholder="username">
 
-                    <label for="" class="sr-only">No Identity</label>
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="inputNoidentity" placeholder="No Identity">
+                    <label for="no_identity" class="sr-only">No Identity</label>
+                    <input type="text" name="no_identity" class="form-control mb-2 mr-sm-2" id="no_identity" required placeholder="No Identity">
 
-                    <label for="" class="sr-only">Phone Number</label>
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="inputPhonenumber" placeholder="Phone Number">
+                    <label for="no_phone" class="sr-only">Phone Number</label>
+                    <input type="text" name="no_phone" class="form-control mb-2 mr-sm-2" id="no_phone" required placeholder="Phone Number">
 
                     <button type="submit" class="btn btn-add-now my-2">
                     Add Member
@@ -113,36 +108,52 @@ Checkout Page
             </div>
             <div class="col-lg-4">
             <div class="card card-details-right card-right">
-                <h3>Detail pemesanan</h3>     
-                <div class="members my-2">
-
-                </div>
-                <hr>
-                <h4>Informasi trip</h4>
+                <h4>Checkout Information</h4>
                 <table class="trip-information">
-                <tr>
-                    <th width="50%">Jadwal Trip</th>
-                    <td width="50%" class="text-right">12 Maret 2022</td>
-                </tr>
-                <tr>
-                    <th width="50%">Durasi Trip</th>
-                    <td width="50%" class="text-right">3H2D</td>
-                </tr>
-                <tr>
-                    <th width="50%">Price</th>
-                    <td width="50%" class="text-right">Rp.400.000</td>
-                </tr>
-                <tr>
-                    <th width="50%">Sub Total</th>
-                    <td width="50%" class="text-right">$ 280,00</td>
-                </tr>
-                <tr>
-                    <th width="50%">Total (+Unique)</th>
-                    <td width="50%" class="text-right text-total">
-                    <span class="text-blue">$ 279,</span
-                    ><span class="text-orange">33</span>
-                    </td>
-                </tr>
+                    <tr>
+                        <th width="50%">Member Trip</th>
+                        <td width="50%" class="text-right">
+                            {{$item->details->count()}} Person
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="50%">Schedule Trip</th>
+                        <td width="50%" class="text-right">
+                            {{ \Carbon\Carbon::create($item->travel_package->departure_date)->format('F n,Y') }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="50%">Duration Trip</th>
+                        <td width="50%" class="text-right">
+                            {{$item->travel_package->duration}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="50%">Price</th>
+                        <td width="50%" class="text-right">
+                            Rp.
+                            {{$item->travel_package->price}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="50%">Sub Total</th>
+                        <td width="50%" class="text-right">
+                            Rp. 
+                                @php
+                                echo number_format("$item->transaction_total")."<br>";
+                                @endphp
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="50%">Total (+Unique)</th>
+                        <td width="50%" class="text-right text-total">
+                        <span class="text-primary">Rp. 
+                            @php
+                            echo number_format("$item->transaction_total")."<br>";
+                            @endphp</span> +
+                            <span class="text-warning">{{mt_rand(0,99)}}</span>
+                        </td>
+                    </tr>
                 </table>
 
                 <hr />
@@ -171,11 +182,16 @@ Checkout Page
                 </div>
 
             </div>
-            <div class="join-container">
-                <a href="{{route('success')}}" class="btn btn-block btn-join-now mt-3 py-2">
-                Join Now
-                </a>
-            </div>
+                <div class="join-container">
+                    <a href="{{route('checkout.success',$item->id)}}" class="btn btn-block btn-join-now mt-3 py-2">
+                        I Have Made Payment
+                    </a>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="#" class="text-muted">
+                        Cancel Booking
+                    </a>
+                </div>
             </div>
         </div>
         </div>

@@ -277,6 +277,7 @@ header{
       .card-details-right{
         padding: 30px;
         border-radius: 11px 11px 0px 0px;
+        font-size: medium;
       }
 
       .join-container{
@@ -327,6 +328,9 @@ header{
   font-weight: 300;
   font-size: 14px;
   color: #b1b1b1;
+}
+.text-total{
+  border: 2px solid green;
 }
 
 .disclaimer {

@@ -15,8 +15,8 @@ class TransactionDetail extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'transaction_id',
-        'name',
+        'transactions_id',
+        'username',
         'no_identity',
         'no_phone'
     ];
@@ -34,6 +34,10 @@ class TransactionDetail extends Model
     public function transaction()
     {
         return $this->belongsTo(Transaction::class, 'transactions_id', 'id');
+    }
+    public function travel_package()
+    {
+        return $this->belongsTo(TravelPackage::class, 'travel_packages_id', 'id');
     }
 
     

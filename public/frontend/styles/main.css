@@ -269,6 +269,7 @@ header .book-trip {
 .details-header .section-details-content .card-details-right {
   padding: 30px;
   border-radius: 11px 11px 0px 0px;
+  font-size: medium;
 }
 
 .details-header .section-details-content .join-container {
@@ -314,6 +315,10 @@ header .book-trip {
   font-weight: 300;
   font-size: 14px;
   color: #b1b1b1;
+}
+
+.text-total {
+  border: 2px solid green;
 }
 
 .disclaimer {

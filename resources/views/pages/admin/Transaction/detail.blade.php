@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="d-sm-flex align-items-center justify-content between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">
+            <h1 class="h3 mb-0 text-gray-800">  
                 Detail Transaction {{$item->user->name}}
             </h1>
         </div>
@@ -39,18 +39,24 @@
                     <th>Order</th>
                     <td>
                         <table class="table table-bordered">
-                            <tr>
-                                <td>ID</td>
-                                <td>Username</td>
-                                <td>No Identify</td>
-                                <td>No Phone</td>
-                            </tr>
-                            @foreach ($item->details as $details)
-                                <td>{{$details->id}}</td>
-                                <td>{{$details->name}}</td>
-                                <td>{{$details->no_identity}}</td>
-                                <td>{{$details->no_phone}}</td>
-                            @endforeach
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Username</th>
+                                    <th>No Identify</th>
+                                    <th>No Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                @foreach ($item->details as $details)
+                                    <td>{{$details->id}}</td>
+                                    <td>{{$details->username}}</td>
+                                    <td>{{$details->no_identity}}</td>
+                                    <td>{{$details->no_phone}}</td>
+                                @endforeach
+                                </tr>
+                            </tbody>
                         </table>
                     </td>
                 </tr>

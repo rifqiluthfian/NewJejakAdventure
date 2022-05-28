@@ -17,6 +17,7 @@ class Transaction extends Model
     protected $fillable = [
         'travel_packages_id',
         'username',
+        'username_travel',
         'users_id',
         'transaction_total',
         'transaction_status'
@@ -35,8 +36,6 @@ class Transaction extends Model
     {
         return $this->hasMany(TransactionDetail::class, 'transactions_id', 'id');
     }
-
-
 
     public function travel_package()
     {

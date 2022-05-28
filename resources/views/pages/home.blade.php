@@ -8,89 +8,73 @@
     <link rel="stylesheet" href="{{url('frontend/libraries/bootstrap/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{url('frontend/styles/main.css')}}">
     <link rel="icon" href="{{url('frontend/images/logo-tab.png')}}">
-    <script src="{{url('frontend/libraries/jquery/jquery-3.3.1.slim.min.js')}}"></script>
-    <script src="{{url('frontend/libraries/bootstrap/js/bootstrap.min.js')}}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+   
 </head>
 <body>
   <section class="atas">
-        <!-- Navbar -->
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-trasnparent">
-                <a class="navbar-brand" href="{{route('home')}}">
-                    <img src="frontend/images/logo.png" width="200" alt="">
-                </a>
+     <!-- Navbar -->
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-trasnparent">
+        <a class="navbar-brand" href="{{route('home')}}">
+            <img src="frontend/images/logo.png" width="200" alt="">
+        </a>
 
-                <button class="navbar-toggler navbar-toggler-right" 
-                type="button" 
-                data-toggle="collapse" 
-                data-target="#navbarNav" 
-                aria-controls="navbarNav">
-                <span class="navbar-toggler-icon"></span>
-                </button>
+        <button class="navbar-toggler navbar-toggler-right" 
+        type="button" 
+        data-toggle="collapse" 
+        data-target="#navbarNav" 
+        aria-controls="navbarNav">
+        <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav ">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{{route('home')}}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('menutrip')}}">Trip</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('berita')}}">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Galley</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav ">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{route('home')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('menutrip')}}">Trip</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('berita')}}">News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Galley</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
 
-                        @if (!Auth::guest() && Auth::user()->roles == 'TRAVELAGENT')
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('travelagent')}}">Travel Agent</a>
-                        </li>
-                        @endif
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://ui-avatars.com/api/?name={{Auth::user()->username}} " height="35" 
+                    class="rounded-circle" alt="">
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Contact</a>
+                    <a class="dropdown-item" href=" {{route('statustransaction.index')}} ">Status Payment</a>
+                    <a class="dropdown-item" href="#">FAQ</a>
+                    @guest
+                    <a class="dropdown-item" href="{{url('login')}}">Login</a>
+                    @endguest
+                    
+                    @auth
+                    <a class="dropdown-item" href="{{url('logout')}}">Logout</a>
+                    @endauth
+                  </div>
+                </li>
 
-                        @guest
-                         <!--Button Mobile-->
-                        <form class="form-inline d-sm-block d-md-block d-lg-none">
-                            <button class="btn btn-login my-2 my-sm-0" type="button" onclick="event.preventDefault();
-                            location.href='{{url('login')}}';">
-                                Login
-                            </button>
-                        </form>
-                        <!--Button Desktop-->
-                        <form class="form-inline my-lg-0 d-none d-lg-block">
-                            <button class="btn btn-login btn-navbar-right my-sm-0 px-4" type="button" onclick="event.preventDefault();
-                            location.href='{{url('login')}}';">
-                                Login
-                            </button>
-                        </form>
-                        @endguest
+                @if (!Auth::guest() && Auth::user()->roles == 'TRAVELAGENT')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('travelagent')}}">Travel Agent</a>
+                </li>
 
-                        @auth
-                        <!--Button Mobile-->
-                        <form class="form-inline d-sm-block d-md-block d-lg-none" action="{{url('logout')}}" method="POST">
-                          @csrf
-                            <button class="btn btn-login my-2 my-sm-0" type="submit">
-                                Logout
-                            </button>
-                        </form>
-                        <!--Button Desktop-->
-                        <form class="form-inline my-lg-0 d-none d-lg-block" action="{{url('logout')}}" method="POST">
-                          @csrf
-                            <button class="btn btn-login btn-navbar-right my-sm-0 px-4" type="submit">
-                                Logout
-                            </button>
-                        </form>
-                        @endauth
-                    </ul>
-                </div>
-            </nav>
+                @endif
+            </ul>
         </div>
-        <!--Tutup Navbar -->
+    </nav>
+</div>
+<!--Tutup Navbar -->
        
         <!-- Header -->
         <Header class="container-fluid">
@@ -340,5 +324,8 @@
   <script src="{{url('frontend/libraries/jquery/jquery-3.4.1.min.js')}}"></script>
   <script src="{{url('frontend/libraries/bootstrap/js/bootstrap.js')}}"></script>
   <script src="{{url('frontend/libraries/retina/retina.min.js')}}"></script>
+  <script src="{{url('frontend/libraries/jquery/jquery-3.3.1.slim.min.js')}}"></script>
+  <script src="{{url('frontend/libraries/bootstrap/js/bootstrap.min.js')}}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
 </body>
 </html>

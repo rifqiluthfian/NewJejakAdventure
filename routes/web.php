@@ -23,19 +23,19 @@ Route::get('/detailpage/{slug}', [App\Http\Controllers\DetailController::class, 
 ->name('detailpage');
 
 //Checkout
-Route::get('/checkout/{id}', [App\Http\Controllers\CheckoutController::class, 'process'])
+Route::post('/checkout/{id}', [App\Http\Controllers\CheckoutController::class, 'process'])
 ->middleware(['auth','verified'])
 ->name('checkout.process');
 Route::get('/checkout/{id}', [App\Http\Controllers\CheckoutController::class, 'index'])
 ->middleware(['auth','verified'])
-->name('checkout.process');
-Route::get('/checkout/create/{detail_id}', [App\Http\Controllers\CheckoutController::class, 'create'])
+->name('checkout');
+Route::post('/checkout/create/{detail_id}', [App\Http\Controllers\CheckoutController::class, 'create'])
 ->middleware(['auth','verified'])
 ->name('checkout.create');
 Route::get('/checkout/remove/{detail_id}', [App\Http\Controllers\CheckoutController::class, 'remove'])
 ->middleware(['auth','verified'])
 ->name('checkout.remove');
-Route::get('/checkout/confirm/{id}', [App\Http\Controllers\CheckoutController::class, 'confirm'])
+Route::get('/checkout/confirm/{id}', [App\Http\Controllers\CheckoutController::class, 'success'])
 ->middleware(['auth','verified'])
 ->name('checkout.success');
 
@@ -169,6 +169,15 @@ Route::put('/admin/travelpackage/update/{id}', [App\Http\Controllers\Admin\Trave
 Route::delete('/admin/travelpackage/delete/{id}', [App\Http\Controllers\Admin\TravelPackageController::class,'destroy'])
 ->middleware(['auth','admin'])
 ->name('travelpackageadmin.delete');
+
+//StatusTransaction
+Route::get('/status_transaction/index', [App\Http\Controllers\StatusTransactionController::class,'index'])
+->middleware(['auth','verified'])
+->name('statustransaction.index');
+
+Route::get('/status_transaction/detail/{id}', [App\Http\Controllers\StatusTransactionController::class,'show'])
+->middleware(['auth','verified'])
+->name('statustransaction.detail');
 
 
 

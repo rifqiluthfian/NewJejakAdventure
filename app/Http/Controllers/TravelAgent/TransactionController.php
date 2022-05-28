@@ -23,7 +23,7 @@ class TransactionController extends Controller
         $user = $request->user()->username;
         $items = Transaction::with([
             'details','travel_package','user'
-        ])->where('username', $user)->get();
+        ])->where('username_travel', $user)->get();
        
         return view('pages.travelagent.transaction.index',
         [ 'items' =>$items]);

@@ -37,8 +37,11 @@ Menu Trip
                     style="background : url(' {{$item->galleries->count() ? Storage::url($item->galleries->first()->image) : ''}}');
                             background-size: cover;">
                         <div class="text-card mt-auto mb">
-                            <div class="travel-price"> {{$item->price}} </div>
-                            <div class="travel-days mt-2">{{$item->duration}}</div>
+                            <div class="travel-price">  Rp. 
+                                @php
+                                echo number_format("$item->price")."<br>";
+                                @endphp </div>
+                            <div class="travel-days mt-2">{{ \Carbon\Carbon::create($item->departure_date)->format('F n,Y') }}</div>
                         </div>
                     </div>
                 </a>
