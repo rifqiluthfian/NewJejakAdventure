@@ -1,7 +1,7 @@
 <!-- Navbar -->
     <main>
         <section class="menu-trip-header">
-  <!-- Navbar -->
+<!-- Navbar -->
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-trasnparent">
         <a class="navbar-brand" href="{{route('home')}}">
@@ -33,32 +33,52 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
-
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="https://ui-avatars.com/api/?name={{Auth::user()->username}} " height="35" 
-                    class="rounded-circle" alt="">
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Contact</a>
-                    <a class="dropdown-item" href=" {{route('statustransaction.index')}} ">Status Payment</a>
-                    <a class="dropdown-item" href="#">FAQ</a>
-                    @guest
-                    <a class="dropdown-item" href="{{url('login')}}">Login</a>
-                    @endguest
-                    
-                    @auth
-                    <a class="dropdown-item" href="{{url('logout')}}">Logout</a>
-                    @endauth
-                  </div>
-                </li>
-
                 @if (!Auth::guest() && Auth::user()->roles == 'TRAVELAGENT')
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('travelagent')}}">Travel Agent</a>
                 </li>
 
                 @endif
+                @guest
+                <li class="nav-item bg-dark">
+                    <a class="nav-link" href="{{url('login')}}">Login</a>
+                </li>
+                @endguest
+                
+                <li class="nav-item dropdown">
+                  @auth
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://ui-avatars.com/api/?name={{Auth::user()->username}} " height="35" 
+                    class="rounded-circle" alt="">
+                  </a>
+                  @endauth
+                  
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Contact</a>
+                    <a class="dropdown-item" href=" {{route('statustransaction.index')}} ">Status Payment</a>
+                    <a class="dropdown-item" href="#">FAQ</a>
+                    @guest
+                    <form class="form-inline my-lg-0 d-none d-lg-block">
+                        <button class="btn btn-login btn-navbar-right my-sm-0 px-4" type="button" onclick="event.preventDefault();
+                        location.href='{{url('login')}}';">
+                            Login
+                        </button>
+                    </form>
+                    @endguest
+
+                    @auth
+                    <form action="{{url('logout')}}" method="POST">
+                        @csrf
+                          <button class="dropdown-item" type="submit">
+                              Logout
+                          </button>
+                      </form>
+                    
+                    @endauth
+                  </div>
+                </li>
+
+                
             </ul>
         </div>
     </nav>

@@ -48,9 +48,9 @@ Checkout Page
                     <thead>
                     <tr>
                         <td>Picture</td>
-                        <td>Nama</td>
-                        <td>No Identitas</td>
-                        <td>No HP</td>
+                        <td>Name</td>
+                        <td>No Identity</td>
+                        <td>Phone Number</td>
                     </tr>
                     </thead>
                     <tbody>
