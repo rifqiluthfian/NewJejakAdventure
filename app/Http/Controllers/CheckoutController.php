@@ -97,6 +97,8 @@ class CheckoutController extends Controller
 
         $transaction = Transaction::with(['details','travel_package.galleries','user'])
         ->findOrFail($id);
+        
+        $transaction->transaction_status = 'PENDING';
 
         $transaction->save(); 
 
@@ -105,7 +107,7 @@ class CheckoutController extends Controller
             new TransactionSuccess($transaction)
         );
 
-        $transaction->transaction_status = 'PENDING';
+        
         
         return view('pages.success');
     }
