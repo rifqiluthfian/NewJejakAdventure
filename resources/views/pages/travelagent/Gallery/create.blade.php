@@ -18,7 +18,7 @@
                 <div class="form-group">
                     <label for="travel_packages_id">Travel Packages</label>
                     <select name="travel_packages_id" required class="form-control">
-                        <option value="">Choose your tracel packages</option>
+                        <option required value="">Choose your travel packages</option>
                         @foreach ($travel_packages as $travel_package)
                             <option value="{{$travel_package->id}}">
                                 {{$travel_package->title}}

@@ -9,20 +9,22 @@
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col">
-                            <h2 class="">News JejakAdventure</h2>
+                            <h2 class="">Gallery News Jejak Adventure</h2>
+                        </div>
+                        <div class="col text-right">
+                            <a href=" {{route('gallerynews.create')}} " class="btn btn-second ml-2">
+                                <i class="las la-plus"></i> Add Picture
+                            </a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="card-body">
-                            <table class="table" id="table_id">
+                            <table class="table table-hover" id="table_id">
                                 <thead>
                                     <tr>
                                         <th scope="col">Id</th>
-                                        <th scope="col">Trip</th>
-                                        <th scope="col">Username Travel</th>
-                                        <th scope="col">Users Buyer</th>
-                                        <th scope="col">Total</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Picture</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -30,23 +32,15 @@
                                     @forelse ($items as $item)
                                     <tr>
                                         <td class="text-center">{{$item->id}}</td>
-                                        <td>{{ $item->travel_package->title }}</td>
-                                        <td>{{ $item->travel_package->username }}</td>
-                                        <td>{{ $item->user->name }}</td>
-                                        <td>Rp. 
-                                            @php
-                                            echo number_format("$item->transaction_total")."<br>";
-                                            @endphp
-                                        </td>
-                                        <td>{{ $item->transaction_status }}</td>
+                                        <td>{{ $item->news_item->title }}</td>
                                         <td>
-                                            <a href=" {{route('transactionadmin.detail',$item->id)}} " class="btn btn-info">
-                                                <i class="fa fa-eye"></i>
+                                            <img src="{{Storage::url($item->image)}}" alt="" width="200" class="img-thumbnail">
+                                        </td>
+                                        <td>
+                                            <a href=" {{route('gallerynews.edit',$item->id)}} " class="btn btn-info">
+                                                <i class="fa fa-pencil-alt"></i>
                                             </a>
-                                            <a href=" {{route('transactionadmin.edit',$item->id)}} " class="btn btn-info">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                            <form action=" {{route('transactionadmin.destroy',$item->id)}} " method="POST" class="d-inline">
+                                            <form action=" {{route('gallerynews.delete',$item->id)}} " method="POST" class="d-inline">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger" type="submit">

@@ -179,6 +179,56 @@ Route::get('/status_transaction/detail/{id}', [App\Http\Controllers\StatusTransa
 ->middleware(['auth','verified'])
 ->name('statustransaction.detail');
 
+//News
+Route::get('/admin/news', [App\Http\Controllers\Admin\NewsController::class,'index'])
+->middleware(['auth','admin'])
+->name('news.index');
+
+Route::get('/admin/news/create', [App\Http\Controllers\Admin\NewsController::class,'create'])
+->middleware(['auth','admin'])
+->name('news.create');
+
+Route::post('/admin/news/store', [App\Http\Controllers\Admin\NewsController::class,'store'])
+->middleware(['auth','admin'])
+->name('news.store');
+
+Route::get('/admin/news/edit/{id}', [App\Http\Controllers\Admin\NewsController::class,'edit'])
+->middleware(['auth','admin'])
+->name('news.edit');
+
+Route::put('/admin/news/update/{id}', [App\Http\Controllers\Admin\NewsController::class,'update'])
+->middleware(['auth','admin'])
+->name('news.update');
+
+Route::delete('/admin/news/delete/{id}', [App\Http\Controllers\Admin\NewsController::class,'destroy'])
+->middleware(['auth','admin'])
+->name('news.delete');
+
+//News Gallery
+Route::get('/admin/gallerynews/index/', [App\Http\Controllers\Admin\GalleryNewsController::class,'index'])
+->middleware(['auth','admin'])
+->name('gallerynews.index');
+
+Route::get('/admin/gallerynews/create', [App\Http\Controllers\Admin\GalleryNewsController::class,'create'])
+->middleware(['auth','admin'])
+->name('gallerynews.create');
+
+Route::post('/admin/gallerynews/store', [App\Http\Controllers\Admin\GalleryNewsController::class,'store'])
+->middleware(['auth','admin'])
+->name('gallerynews.store');
+
+Route::get('/admin/gallerynews/edit/{id}', [App\Http\Controllers\Admin\GalleryNewsController::class,'edit'])
+->middleware(['auth','admin'])
+->name('gallerynews.edit');
+
+Route::put('/admin/gallerynews/update/{id}', [App\Http\Controllers\Admin\GalleryNewsController::class,'update'])
+->middleware(['auth','admin'])
+->name('gallerynews.update');
+
+Route::delete('/admin/gallerynews/delete/{id}', [App\Http\Controllers\Admin\GalleryNewsController::class,'destroy'])
+->middleware(['auth','admin'])
+->name('gallerynews.delete');
+
 
 
 

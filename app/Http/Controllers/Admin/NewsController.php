@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TravelAgent\TransactionRequest;
 use Illuminate\Http\Request;
-use App\Models\Transaction;
+use App\Models\News;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 
-class TransactionController extends Controller
+class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,12 +19,10 @@ class TransactionController extends Controller
 
 
     public function index(Request $request){
-        $items = Transaction::with([
-            'details','travel_package','user'
-        ])->get();
+        $items = News::all();
        
-        return view('pages.admin.Transaction.index',
-        [ 'items' =>$items]);
+        return view('pages.admin.news.index',
+        ['items' =>$items]);
     }
 
 
@@ -36,7 +33,8 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view ('pages.admin.news.create');
     }
 
     /**
@@ -48,11 +46,9 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        
-        $data['slug'] = Str::slug($request->title);
 
-        Transaction::create($data);
-        return redirect('admin/transaction');
+        News::create($data);
+        return redirect('admin/news');
     }
 
     /**
@@ -63,13 +59,7 @@ class TransactionController extends Controller
      */
     public function show($id)
     {
-        $item = Transaction::with([
-            'details','travel_package','user'
-        ])->findOrFail($id);
-        
-        return view ('pages.admin.Transaction.detail',[
-            'item' => $item
-        ]);
+        //
     }
 
     /**
@@ -80,9 +70,8 @@ class TransactionController extends Controller
      */
     public function edit($id)
     {
-        $item = Transaction::findOrFail($id);
-        $travel_packages = Transaction::all();
-        return view ('pages.admin.transaction.edit',[
+        $item = News::findOrFail($id);
+        return view ('pages.admin.news.edit',[
             'item' => $item
         ]);
     }
@@ -94,15 +83,13 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TransactionRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $data = $request->all();
-        
-        $data['slug'] = Str::slug($request->title);
 
-        $item = Transaction::findOrFail($id);
+        $item = News::findOrFail($id);
         $item->update($data);
-        return redirect('admin/transaction/index');
+        return redirect('admin/news');
     }
 
     /**
@@ -113,9 +100,9 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        $item = Transaction::findOrFail($id);
+        $item = News::findOrFail($id);
         $item->delete();
         sleep(1);
-        return redirect('admin/transaction/index');
+        return redirect('admin/news');
     }
 }

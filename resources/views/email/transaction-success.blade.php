@@ -115,7 +115,7 @@
                           <tbody>
                             <tr>
                               <td style="width:150px;">
-                                <img alt="" height="auto" src="images/logo-tab.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150" />
+                                <img alt="" height="auto" src="{{url('frontend/images/logo-tab.png')}}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150" />
                               </td>
                             </tr>
                           </tbody>
@@ -176,7 +176,7 @@
                           <tbody>
                             <tr>
                               <td style="width:560px;">
-                                <img alt="" height="auto" src="images/banner.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="560" />
+                                <img alt="" height="auto" src="{{url($data->travel_package->galleries[1]->image)}}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="560" />
                               </td>
                             </tr>
                           </tbody>
@@ -204,7 +204,7 @@
                   <tbody>
                     <tr>
                       <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
-                        <div style="font-family:Assistant,Helvetica,arial,sans-serif;font-size:15px;font-weight:bold;line-height:25px;text-align:left;color:#000000;">Hi, Bagus Pahlefi <br><br> Tiket digital kamu sudah berhasil dicetak. <br> Booking ID <strong>#98391744</strong></div>
+                        <div style="font-family:Assistant,Helvetica,arial,sans-serif;font-size:15px;font-weight:bold;line-height:25px;text-align:left;color:#000000;">Hi, {{$data->user->name}} <br><br> Tiket digital kamu sudah berhasil dicetak. <br> Booking ID <strong> {{$data->id}} </strong></div>
                       </td>
                     </tr>
                     <tr>
@@ -213,14 +213,12 @@
                           <tr>
                             <td colspan="3">Members</td>
                           </tr>
+                          @foreach ($data->details as $item)
                           <tr>
-                            <td><strong>Bagus Pahlefi</strong></td>
-                            <td style="text-align:right">085608537600</td>
+                            <td><strong>{{$item->username}}</strong></td>
+                            <td style="text-align:right">{{$item->no_phone}}</td>
                           </tr>
-                          <tr>
-                            <td><strong>Rifqi Luthfian</strong></td>
-                            <td style="text-align:right">086263612351</td>
-                          </tr>
+                          @endforeach
                         </table>
                       </td>
                     </tr>
@@ -232,11 +230,11 @@
                           </tr>
                           <tr>
                             <td><strong>Trip</strong></td>
-                            <td style="text-align:right">Trip To Gunung Mongkrang</td>
+                            <td style="text-align:right"> {{$data->travel_package->title}} </td>
                           </tr>
                           <tr>
                             <td><strong>Date and Time</strong></td>
-                            <td style="text-align:right">Thu,20 Jan,2022</td>
+                            <td style="text-align:right">{{ \Carbon\Carbon::create($data->travel_package->departure_date)->format('F n,Y') }}</td>
                           </tr>
                         </table>
                       </td>
@@ -247,7 +245,7 @@
                           <tbody>
                             <tr>
                               <td align="center" bgcolor="#6FA988" role="presentation" style="border:none;border-radius:10px;cursor:auto;mso-padding-alt:10px 25px;background:#6FA988;" valign="middle">
-                                <p style="display:inline-block;background:#6FA988;color:#ffffff;font-family:Assistant,Helvetica,Arial,sant-serif;font-size:18px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"> Check Detail </p>
+                                <a href=" {{url('checkout/'.$data->id)}} " style="display:inline-block;background:#6FA988;color:#ffffff;font-family:Assistant,Helvetica,Arial,sant-serif;font-size:18px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"> Check Detail </a>
                               </td>
                             </tr>
                           </tbody>
@@ -302,7 +300,7 @@
                         <table cellpadding="0" cellspacing="0" width="100%" border="0" style="color:#000000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;table-layout:auto;width:100%;border:none;">
                           <tr>
                             <td style="width:50px">
-                              <img src="images/cs.png" width="45px" />
+                              <img src="{{url('frontend/images/cs.png')}}" width="45px" />
                             </td>
                             <td style="
                     font-size:15px" padding-left:"10px" font-family="Assistant,Helvetica,Arial,sant-serif"> baguspahlefi2000@gmail.com <br> 085608537600 (Whatsapp) </td>

@@ -41,7 +41,7 @@
                     <i class="fas fa-fw fa-hotel"></i>
                     <span>Travel Package</span>
                 </a>
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href=" {{route('news.index')}} ">
                     <i class="fas fa-fw fa-images"></i>
                     <span>News</span>
                 </a>

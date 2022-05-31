@@ -68,7 +68,6 @@ class TravelPackageController extends Controller
     public function edit($id)
     {
         $item = TravelPackage::findOrFail($id);
-        $travel_packages = TravelPackage::all();
         return view ('pages.admin.travelpackage.edit',[
             'item' => $item
         ]);

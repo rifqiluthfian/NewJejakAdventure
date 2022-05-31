@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TravelAgent\TransactionRequest;
 use Illuminate\Http\Request;
-use App\Models\Transaction;
+use App\Models\News;
+use App\Models\GalleryNews;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 
-class TransactionController extends Controller
+class GalleryNewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,11 +20,10 @@ class TransactionController extends Controller
 
 
     public function index(Request $request){
-        $items = Transaction::with([
-            'details','travel_package','user'
-        ])->get();
+
+        $items = GalleryNews::all();
        
-        return view('pages.admin.Transaction.index',
+        return view('pages.admin.gallerynews.index',
         [ 'items' =>$items]);
     }
 
@@ -34,9 +33,12 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $news_item = News::all();
+        return view ('pages.admin.gallerynews.create',[
+            'news_item' => $news_item
+        ]);
     }
 
     /**
@@ -47,12 +49,12 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        
-        $data['slug'] = Str::slug($request->title);
-
-        Transaction::create($data);
-        return redirect('admin/transaction');
+        $data['news_id'] = $request->news_id;
+        $data['image'] = $request->file('image')->store(
+            'assets/gallery','public'
+        );
+        GalleryNews::create($data);
+        return redirect()->route('gallerynews.index');
     }
 
     /**
@@ -63,13 +65,7 @@ class TransactionController extends Controller
      */
     public function show($id)
     {
-        $item = Transaction::with([
-            'details','travel_package','user'
-        ])->findOrFail($id);
-        
-        return view ('pages.admin.Transaction.detail',[
-            'item' => $item
-        ]);
+        //
     }
 
     /**
@@ -80,10 +76,11 @@ class TransactionController extends Controller
      */
     public function edit($id)
     {
-        $item = Transaction::findOrFail($id);
-        $travel_packages = Transaction::all();
-        return view ('pages.admin.transaction.edit',[
-            'item' => $item
+        $news_item = News::all();
+        $item = GalleryNews::findOrFail($id);
+        return view ('pages.admin.gallerynews.edit',[
+            'item' => $item,
+            'news_item' => $news_item
         ]);
     }
 
@@ -94,15 +91,17 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TransactionRequest $request, $id)
+    public function update(Request $request ,$id)
     {
         $data = $request->all();
         
-        $data['slug'] = Str::slug($request->title);
+        $data['image'] = $request->file('image')->store(
+            'assets/gallery','public'
+        );
 
-        $item = Transaction::findOrFail($id);
+        $item = GalleryNews::findOrFail($id);
         $item->update($data);
-        return redirect('admin/transaction/index');
+        return redirect()->route('gallerynews.index');
     }
 
     /**
@@ -113,9 +112,9 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        $item = Transaction::findOrFail($id);
+        $item = GalleryNews::findOrFail($id);
         $item->delete();
         sleep(1);
-        return redirect('admin/transaction/index');
+        return redirect()->route('gallerynews.index');
     }
 }
