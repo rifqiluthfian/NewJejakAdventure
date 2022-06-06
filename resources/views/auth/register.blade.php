@@ -25,6 +25,35 @@
                             </div>
                         </div>
 
+
+                        <div class="row mb-3">
+                            <label for="no_phone" class="col-md-4 col-form-label text-md-end">{{ __('No Phone') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="no_phone" type="text" class="form-control @error('no_phone') is-invalid @enderror" name="no_phone" value="{{ old('no_phone') }}" required autocomplete="no_phone" autofocus>
+
+                                @error('no_phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="no_identity" class="col-md-4 col-form-label text-md-end">{{ __('No Identity') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="no_identity" type="text" class="form-control @error('no_identity') is-invalid @enderror" name="no_identity" value="{{ old('no_identity') }}" required autocomplete="no_identity" autofocus>
+
+                                @error('no_identity')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 

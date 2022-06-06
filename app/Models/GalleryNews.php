@@ -12,6 +12,7 @@ class GalleryNews extends Model
 {
     use HasFactory;
 
+    protected $table = 'gallerynews';
     protected $fillable = [
         'news_id','image'
     ];
@@ -21,8 +22,8 @@ class GalleryNews extends Model
     ];
 
     public function news_item(){
-
         return $this->belongsTo(News::class,'news_id','id');
     }
+
 }
 

@@ -163,32 +163,17 @@ Checkout Page
                 trip
                 </p>
                 <div class="bank">
-                <div class="bank-item pb-3">
-                    <img
-                    src="frontend/images/ic_bank.png"
-                    alt=""
-                    class="bank-image"
-                    />
-                    <div class="description">
-                    <h3 style="font-size: 20px;">PT Jejak Adventure</h3>
-                    <p>
-                        0881 8829 8800
-                        <br />
-                        Bank Central Asia
-                    </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
+                    <img src="{{url('frontend/images/logo-gopay.png')}}" width="250" alt="">
                 </div>
 
             </div>
                 <div class="join-container">
                     <a href="{{route('checkout.success',$item->id)}}" class="btn btn-block btn-join-now mt-3 py-2">
-                        I Have Made Payment
+                        Process Payment
                     </a>
                 </div>
                 <div class="text-center mt-3">
-                    <a href="#" class="text-muted">
+                    <a href=" {{route('checkout.cancel',$item->id)}} " class="text-muted">
                         Cancel Booking
                     </a>
                 </div>

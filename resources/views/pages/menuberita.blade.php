@@ -20,41 +20,42 @@ Menu Berita
                         </nav>
                     </div>
                 </div>
-            @foreach ($items as $item)
-            <div class="row justify-content-center">
-                <div class="col-lg-10 pl-lg-0">
-                    <div class="row">
-                        <div class="col border-right text-center">
-                        <img src="{{url('frontend/images/berita-bromo.png')}}" width="500" alt="">
-                        </div>
-                        <div class="col-lg-4">
-                            <p class="travel-days mt-2">{{ \Carbon\Carbon::create($item->date)->format('F n,Y') }}</p><br>
-                        <h1>{{$item->title}}</h1>
-                        <p> {{$item->contents}} </p>
+                @foreach ($news as $item)
+                <a href=" {{route('detailberita',$item->id)}} ">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 pl-lg-0">
+                            <div class="row">
+                                <div class="col border-right text-center">
+                                <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : ''}}" width="500" alt="">
+                                </div>
+                                <div class="col-lg-4">
+                                    <p class="travel-days mt-2">{{ \Carbon\Carbon::create($item->date)->format('F n,Y') }}</p><br>
+                                <h1>{{$item->title}}</h1>
+                                <p> {{$item->subtitle}} </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            @endforeach
+                </a>
+                @endforeach
             </div>
         </section>
         </main>
         <!-- tutupdetailheader -->
 
         <div class="container menu-berita">
-        <div class="row justify-content-center">
+        <div class="row">
             @foreach ($items as $item) 
             <div class="col-sm-6 col-md-4 col-lg-4 my-4">
-                <a href="{{url('berita/detailberita')}}">
+                <a href="{{route('detailberita',$item->id)}}">
                     <div class="card-berita mx-auto d-flex flex-column">
                         <div class="images-berita mx-auto">
-                            <img src="{{url('frontend/images/berita-bromo.png')}}" alt="">
+                            <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : 'frontend/images/berita-bromo.png'}}" alt="">
                         </div>
                         <div class="text-trip ml-3">
                             <p class="travel-days mt-2">{{ \Carbon\Carbon::create($item->date)->format('F n,Y') }}</p><br>
                             <h3 style="font-weight: bold;"> {{$item->title}} </h3>
-                            <p> {{$item->contents}} </p>
-                            <p>{{$item->galleriesnews->news_id}}</p>
+                            <p> {{$item->subtitle}} </p>                            
                         </div>
                     </div>
                 </a>

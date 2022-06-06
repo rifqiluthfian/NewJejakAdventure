@@ -24,11 +24,12 @@ Detail Berita
                   <div class="col-lg-10 pl-lg-0">
                     <div class="row">
                       <div class="col border-right text-center">
-                        <img src="{{url('frontend/images/berita-bromo.png')}}" width="500" alt="">
+                        <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : ''}}" width="500px" alt="">
                       </div>
                       <div class="col-lg-4">
-                        <p>Maret 08 12 2000</p><br>
-                        <h1>Wisata Gunung Bromo Telah Dibuka Kembali</h1>
+                        <p>{{ \Carbon\Carbon::create($item->date)->format('F n,Y') }}</p><br>
+                        <h1>{{$item->title}}</h1><br>
+                        <p> {{$item->subtitle}} </p>
                       </div>
                     </div>
                   </div>
@@ -41,31 +42,7 @@ Detail Berita
   
           <main class="container content-berita">
             <p>
-              What is Lorem Ipsum?
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-               standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                make a type specimen book. It has survived not only five centuries, but also the leap into electronic 
-                typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
-                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker 
-                including versions of Lorem Ipsum.
-            </p>
-            <p>
-              What is Lorem Ipsum?
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-               standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                make a type specimen book. It has survived not only five centuries, but also the leap into electronic 
-                typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
-                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker 
-                including versions of Lorem Ipsum.
-            </p>
-            <p>
-              What is Lorem Ipsum?
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-               standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                make a type specimen book. It has survived not only five centuries, but also the leap into electronic 
-                typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
-                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker 
-                including versions of Lorem Ipsum.
+              {{$item->contents}}
             </p>
           </main>
   

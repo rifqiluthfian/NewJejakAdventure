@@ -13,21 +13,18 @@
     #outlook a {
       padding: 0;
     }
-
     body {
       margin: 0;
       padding: 0;
       -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
     }
-
     table,
     td {
       border-collapse: collapse;
       mso-table-lspace: 0pt;
       mso-table-rspace: 0pt;
     }
-
     img {
       border: 0;
       height: auto;
@@ -36,12 +33,10 @@
       text-decoration: none;
       -ms-interpolation-mode: bicubic;
     }
-
     p {
       display: block;
       margin: 13px 0;
     }
-
   </style>
   <!--[if mso]>
     <noscript>
@@ -62,7 +57,6 @@
   <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
   <style type="text/css">
     @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
-
   </style>
   <!--<![endif]-->
   <style type="text/css">
@@ -72,26 +66,22 @@
         max-width: 100%;
       }
     }
-
   </style>
   <style media="screen and (min-width:480px)">
     .moz-text-html .mj-column-per-100 {
       width: 100% !important;
       max-width: 100%;
     }
-
   </style>
   <style type="text/css">
     @media only screen and (max-width:480px) {
       table.mj-full-width-mobile {
         width: 100% !important;
       }
-
       td.mj-full-width-mobile {
         width: auto !important;
       }
     }
-
   </style>
   <style type="text/css">
   </style>
@@ -176,7 +166,7 @@
                           <tbody>
                             <tr>
                               <td style="width:560px;">
-                                <img alt="" height="auto" src="{{url($data->travel_package->galleries[1]->image)}}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="560" />
+                                <img alt="" height="auto" src="{{url($data->travel_package->galleries[0]->image)}}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="560" />
                               </td>
                             </tr>
                           </tbody>
@@ -204,7 +194,7 @@
                   <tbody>
                     <tr>
                       <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
-                        <div style="font-family:Assistant,Helvetica,arial,sans-serif;font-size:15px;font-weight:bold;line-height:25px;text-align:left;color:#000000;">Hi, {{$data->user->name}} <br><br> Tiket digital kamu sudah berhasil dicetak. <br> Booking ID <strong> {{$data->id}} </strong></div>
+                        <div style="font-family:Assistant,Helvetica,arial,sans-serif;font-size:15px;font-weight:bold;line-height:25px;text-align:left;color:#000000;">Hi, {{$data->user->name}} <br><br> Tiket digital kamu sudah berhasil dicetak. <br> Booking ID {{$data->id}} Silahkan tunggu sampai travel agent kami menghubungi anda.Jika selama 1x24 tidak menghubungi.Silahkan contact kami melalui email atau nomer yang tertera.Terimakasih</div>
                       </td>
                     </tr>
                     <tr>

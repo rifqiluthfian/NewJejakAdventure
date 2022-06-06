@@ -23,9 +23,6 @@ class Gallery extends Model
     ];
 
     public function travel_package(){
-        $request = request();
-
-        $user = $request->user()->username;
 
         return $this->belongsTo(TravelPackage::class,'travel_packages_id','id');
     }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Mail;
 use App\Mail\TransactionSuccess;
-
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
 use App\Models\TravelPackage;
@@ -12,8 +11,11 @@ use App\Models\TravelPackage;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Auth;
+
+use Midtrans\Config;
+use Midtrans\Snap;
+
 
 class CheckoutController extends Controller
 {
@@ -47,6 +49,14 @@ class CheckoutController extends Controller
         ]);
 
         return redirect()->route('checkout',$transaction->id);
+    }
+
+    public function cancel($id){
+        $transaction = Transaction::findOrFail($id);
+        sleep(1);
+        $transaction -> delete();
+
+        return redirect()->route('home');
     }
 
 
@@ -92,7 +102,6 @@ class CheckoutController extends Controller
     }
 
 
-
     public function success(Request $request,$id){
 
         $transaction = Transaction::with(['details','travel_package.galleries','user'])
@@ -102,13 +111,44 @@ class CheckoutController extends Controller
 
         $transaction->save(); 
 
+
+        //Set konfigurasi midtrans
+        //Config::$serverKey = config('midtrans.serverKey');
+        //Config::$serverKey = config('midtrans.isProduction');
+        //Config::$serverKey = config('midtrans.isSanitized');
+        //Config::$serverKey = config('midtrans.is3ds');
+//
+        ////buat array ke midtrans
+        //$midtrans_params = [
+        //    'transaction_details' => [
+        //        'order_id' => 'TEST-' . $transaction->id,
+        //        'gross_amount' => (int) $transaction->transaction_total,
+        //    ],
+        //    'customer_details'=> [
+        //        'name' => $transaction->user->name,
+        //        'email' => $transaction->user->email
+        //    ],
+        //    'enabled_payments' => ['gopay'],
+        //    'vtweb' => []
+        //];
+//
+//
+        //try {
+        //    // Get Snap Payment Page URL
+        //    $paymentUrl = Snap::createTransaction($midtrans_params)->redirect_url;
+//
+        //     // Redirect to Snap Payment Page
+        //    header('Location: ' . $paymentUrl);
+//
+        //} catch (\Throwable $th) {
+        //    
+        //}
+
         //Kirim email ke user
         Mail::to($transaction->user)->send(
             new TransactionSuccess($transaction)
         );
-
-        
-        
+    
         return view('pages.success');
     }
 }

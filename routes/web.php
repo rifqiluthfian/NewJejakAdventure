@@ -38,10 +38,15 @@ Route::get('/checkout/remove/{detail_id}', [App\Http\Controllers\CheckoutControl
 Route::get('/checkout/confirm/{id}', [App\Http\Controllers\CheckoutController::class, 'success'])
 ->middleware(['auth','verified'])
 ->name('checkout.success');
+Route::get('/checkout/cancel/{id}', [App\Http\Controllers\CheckoutController::class, 'cancel'])
+->middleware(['auth','verified'])
+->name('checkout.cancel');
 
 Route::get('/berita', [App\Http\Controllers\BeritaController::class,'index'])
 ->name('berita');
-Route::get('/berita/detailberita', [App\Http\Controllers\BeritaController::class,'detailberita'])
+
+//detailberita
+Route::get('/berita/detailberita/{id}', [App\Http\Controllers\DetailBeritaController::class,'index'])
 ->name('detailberita');
 
 //Admin
@@ -234,3 +239,7 @@ Route::delete('/admin/gallerynews/delete/{id}', [App\Http\Controllers\Admin\Gall
 
 
 Auth::routes(['verify' => true]);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

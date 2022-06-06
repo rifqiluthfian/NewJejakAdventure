@@ -19,6 +19,10 @@
                     <input type="text" name="title" id="title" placeholder="title" value="{{old('title')}}" class="form-control">
                 </div>
                 <div class="form-group">
+                    <label for="title">Sub Title</label>
+                    <input type="text" name="subtitle" id="subtitle" placeholder="subtitle" value="{{old('subtitle')}}" class="form-control">
+                </div>
+                <div class="form-group">
                     <label for="date">Date</label>
                     <input type="date" name="date" id="date" placeholder="date" value="{{old('date')}}" class="form-control">
                 </div>

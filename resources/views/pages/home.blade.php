@@ -39,10 +39,7 @@
                   <a class="nav-link" href="{{route('berita')}}">News</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Galley</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a>
+                  <a class="nav-link" href="#">Gallery</a>
               </li>
               @if (!Auth::guest() && Auth::user()->roles == 'TRAVELAGENT')
               <li class="nav-item">
@@ -54,6 +51,10 @@
               <li class="nav-item bg-dark">
                   <a class="nav-link" href="{{url('login')}}">Login</a>
               </li>
+
+              <li class="nav-item bg-light">
+                <a class="nav-link" style="color: black !important" href="{{url('register')}}">Register</a>
+            </li>
               @endguest
               
               
@@ -128,7 +129,7 @@
                                                 </svg>
                                                 </span>
                                             </div>
-                                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" placeholder="Destination" aria-label="Destination" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                 </div>
@@ -158,49 +159,28 @@
         <!-- popular-trip -->
         <div class="container popular-trip">
             <div class="section-popular-trip row justify-content-center">
+              @foreach ($items as $item)
                 <div class="col-sm-6 col-md-4 col-lg-3">
-                  <a href="#">
-                    <div class="card-travel mx-auto d-flex flex-column">
+                  <a href="{{route('detailpage',$item->slug)}}">
+                    <div class="card-travel mx-auto d-flex flex-column"
+                    style="background : url(' {{$item->galleries->count() ? Storage::url($item->galleries->first()->image) : ''}}');
+                    background-size: cover;">
                         <div class="text-card mt-auto mb">
-                            <div class="travel-price">Rp.1.200.000</div>
-                            <div class="travel-days mt-2">3D2N</div>
+                            <div class="travel-price">Rp. 
+                              @php
+                              echo number_format("$item->price")."<br>";
+                              @endphp</div>
+                            <div class="travel-days mt-2">{{$item->duration}}</div>
                         </div>
                     </div>
                   </a>
                     <div class="text-trip ml-3">
-                        <h3 style="font-weight: bold;">Pulau Komodo</h3>
-                        <p>jejakdewaadventure</p>
+                        <h3 style="font-weight: bold;"> {{$item->title}} </h3>
+                        <p> {{$item->username}} </p>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                  <a href="#">
-                    <div class="card-travel mx-auto d-flex flex-column">
-                        <div class="text-card mt-auto mb">
-                            <div class="travel-price">Rp.1.200.000</div>
-                            <div class="travel-days mt-2">3D2N</div>
-                        </div>
-                    </div>
-                  </a>
-                    <div class="text-trip ml-3">
-                        <h3 style="font-weight: bold;">Pulau Komodo</h3>
-                        <p>jejakdewaadventure</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                  <a href="#">
-                    <div class="card-travel mx-auto d-flex flex-column">
-                        <div class="text-card mt-auto mb">
-                            <div class="travel-price">Rp.1.200.000</div>
-                            <div class="travel-days mt-2">3D2N</div>
-                        </div>
-                    </div>
-                  </a>
-                    <div class="text-trip ml-3">
-                        <h3 style="font-weight: bold;">Pulau Komodo</h3>
-                        <p>jejakdewaadventure</p>
-                    </div>
-                </div>
-
+                @endforeach
+              
             </div>
         </div>
         <!--Tutup popular-trip -->
@@ -349,5 +329,22 @@
   <script src="{{url('frontend/libraries/jquery/jquery-3.3.1.slim.min.js')}}"></script>
   <script src="{{url('frontend/libraries/bootstrap/js/bootstrap.min.js')}}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
+
+@auth
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/62973d4db0d10b6f3e751b75/1g4fceube';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+    <!--End of Tawk.to Script-->
+@endauth
+
 </body>
 </html>
