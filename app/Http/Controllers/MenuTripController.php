@@ -10,7 +10,7 @@ class MenuTripController extends Controller
 {
     public function index(Request $request){
         
-        if(!empty($request->tgl_bulan_dr && request()->tgl_bulan_sd && request()->title))
+        if(!empty($request->tgl_bulan_dr && $request->tgl_bulan_sd && $request->title))
         {
             $items = TravelPackage::whereBetween('departure_date', array($request->tgl_bulan_dr, $request->tgl_bulan_sd))
             ->filter(request(['title']))
@@ -18,7 +18,13 @@ class MenuTripController extends Controller
             ->get();
         }
 
-        elseif (!empty($request->tgl_bulan_dr) && request()->title) 
+        elseif (!empty($request->tgl_bulan_dr && $request->tgl_bulan_sd)) 
+        {
+            $items = TravelPackage::whereBetween('departure_date', array($request->tgl_bulan_dr,$request->tgl_bulan_sd))
+            ->get();
+        }
+
+        elseif (!empty($request->tgl_bulan_dr && $request->title) ) 
         {
             $items = TravelPackage::where('departure_date', ($request->tgl_bulan_dr))
             ->filter(request(['title']))
