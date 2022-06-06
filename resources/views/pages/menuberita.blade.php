@@ -53,7 +53,7 @@ Menu Berita
                             <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : 'frontend/images/berita-bromo.png'}}" alt="">
                         </div>
                         <div class="text-trip ml-3">
-                            <p class="travel-days mt-2">{{ \Carbon\Carbon::create($item->date)->format('F n,Y') }}</p><br>
+                            <p class="travel-days mt-2">{{ \Carbon\Carbon::create($item->date)->format('M d,Y') }}</p><br>
                             <h3 style="font-weight: bold;"> {{$item->title}} </h3>
                             <p> {{$item->subtitle}} </p>                            
                         </div>

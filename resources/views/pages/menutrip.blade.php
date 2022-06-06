@@ -7,7 +7,7 @@ Menu Trip
 <div class="container d-flex justify-content-center ">
     <div class="filter-paket-trip">
         <h3>Choose Your Date For Your Adventure</h3>
-        <form action="#" method="GET">
+        <form action=" {{route('menutrip')}} " method="GET">
             <div class="row mt-4">
             <div class="col-sm mt-4">
                 <h6 for="tgl_bulan_dari">From Date</h6>
@@ -15,10 +15,10 @@ Menu Trip
             </div>
             <div class="col mt-4">
                 <h6 for="tgl_bulan_sampai">To Date</h6>
-                <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr" id="tgl_bulan_dr">
+                <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd" id="tgl_bulan_sd">
             </div>
             <div class="col mt-4">
-                <button type="button" class="btn btn-success mt-4">Cari</button>
+                <button type="submit" class="btn btn-success mt-4">Cari</button>
             </div>
             </div>
         </form>
@@ -41,7 +41,7 @@ Menu Trip
                                 @php
                                 echo number_format("$item->price")."<br>";
                                 @endphp </div>
-                            <div class="travel-days mt-2">{{ \Carbon\Carbon::create($item->departure_date)->format('F n,Y') }}</div>
+                            <div class="travel-days mt-2">{{ \Carbon\Carbon::create($item->departure_date)->format('M d Y') }}</div>
                         </div>
                     </div>
                 </a>

@@ -108,7 +108,7 @@
                     </div>
                     <div class="col-md-5 book-trip">
                         <h3 class="text-center mt-4">Book Trip</h3>
-                            <form action="#" method="GET">
+                            <form action=" {{route('menutrip')}} " method="GET">
                                 <div class="row">
                                     <div class="col">
                                         <h6 for="tgl_bulan_dari">Dari Tanggal</h6>
@@ -116,7 +116,7 @@
                                     </div>
                                     <div class="col">
                                         <h6 for="tgl_bulan_sampai">Sampai Tanggal</h6>
-                                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr" id="tgl_bulan_dr">
+                                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd" id="tgl_bulan_dr">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -129,7 +129,7 @@
                                                 </svg>
                                                 </span>
                                             </div>
-                                                <input type="text" class="form-control" placeholder="Destination" aria-label="Destination" aria-describedby="basic-addon1">
+                                                <input type="text" name="title" class="form-control" placeholder="Destination" aria-label="title" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                 </div>
@@ -187,38 +187,20 @@
 
         <!-- news-content -->
         <div class="container berita">
-            <h1>Berita Terbaru</h1>
+            <h1>News Update</h1>
             <div class="section-berita row">
+              @foreach ($news as $item)
                 <div class="col-md-4 mt-4">
+                  <a href=" {{route('detailberita',$item->id)}} ">
                     <div class="card-news mx-auto d-flex flex-column">
-                        <img src="frontend/images/berita-1.png" class="p-3" alt="">
-                        <p class="judul-berita m-3">Status Semeru Meningkat, Jarak 13 Km dari Puncak Wajib </p>
-                        <p class="sumber-berita m-3">Solopos.com, LUMAJANG</p>
-                        <p class="mx-3">Peningkatan status Gunung Semeru dari 
-                            level II (waspada) menjadi level III (siaga) perlu
-                             menjadi perhatian...</p>
+                      <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : 'frontend/images/berita-bromo.png'}}" alt="">
+                        <p class="judul-berita m-3"> {{$item->title}} </p>
+                        <p class="sumber-berita m-3">{{ \Carbon\Carbon::create($item->date)->format('M d Y') }}</p>
+                        <p class="mx-3">{{$item->subtitle}}</p>
                     </div>
+                  </a>
                 </div>
-                <div class="col-md-4 mt-4">
-                    <div class="card-news mx-auto d-flex flex-column">
-                        <img src="frontend/images/berita-1.png" class="p-3" alt="">
-                        <p class="judul-berita m-3">Status Semeru Meningkat, Jarak 13 Km dari Puncak Wajib </p>
-                        <p class="sumber-berita m-3">Solopos.com, LUMAJANG</p>
-                        <p class="mx-3">Peningkatan status Gunung Semeru dari 
-                            level II (waspada) menjadi level III (siaga) perlu
-                             menjadi perhatian...</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mx-auto mt-4">
-                    <div class="card-news d-flex flex-column">
-                        <img src="frontend/images/berita-1.png" class="p-3" alt="">
-                        <p class="judul-berita m-3">Status Semeru Meningkat, Jarak 13 Km dari Puncak Wajib </p>
-                        <p class="sumber-berita m-3">Solopos.com, LUMAJANG</p>
-                        <p class="mx-3">Peningkatan status Gunung Semeru dari 
-                            level II (waspada) menjadi level III (siaga) perlu
-                             menjadi perhatian...</p>
-                    </div>
-                </div>
+              @endforeach
             </div>
         </div>
         <!-- tutup news-content -->

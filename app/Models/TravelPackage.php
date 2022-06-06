@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
+
 
 class TravelPackage extends Model
 {
@@ -22,8 +24,16 @@ class TravelPackage extends Model
 
     ];
 
+    //Relation gallery travel package
     public function galleries(){
         return $this->hasMany(Gallery::class,'travel_packages_id','id');
     }
 
+    //filtering data destination
+    public function scopeFilter($query, array $filters){
+        $query->when(
+            $filters['title'] ?? false,
+            fn ($query, $title) => $query->where('title', 'LIKE', "%".$title."%")
+        );
+    }
 }
