@@ -336,6 +336,76 @@ header .book-trip {
   background-color: #1c794d;
 }
 
+.faq-body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.faq-body .container-fluid {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.faq-body .container-fluid h2 {
+  position: relative;
+  color: #1c794d;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.faq-body .subask {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #1c794d;
+  cursor: pointer;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.faq-body .subask .icon {
+  margin: 0 10px 0 0;
+  width: 25px;
+  height: 25px;
+  background-image: url("/frontend/images/plus.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 20%;
+  float: left;
+  -webkit-transition: all .5s ease-in;
+  transition: all .5s ease-in;
+}
+
+.faq-body .subask h5 {
+  font-size: 22px;
+  margin: 0;
+  padding: 2px 0 0 0;
+  font-weight: normal;
+  color: #000000;
+}
+
+.faq-body .active .icon {
+  background-image: url("/frontend/images/minus.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.faq-body .panel {
+  padding: 0 15px;
+  border-left: 1px solid #1c794d;
+  margin-left: 25px;
+  font-size: 18px;
+  text-align: justify;
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all .5s ease-in;
+  transition: all .5s ease-in;
+}
+
 .card__collection {
   position: relative;
   display: block;

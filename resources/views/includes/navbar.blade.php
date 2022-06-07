@@ -56,7 +56,7 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Contact</a>
                     <a class="dropdown-item" href=" {{route('statustransaction.index')}} ">Status Payment</a>
-                    <a class="dropdown-item" href="#">FAQ</a>
+                    <a class="dropdown-item" href=" {{route('faq')}} ">FAQ</a>
                     @guest
                     <form class="form-inline my-lg-0 d-none d-lg-block">
                         <button class="btn btn-login btn-navbar-right my-sm-0 px-4" type="button" onclick="event.preventDefault();

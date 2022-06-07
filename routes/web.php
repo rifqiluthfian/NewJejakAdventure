@@ -19,6 +19,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])
 Route::get('/menutrip', [App\Http\Controllers\MenuTripController::class, 'index'])
 ->name('menutrip');
 
+Route::get('/faq', [App\Http\Controllers\FaqController::class, 'index'])
+->name('faq');
+
 Route::get('/detailpage/{slug}', [App\Http\Controllers\DetailController::class, 'index'])
 ->name('detailpage');
 

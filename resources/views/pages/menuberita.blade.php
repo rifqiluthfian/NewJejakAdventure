@@ -26,10 +26,10 @@ Menu Berita
                         <div class="col-lg-10 pl-lg-0">
                             <div class="row">
                                 <div class="col border-right text-center">
-                                <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : ''}}" width="500" alt="">
+                                <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : 'frontend/images/berita-bromo.png'}}" width="500" alt="">
                                 </div>
                                 <div class="col-lg-4">
-                                    <p class="travel-days mt-2">{{ \Carbon\Carbon::create($item->date)->format('F n,Y') }}</p><br>
+                                    <p class="travel-days mt-2">{{ \Carbon\Carbon::create($item->date)->format('M d Y') }}</p><br>
                                 <h1>{{$item->title}}</h1>
                                 <p> {{$item->subtitle}} </p>
                                 </div>
