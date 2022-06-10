@@ -28,7 +28,7 @@
                     <a class="nav-link" href="{{route('berita')}}">News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Galley</a>
+                    <a class="nav-link" href="#">Gallery</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>

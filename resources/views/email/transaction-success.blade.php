@@ -293,7 +293,7 @@
                               <img src="{{url('frontend/images/cs.png')}}" width="45px" />
                             </td>
                             <td style="
-                    font-size:15px" padding-left:"10px" font-family="Assistant,Helvetica,Arial,sant-serif"> baguspahlefi2000@gmail.com <br> 085608537600 (Whatsapp) </td>
+                    font-size:15px" padding-left:"10px" font-family="Assistant,Helvetica,Arial,sant-serif"> jejakadventure.info@gmail.com <br> 085608537600 (Whatsapp) </td>
                           </tr>
                         </table>
                       </td>

@@ -54,9 +54,16 @@ Checkout Page
                             <td>{{ $item->transaction_status }}</td>
                             
                             <td>
+                                @if ($item->getAttribute('transaction_status')=='IN_CART')
+                                    <a href=" {{route('checkout',$item->id)}} " class="btn btn-success">
+                                        Cek
+                                    </a>
+                                @else
                                 <a href=" {{route('statustransaction.detail',$item->id)}} " class="btn btn-light">
                                     Detail
                                 </a>
+                                @endif
+                               
                             </td>
                         </tr>
                         @empty
