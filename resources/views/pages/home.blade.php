@@ -39,7 +39,7 @@
                   <a class="nav-link" href="{{route('berita')}}">News</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Gallery</a>
+                  <a class="nav-link" href=" {{route('gallery')}} ">Gallery</a>
               </li>
               @if (!Auth::guest() && Auth::user()->roles == 'TRAVELAGENT')
               <li class="nav-item">
@@ -66,9 +66,8 @@
                 @endauth
                 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Contact</a>
                   <a class="dropdown-item" href=" {{route('statustransaction.index')}} ">Status Payment</a>
-                  <a class="dropdown-item" href="#">FAQ</a>
+                  <a class="dropdown-item" href="{{route('faq')}}">FAQ</a>
                   @guest
                   <form class="form-inline my-lg-0 d-none d-lg-block">
                       <button class="btn btn-login btn-navbar-right my-sm-0 px-4" type="button" onclick="event.preventDefault();
