@@ -26,7 +26,7 @@ class TravelPackage extends Model
 
     //Relation gallery travel package
     public function galleries(){
-        return $this->hasMany(Gallery::class,'travel_packages_id','id');
+        return $this->hasMany(GalleryTravel::class,'travel_packages_id','id');
     }
 
     //filtering data destination

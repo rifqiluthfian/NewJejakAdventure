@@ -9,10 +9,12 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class Gallery extends Model
+class GalleryTravel extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    protected $table = 'galleries';
 
     protected $fillable = [
         'travel_packages_id','username','image'

@@ -237,6 +237,11 @@ Route::delete('/admin/gallerynews/delete/{id}', [App\Http\Controllers\Admin\Gall
 ->middleware(['auth','admin'])
 ->name('gallerynews.delete');
 
+//News Gallery
+Route::get('/admin/gallery', [App\Http\Controllers\Admin\GalleryController::class,'index'])
+->middleware(['auth'])
+->name('gallery');
+
 
 
 

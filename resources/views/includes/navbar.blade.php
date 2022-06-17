@@ -28,10 +28,7 @@
                     <a class="nav-link" href="{{route('berita')}}">News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href=" {{route('gallery')}} ">Gallery</a>
                 </li>
                 @if (!Auth::guest() && Auth::user()->roles == 'TRAVELAGENT')
                 <li class="nav-item">
@@ -54,7 +51,6 @@
                   @endauth
                   
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Contact</a>
                     <a class="dropdown-item" href=" {{route('statustransaction.index')}} ">Status Payment</a>
                     <a class="dropdown-item" href=" {{route('faq')}} ">FAQ</a>
                     @guest

@@ -13,9 +13,9 @@ Menu Berita
                     <div class="col-sm-d-none p-0">
                         <nav>
                             <ol class="breadcrumb">
-                            <li class="breadcrumb-item-berita active">
-                                News
-                            </li>
+                                <li class="breadcrumb-item-berita active">
+                                    News
+                                </li>
                             </ol>
                         </nav>
                     </div>

@@ -417,6 +417,32 @@ header{
 
 }
 
+//Gallery
+.gallery-body{
+  font-family: 'Open Sans', sans-serif;
+
+  .container-fluid{
+    width: 100%;
+    margin: 0 auto;
+  }
+
+    h2{
+      position: relative;
+      color: #1c794d;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 992px) { 
+  .breadcrumb-item{
+    display: none;
+  }
+  .gallery-body{
+    margin-top: 40px;
+  }
+ }
+
 
 
 //Card bagus

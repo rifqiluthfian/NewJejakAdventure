@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('tittle')
-Menu Berita
+FaQ
 @endsection
 @section('content')
     <!-- detailheader -->

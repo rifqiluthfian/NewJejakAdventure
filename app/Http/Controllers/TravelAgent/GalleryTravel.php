@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 
-class GalleryController extends Controller
+class GalleryTravelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +22,7 @@ class GalleryController extends Controller
 
     public function index(Request $request){
         $user = $request->user()->username;
-        $items = Gallery::all()->where('username', $user);
+        $items = GalleryTravel::all()->where('username', $user);
        
         return view('pages.travelagent.gallery.index',
         [ 'items' =>$items]);
@@ -55,7 +55,7 @@ class GalleryController extends Controller
         $data['image'] = $request->file('image')->store(
             'assets/gallery','public'
         );
-        Gallery::create($data);
+        GalleryTravel::create($data);
         return redirect()->route('gallery.index');
     }
 
@@ -80,7 +80,7 @@ class GalleryController extends Controller
     {
         $user = $request->user()->username;
         $travel_packages = DB::select('select * from travel_packages WHERE username = :username AND deleted_at IS NULL', ['username' => $user]);
-        $item = Gallery::findOrFail($id);
+        $item = GalleryTravel::findOrFail($id);
         return view ('pages.travelagent.gallery.edit',[
             'item' => $item,
             'travel_packages' => $travel_packages
@@ -102,7 +102,7 @@ class GalleryController extends Controller
             'assets/gallery','public'
         );
 
-        $item = Gallery::findOrFail($id);
+        $item = GalleryTravel::findOrFail($id);
         $item->update($data);
         return redirect()->route('gallery.index');
     }
@@ -115,7 +115,7 @@ class GalleryController extends Controller
      */
     public function destroy($id)
     {
-        $item = Gallery::findOrFail($id);
+        $item = GalleryTravel::findOrFail($id);
         $item->delete();
         sleep(1);
         return redirect()->route('gallery.index');
