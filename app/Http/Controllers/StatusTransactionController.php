@@ -42,7 +42,7 @@ class StatusTransactionController extends Controller
             'details','travel_package','user'
         ])->findOrFail($id);
         
-        return view ('pages.travelagent.transaction.detail',[
+        return view ('pages.transactiondetail',[
             'item' => $item
         ]);
     }

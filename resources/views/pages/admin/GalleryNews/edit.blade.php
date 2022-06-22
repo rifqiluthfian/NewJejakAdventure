@@ -17,17 +17,6 @@
                 @method('PUT')
                 @csrf
                 <div class="form-group">
-                    <label for="news_id">Title News</label>
-                    <select name="news_id" required class="form-control">
-                        <option required value="">Choose your title news</option>
-                        @foreach ($news_item as $new_item)
-                            <option value="{{$new_item->id}}">
-                                {{$new_item->title}}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
                     <label for="image">Image</label>
                    <input type="file" name="image" placeholder="image" class="form-control">
                 </div>

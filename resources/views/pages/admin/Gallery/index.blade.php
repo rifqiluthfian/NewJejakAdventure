@@ -9,17 +9,12 @@
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col">
-                            <h2 class="">News JejakAdventure</h2>
+                            <h2 class="">Gallery JejakAdventure</h2>
                         </div>
                         <div class="col text-right">
-                            <a href="{{route('news.create')}}" class="btn btn-second ml-2">
-                                <i class="las la-plus"></i> Add News
+                            <a href="{{route('galleryadmin.create')}}" class="btn btn-second ml-2">
+                                <i class="las la-plus"></i> Add Gallery
                             </a>
-                            <br>
-                            <a href="{{route('gallerynews.index')}}" class="btn btn-second ml-2">
-                                <i class="las la-plus"></i> Add/Edit Gallery News
-                            </a>
-                            
                         </div>
                     </div>
                     <div class="row">
@@ -29,9 +24,9 @@
                                     <tr>
                                         <th scope="col">No</th>
                                         <th scope="col">Title</th>
-                                        <th scope="col">Sub Title</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Create at</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -39,14 +34,16 @@
                                     <tr>
                                         <td class="text-center">{{$item->id}}</td>
                                         <td>{{ $item->title }}</td>
-                                        <td>{{ $item->subtitle }}</td>
-                                        <td>{{ $item->date }}</td>
                                         <td>
-                                            <a href=" {{route('news.edit',$item->id)}} " class="btn btn-info">
+                                            <img src="{{Storage::url($item->image)}}" alt="" width="200" class="img-thumbnail">
+                                        </td>
+                                        <td>{{ $item->description }}</td>
+                                        <td>
+                                            <a href=" {{route('galleryadmin.edit',$item->id)}} " class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
                                 
-                                            <form action=" {{route('news.delete',$item->id)}} " method="POST" class="d-inline">
+                                            <form action=" {{route('galleryadmin.delete',$item->id)}} " method="POST" class="d-inline">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger" type="submit">

@@ -1,4 +1,4 @@
-@extends('layouts.login')
+@extends('layouts.app')
 
 
 @section('content')
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="no_identity" class="col-md-4 col-form-label text-md-end">{{ __('No Identity') }}</label>
+                            <label for="no_identity" class="col-md-4 col-form-label text-md-end">{{ __('No Identity (KTP/SIM)') }}</label>
 
                             <div class="col-md-6">
                                 <input id="no_identity" type="text" class="form-control @error('no_identity') is-invalid @enderror" name="no_identity" value="{{ old('no_identity') }}" required autocomplete="no_identity" autofocus>

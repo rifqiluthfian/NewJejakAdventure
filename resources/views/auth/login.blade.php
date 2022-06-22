@@ -1,4 +1,4 @@
-@extends('layouts.login')
+@extends('layouts.app')
 @section('tittle')
 Login/Register
 @endsection

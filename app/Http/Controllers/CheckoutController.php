@@ -104,7 +104,7 @@ class CheckoutController extends Controller
 
     public function success(Request $request,$id){
 
-        $transaction = Transaction::with(['details','travel_package.galleries','user'])
+        $transaction = Transaction::with(['details','travel_package.galleries','user','user_travel'])
         ->findOrFail($id);
         
         $transaction->transaction_status = 'PENDING';
@@ -148,6 +148,10 @@ class CheckoutController extends Controller
         Mail::to($transaction->user)->send(
             new TransactionSuccess($transaction)
         );
+        Mail::to($transaction->user_travel)->send(
+            new TransactionSuccess($transaction)
+        );
+    
     
         return view('pages.success');
     }

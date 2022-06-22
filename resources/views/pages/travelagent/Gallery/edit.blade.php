@@ -21,17 +21,7 @@
                     <label for="Username">Username</label>
                     <input readonly="readonly" type="text" name="username" id="username" placeholder="{{Auth::user()->username}}" value="{{Auth::user()->username}}" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label for="travel_packages_id">Travel Packages</label>
-                    <select name="travel_packages_id" required class="form-control">
-                        <option required value="">Choose your travel packages</option>
-                        @foreach ($travel_packages as $travel_package)
-                            <option value="{{$travel_package->id}}">
-                                {{$travel_package->title}}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
+
                 <div class="form-group">
                     <label for="image">Image</label>
                    <input type="file" name="image" placeholder="image" class="form-control">

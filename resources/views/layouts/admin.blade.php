@@ -45,7 +45,7 @@
                     <i class="fas fa-fw fa-images"></i>
                     <span>News</span>
                 </a>
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href=" {{route('gallery.admin')}} ">
                     <i class="fas fa-fw fa-images"></i>
                     <span>Gallery</span>
                 </a>

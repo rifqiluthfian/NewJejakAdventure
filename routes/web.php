@@ -25,6 +25,44 @@ Route::get('/faq', [App\Http\Controllers\FaqController::class, 'index'])
 Route::get('/detailpage/{slug}', [App\Http\Controllers\DetailController::class, 'index'])
 ->name('detailpage');
 
+Route::get('/gallery', [App\Http\Controllers\GalleryController::class,'index'])
+->name('gallery');
+
+//StatusTransaction
+Route::get('/status_transaction/index', [App\Http\Controllers\StatusTransactionController::class,'index'])
+->middleware(['auth','verified'])
+->name('statustransaction.index');
+
+Route::get('/status_transaction/detail/{id}', [App\Http\Controllers\StatusTransactionController::class,'show'])
+->middleware(['auth','verified'])
+->name('statustransaction.detail');
+
+//Gallery ADMIN
+
+Route::get('/admin/gallery', [App\Http\Controllers\Admin\GalleryAdminController::class,'index'])
+->middleware(['auth','admin'])
+->name('gallery.admin');
+
+Route::get('/admin/gallery/create', [App\Http\Controllers\Admin\GalleryAdminController::class,'create'])
+->middleware(['auth','admin'])
+->name('galleryadmin.create');
+
+Route::post('/admin/gallery/store', [App\Http\Controllers\Admin\GalleryAdminController::class,'store'])
+->middleware(['auth','admin'])
+->name('galleryadmin.store');
+
+Route::get('/admin/gallery/edit/{id}', [App\Http\Controllers\Admin\GalleryAdminController::class,'edit'])
+->middleware(['auth','admin'])
+->name('galleryadmin.edit');
+
+Route::put('/admin/gallery/update/{id}', [App\Http\Controllers\Admin\GalleryAdminController::class,'update'])
+->middleware(['auth','admin'])
+->name('galleryadmin.update');
+
+Route::delete('/admin/gallery/delete/{id}', [App\Http\Controllers\Admin\GalleryAdminController::class,'destroy'])
+->middleware(['auth','admin'])
+->name('galleryadmin.delete');
+
 //Checkout
 Route::post('/checkout/{id}', [App\Http\Controllers\CheckoutController::class, 'process'])
 ->middleware(['auth','verified'])
@@ -56,6 +94,98 @@ Route::get('/berita/detailberita/{id}', [App\Http\Controllers\DetailBeritaContro
 Route::get('/admin', [App\Http\Controllers\Admin\DashboardController::class,'index'])
 ->middleware(['auth','admin'])
 ->name('admin');
+
+//Transaction Admin
+Route::get('/admin/transaction/index', [App\Http\Controllers\Admin\TransactionController::class,'index'])
+->middleware(['auth','admin'])
+->name('transactionadmin.index');
+
+Route::get('/admin/transaction/detail/{id}', [App\Http\Controllers\Admin\TransactionController::class,'show'])
+->middleware(['auth','admin'])
+->name('transactionadmin.detail');
+
+Route::get('/admin/transaction/edit/{id}', [App\Http\Controllers\Admin\TransactionController::class,'edit'])
+->middleware(['auth','admin'])
+->name('transactionadmin.edit');
+
+Route::put('/admin/transaction/update/{id}', [App\Http\Controllers\Admin\TransactionController::class,'update'])
+->middleware(['auth','admin'])
+->name('transactionadmin.update');
+
+Route::delete('/admin/transaction/delete/{id}', [App\Http\Controllers\Admin\TransactionController::class,'destroy'])
+->middleware(['auth','admin'])
+->name('transactionadmin.destroy');
+
+//TravelPackage Admin
+
+Route::get('/admin/travelpackage', [App\Http\Controllers\Admin\TravelPackageController::class,'index'])
+->middleware(['auth','admin'])
+->name('travelpackageadmin.index');
+
+Route::get('/admin/travelpackage/edit/{id}', [App\Http\Controllers\Admin\TravelPackageController::class,'edit'])
+->middleware(['auth','admin'])
+->name('travelpackageadmin.edit');
+
+Route::put('/admin/travelpackage/update/{id}', [App\Http\Controllers\Admin\TravelPackageController::class,'update'])
+->middleware(['auth','admin'])
+->name('travelpackageadmin.update');
+
+Route::delete('/admin/travelpackage/delete/{id}', [App\Http\Controllers\Admin\TravelPackageController::class,'destroy'])
+->middleware(['auth','admin'])
+->name('travelpackageadmin.delete');
+
+//ADMIN News
+Route::get('/admin/news', [App\Http\Controllers\Admin\NewsController::class,'index'])
+->middleware(['auth','admin'])
+->name('news.index');
+
+Route::get('/admin/news/create', [App\Http\Controllers\Admin\NewsController::class,'create'])
+->middleware(['auth','admin'])
+->name('news.create');
+
+Route::post('/admin/news/store', [App\Http\Controllers\Admin\NewsController::class,'store'])
+->middleware(['auth','admin'])
+->name('news.store');
+
+Route::get('/admin/news/edit/{id}', [App\Http\Controllers\Admin\NewsController::class,'edit'])
+->middleware(['auth','admin'])
+->name('news.edit');
+
+Route::put('/admin/news/update/{id}', [App\Http\Controllers\Admin\NewsController::class,'update'])
+->middleware(['auth','admin'])
+->name('news.update');
+
+Route::delete('/admin/news/delete/{id}', [App\Http\Controllers\Admin\NewsController::class,'destroy'])
+->middleware(['auth','admin'])
+->name('news.delete');
+
+//ADMIN News Gallery
+Route::get('/admin/gallerynews/index/', [App\Http\Controllers\Admin\GalleryNewsController::class,'index'])
+->middleware(['auth','admin'])
+->name('gallerynews.index');
+
+Route::get('/admin/gallerynews/create', [App\Http\Controllers\Admin\GalleryNewsController::class,'create'])
+->middleware(['auth','admin'])
+->name('gallerynews.create');
+
+Route::post('/admin/gallerynews/store', [App\Http\Controllers\Admin\GalleryNewsController::class,'store'])
+->middleware(['auth','admin'])
+->name('gallerynews.store');
+
+Route::get('/admin/gallerynews/edit/{id}', [App\Http\Controllers\Admin\GalleryNewsController::class,'edit'])
+->middleware(['auth','admin'])
+->name('gallerynews.edit');
+
+Route::put('/admin/gallerynews/update/{id}', [App\Http\Controllers\Admin\GalleryNewsController::class,'update'])
+->middleware(['auth','admin'])
+->name('gallerynews.update');
+
+Route::delete('/admin/gallerynews/delete/{id}', [App\Http\Controllers\Admin\GalleryNewsController::class,'destroy'])
+->middleware(['auth','admin'])
+->name('gallerynews.delete');
+
+//ADMIN Gallery Jejak Adventure
+
 
 //Admin UserManagement
 Route::get('/admin/usermanagement', [App\Http\Controllers\Admin\UserManagementController::class,'index'])
@@ -105,28 +235,28 @@ Route::delete('/travelagent/travelpackage/delete/{id}', [App\Http\Controllers\Tr
 ->name('travelpackage.delete');
 
 
-//Gallery
-Route::get('/travelagent/gallery', [App\Http\Controllers\TravelAgent\GalleryController::class,'index'])
+//Gallery Travel agent
+Route::get('/travelagent/gallery', [App\Http\Controllers\TravelAgent\GalleryTravelController::class,'index'])
 ->middleware(['auth','travelagent'])
 ->name('gallery.index');
 
-Route::get('/travelagent/gallery/create', [App\Http\Controllers\TravelAgent\GalleryController::class,'create'])
+Route::get('/travelagent/gallery/create', [App\Http\Controllers\TravelAgent\GalleryTravelController::class,'create'])
 ->middleware(['auth','travelagent'])
 ->name('gallery.create');
 
-Route::post('/travelagent/gallery/store', [App\Http\Controllers\TravelAgent\GalleryController::class,'store'])
+Route::post('/travelagent/gallery/store', [App\Http\Controllers\TravelAgent\GalleryTravelController::class,'store'])
 ->middleware(['auth','travelagent'])
 ->name('gallery.store');
 
-Route::get('/travelagent/gallery/edit/{id}', [App\Http\Controllers\TravelAgent\GalleryController::class,'edit'])
+Route::get('/travelagent/gallery/edit/{id}', [App\Http\Controllers\TravelAgent\GalleryTravelController::class,'edit'])
 ->middleware(['auth','travelagent'])
 ->name('gallery.edit');
 
-Route::put('/travelagent/gallery/update/{id}', [App\Http\Controllers\TravelAgent\GalleryController::class,'update'])
+Route::put('/travelagent/gallery/update/{id}', [App\Http\Controllers\TravelAgent\GalleryTravelController::class,'update'])
 ->middleware(['auth','travelagent'])
 ->name('gallery.update');
 
-Route::delete('/travelagent/gallery/delete/{id}', [App\Http\Controllers\TravelAgent\GalleryController::class,'destroy'])
+Route::delete('/travelagent/gallery/delete/{id}', [App\Http\Controllers\TravelAgent\GalleryTravelController::class,'destroy'])
 ->middleware(['auth','travelagent'])
 ->name('gallery.delete');
 
@@ -139,108 +269,9 @@ Route::get('/travelagent/transaction/detail/{id}', [App\Http\Controllers\TravelA
 ->middleware(['auth','travelagent'])
 ->name('transaction.detail');
 
-//Transaction Admin
-Route::get('/admin/transaction/index', [App\Http\Controllers\Admin\TransactionController::class,'index'])
-->middleware(['auth','admin'])
-->name('transactionadmin.index');
 
-Route::get('/admin/transaction/detail/{id}', [App\Http\Controllers\Admin\TransactionController::class,'show'])
-->middleware(['auth','admin'])
-->name('transactionadmin.detail');
 
-Route::get('/admin/transaction/edit/{id}', [App\Http\Controllers\Admin\TransactionController::class,'edit'])
-->middleware(['auth','admin'])
-->name('transactionadmin.edit');
 
-Route::put('/admin/transaction/update/{id}', [App\Http\Controllers\Admin\TransactionController::class,'update'])
-->middleware(['auth','admin'])
-->name('transactionadmin.update');
-
-Route::delete('/admin/transaction/delete/{id}', [App\Http\Controllers\Admin\TransactionController::class,'destroy'])
-->middleware(['auth','admin'])
-->name('transactionadmin.destroy');
-
-//TravelPackage Admin
-
-Route::get('/admin/travelpackage', [App\Http\Controllers\Admin\TravelPackageController::class,'index'])
-->middleware(['auth','admin'])
-->name('travelpackageadmin.index');
-
-Route::get('/admin/travelpackage/edit/{id}', [App\Http\Controllers\Admin\TravelPackageController::class,'edit'])
-->middleware(['auth','admin'])
-->name('travelpackageadmin.edit');
-
-Route::put('/admin/travelpackage/update/{id}', [App\Http\Controllers\Admin\TravelPackageController::class,'update'])
-->middleware(['auth','admin'])
-->name('travelpackageadmin.update');
-
-Route::delete('/admin/travelpackage/delete/{id}', [App\Http\Controllers\Admin\TravelPackageController::class,'destroy'])
-->middleware(['auth','admin'])
-->name('travelpackageadmin.delete');
-
-//StatusTransaction
-Route::get('/status_transaction/index', [App\Http\Controllers\StatusTransactionController::class,'index'])
-->middleware(['auth','verified'])
-->name('statustransaction.index');
-
-Route::get('/status_transaction/detail/{id}', [App\Http\Controllers\StatusTransactionController::class,'show'])
-->middleware(['auth','verified'])
-->name('statustransaction.detail');
-
-//News
-Route::get('/admin/news', [App\Http\Controllers\Admin\NewsController::class,'index'])
-->middleware(['auth','admin'])
-->name('news.index');
-
-Route::get('/admin/news/create', [App\Http\Controllers\Admin\NewsController::class,'create'])
-->middleware(['auth','admin'])
-->name('news.create');
-
-Route::post('/admin/news/store', [App\Http\Controllers\Admin\NewsController::class,'store'])
-->middleware(['auth','admin'])
-->name('news.store');
-
-Route::get('/admin/news/edit/{id}', [App\Http\Controllers\Admin\NewsController::class,'edit'])
-->middleware(['auth','admin'])
-->name('news.edit');
-
-Route::put('/admin/news/update/{id}', [App\Http\Controllers\Admin\NewsController::class,'update'])
-->middleware(['auth','admin'])
-->name('news.update');
-
-Route::delete('/admin/news/delete/{id}', [App\Http\Controllers\Admin\NewsController::class,'destroy'])
-->middleware(['auth','admin'])
-->name('news.delete');
-
-//News Gallery
-Route::get('/admin/gallerynews/index/', [App\Http\Controllers\Admin\GalleryNewsController::class,'index'])
-->middleware(['auth','admin'])
-->name('gallerynews.index');
-
-Route::get('/admin/gallerynews/create', [App\Http\Controllers\Admin\GalleryNewsController::class,'create'])
-->middleware(['auth','admin'])
-->name('gallerynews.create');
-
-Route::post('/admin/gallerynews/store', [App\Http\Controllers\Admin\GalleryNewsController::class,'store'])
-->middleware(['auth','admin'])
-->name('gallerynews.store');
-
-Route::get('/admin/gallerynews/edit/{id}', [App\Http\Controllers\Admin\GalleryNewsController::class,'edit'])
-->middleware(['auth','admin'])
-->name('gallerynews.edit');
-
-Route::put('/admin/gallerynews/update/{id}', [App\Http\Controllers\Admin\GalleryNewsController::class,'update'])
-->middleware(['auth','admin'])
-->name('gallerynews.update');
-
-Route::delete('/admin/gallerynews/delete/{id}', [App\Http\Controllers\Admin\GalleryNewsController::class,'destroy'])
-->middleware(['auth','admin'])
-->name('gallerynews.delete');
-
-//News Gallery
-Route::get('/admin/gallery', [App\Http\Controllers\Admin\GalleryController::class,'index'])
-->middleware(['auth'])
-->name('gallery');
 
 
 

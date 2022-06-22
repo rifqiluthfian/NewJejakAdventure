@@ -30,6 +30,7 @@ Detail Berita
                         <p>{{ \Carbon\Carbon::create($item->date)->format('F n,Y') }}</p><br>
                         <h1>{{$item->title}}</h1><br>
                         <p> {{$item->subtitle}} </p>
+          
                       </div>
                     </div>
                   </div>

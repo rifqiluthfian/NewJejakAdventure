@@ -5,7 +5,7 @@ namespace App\Http\Controllers\TravelAgent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TravelAgent\GalleryRequest;
 use Illuminate\Http\Request;
-use App\Models\Gallery;
+use App\Models\GalleryTravel;
 use App\Models\TravelPackage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -98,9 +98,14 @@ class GalleryTravelController extends Controller
     {
         $data = $request->all();
         
-        $data['image'] = $request->file('image')->store(
-            'assets/gallery','public'
-        );
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store(
+                'assets/gallery','public'
+            );
+        }
+        else{
+            $data['image'] = null;
+        }
 
         $item = GalleryTravel::findOrFail($id);
         $item->update($data);

@@ -94,10 +94,14 @@ class GalleryNewsController extends Controller
     public function update(Request $request ,$id)
     {
         $data = $request->all();
-        
-        $data['image'] = $request->file('image')->store(
-            'assets/gallery','public'
-        );
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store(
+                'assets/gallery','public'
+            );
+        }
+        else{
+            $data['image'] = null;
+        }
 
         $item = GalleryNews::findOrFail($id);
         $item->update($data);
