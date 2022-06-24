@@ -28,7 +28,7 @@
       </button>
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav ">
+          <ul class="navbar-nav p-3 ">
               <li class="nav-item">
                   <a class="nav-link active" href="{{route('home')}}">Home</a>
               </li>
@@ -48,12 +48,12 @@
 
               @endif
               @guest
-              <li class="nav-item bg-dark">
-                  <a class="nav-link" href="{{url('login')}}">Login</a>
+              <li class="nav-item bg-dark" style="width : 20%;">
+                  <a class="nav-link text-center" href="{{url('login')}}">Login</a>
               </li>
 
-              <li class="nav-item bg-light">
-                <a class="nav-link" style="color: black !important" href="{{url('register')}}">Register</a>
+              <li class="nav-item bg-light" style="width : 20%;">
+                <a class="nav-link text-center" style="color: black !important" href="{{url('register')}}">Register</a>
             </li>
               @endguest
               

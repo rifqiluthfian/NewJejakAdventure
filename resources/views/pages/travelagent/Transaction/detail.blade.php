@@ -13,7 +13,7 @@
 
     <div class="card-shadow">
         <div class="card-body">
-            <table class="table-bordered">
+            <table class="table table-bordered">
                 <tr>
                     <td>ID</td>
                     <td> {{$item->id}} </td>
@@ -46,10 +46,12 @@
                                 <td>No Phone</td>
                             </tr>
                             @foreach ($item->details as $details)
+                            <tr>
                                 <td>{{$details->id}}</td>
                                 <td>{{$details->username}}</td>
                                 <td>{{$details->no_identity}}</td>
                                 <td>{{$details->no_phone}}</td>
+                            </tr>
                             @endforeach
                         </table>
                     </td>

@@ -14,7 +14,7 @@
                     </div>
                     <div class="row">
                         <div class="card-body">
-                            <table class="table table-responsive table-hover" id="table_id">
+                            <table class="table table-bordered" id="table_id">
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>

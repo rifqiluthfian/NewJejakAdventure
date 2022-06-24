@@ -32,7 +32,6 @@ Menu Berita
                                     <p class="travel-days mt-2">{{ \Carbon\Carbon::create($item->date)->format('M d Y') }}</p><br>
                                 <h1>{{$item->title}}</h1>
                                 <p> {{$item->subtitle}} </p>
-                                <p>{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : 'frontend/images/berita-bromo.png'}}</p>
                                 </div>
                             </div>
                         </div>

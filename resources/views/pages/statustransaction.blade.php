@@ -28,8 +28,8 @@ Checkout Page
             </div>
         </div>
         <div class="row">
-            <div class="card-body">
-                  <table class="table mt-4">
+            <div class="card-body table-css">
+                  <table class="table table-bordered table-css mt-4" id="table_id">
                     <thead class="thead-light">
                       <tr>
                         <th scope="col">Id</th>

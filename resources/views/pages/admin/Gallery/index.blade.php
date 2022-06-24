@@ -26,7 +26,7 @@
                                         <th scope="col">Title</th>
                                         <th scope="col">Image</th>
                                         <th scope="col">Description</th>
-                                        <th scope="col">Create at</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
