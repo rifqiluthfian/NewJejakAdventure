@@ -103,9 +103,6 @@ class GalleryTravelController extends Controller
                 'assets/gallery','public'
             );
         }
-        else{
-            $data['image'] = null;
-        }
 
         $item = GalleryTravel::findOrFail($id);
         $item->update($data);

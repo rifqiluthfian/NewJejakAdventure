@@ -99,9 +99,6 @@ class GalleryNewsController extends Controller
                 'assets/gallery','public'
             );
         }
-        else{
-            $data['image'] = null;
-        }
 
         $item = GalleryNews::findOrFail($id);
         $item->update($data);

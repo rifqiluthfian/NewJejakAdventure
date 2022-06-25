@@ -23,10 +23,12 @@ Menu Berita
                 @foreach ($news as $item)
                 <a href=" {{route('detailberita',$item->id)}} ">
                     <div class="row justify-content-center">
-                        <div class="col-lg-10 pl-lg-0">
+                        <div class="col-lg-10 col pl-lg-0">
                             <div class="row">
                                 <div class="col border-right text-center">
-                                <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : 'frontend/images/berita-bromo.png'}}" width="500" alt="">
+                                    <div class="images-berita mx-auto">
+                                        <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : 'frontend/images/berita-bromo.png'}}" width="500px" alt="">
+                                    </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <p class="travel-days mt-2">{{ \Carbon\Carbon::create($item->date)->format('M d Y') }}</p><br>

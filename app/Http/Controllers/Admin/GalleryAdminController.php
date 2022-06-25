@@ -51,9 +51,6 @@ class GalleryAdminController extends Controller
                 'assets/gallery','public'
             );
         }
-        else{
-            $data['image'] = null;
-        }
         $item = Gallery::findOrFail($id);
         $item->update($data);
         return redirect('admin/gallery');

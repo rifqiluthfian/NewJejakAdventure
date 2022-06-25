@@ -31,10 +31,12 @@ Gallery Jejak Adventure
     
                         <div class="row">
                             @foreach ($items as $item)
-                            <div class="col-6 container-gallery">
+                            <div class="col-sm-12 col-md-6 col-lg-6 container-gallery">
                                 <div class="card-gallery">
                                     <figure class="card__thumb">
-                                        <img src="{{ Storage::url( $item->image) }}" width="800" alt="" class="card__image"> 
+                                        <div class="center-crop">
+                                            <img src="{{ Storage::url( $item->image) }}" width="800" alt="" class="card__image"> 
+                                        </div>
                                         <figcaption class="card__caption">
                                             <h2 class="card__title text-white"> {{$item->title}} </h2>
                                             <p class="card__snippet">{{$item->description}}</p>
