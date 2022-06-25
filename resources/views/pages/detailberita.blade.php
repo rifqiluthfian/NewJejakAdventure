@@ -23,7 +23,7 @@ Detail Berita
                 <div class="row justify-content-center">
                   <div class="col-lg-10 pl-lg-0">
                     <div class="row">
-                      <div class="col border-right text-center">
+                      <div class="col border-right my-auto text-center">
                         <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : ''}}" width="500px" alt="">
                       </div>
                       <div class="col-lg-4">

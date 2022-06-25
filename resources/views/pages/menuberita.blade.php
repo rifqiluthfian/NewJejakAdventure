@@ -25,8 +25,8 @@ Menu Berita
                     <div class="row justify-content-center">
                         <div class="col-lg-10 col pl-lg-0">
                             <div class="row">
-                                <div class="col border-right text-center">
-                                    <div class="images-berita mx-auto">
+                                <div class="col border-right my-auto text-center">
+                                    <div class="images-berita">
                                         <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : 'frontend/images/berita-bromo.png'}}" width="500px" alt="">
                                     </div>
                                 </div>
