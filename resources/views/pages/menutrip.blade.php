@@ -34,8 +34,10 @@ Menu Trip
             <div class="col-sm-6 col-md-4 col-lg-4 my-4">
                 <a href="{{route('detailpage',$item->slug)}}">
                     <div class="card-travel mx-auto d-flex flex-column"
-                    style="background : url(' {{$item->galleries->count() ? Storage::url($item->galleries->first()->image) : ''}}');
-                            background-size: cover;">
+                    style=" background : url(' {{$item->galleries->count() ? Storage::url($item->galleries->first()->image) : ''}}');
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            background-position: center;">
                         <div class="text-card mt-auto mb">
                             <div class="travel-price">  Rp. 
                                 @php
