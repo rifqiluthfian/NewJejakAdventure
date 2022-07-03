@@ -102,57 +102,48 @@ class CheckoutController extends Controller
     }
 
 
-    public function success(Request $request,$id){
+     public function success(Request $request,$id){
 
         $transaction = Transaction::with(['details','travel_package.galleries','user','user_travel'])
         ->findOrFail($id);
-        
-        $transaction->transaction_status = 'PENDING';
-
-        $transaction->save(); 
 
 
         //Set konfigurasi midtrans
-        //Config::$serverKey = config('midtrans.serverKey');
-        //Config::$serverKey = config('midtrans.isProduction');
-        //Config::$serverKey = config('midtrans.isSanitized');
-        //Config::$serverKey = config('midtrans.is3ds');
-//
-        ////buat array ke midtrans
-        //$midtrans_params = [
-        //    'transaction_details' => [
-        //        'order_id' => 'TEST-' . $transaction->id,
-        //        'gross_amount' => (int) $transaction->transaction_total,
-        //    ],
-        //    'customer_details'=> [
-        //        'name' => $transaction->user->name,
-        //        'email' => $transaction->user->email
-        //    ],
-        //    'enabled_payments' => ['gopay'],
-        //    'vtweb' => []
-        //];
-//
-//
-        //try {
-        //    // Get Snap Payment Page URL
-        //    $paymentUrl = Snap::createTransaction($midtrans_params)->redirect_url;
-//
-        //     // Redirect to Snap Payment Page
-        //    header('Location: ' . $paymentUrl);
-//
-        //} catch (\Throwable $th) {
-        //    
-        //}
 
-        //Kirim email ke user
-        Mail::to($transaction->user)->send(
-            new TransactionSuccess($transaction)
-        );
-        Mail::to($transaction->user_travel)->send(
-            new TransactionSuccess($transaction)
-        );
-    
-    
-        return view('pages.success');
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = 'Mid-server-rDGgyGLDnGzRIkdCob7RV8vf';
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = true;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        //buat array ke midtrans
+        $midtrans_params = [
+            'transaction_details' => [
+                'order_id' => 'TEST-' . $transaction->id,
+                'gross_amount' => (int) $transaction->transaction_total,
+            ],
+            'customer_details'=> [
+                'name' => $transaction->user->name,
+                'email' => $transaction->user->email
+            ],
+            'enabled_payments' => ['gopay'],
+            'vtweb' => []
+        ];
+
+
+        try {
+        // Get Snap Payment Page URL
+        $paymentUrl = \Midtrans\Snap::createTransaction($midtrans_params)->redirect_url;
+        
+        // Redirect to Snap Payment Page
+        header('Location: ' . $paymentUrl);
+        }
+        catch (Exception $e) {
+        echo $e->getMessage();
+        }
+        
     }
 }

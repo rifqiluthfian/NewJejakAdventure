@@ -12,7 +12,7 @@
                             <h2 class="">User Management</h2>
                         </div>
                     </div>
-                    <table class="table table-responsive-xl table-hover" id="table_id">
+                    <table class="table table-responsive-sm table-hover" id="table_id">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>

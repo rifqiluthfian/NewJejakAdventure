@@ -269,16 +269,15 @@ Route::get('/travelagent/transaction/detail/{id}', [App\Http\Controllers\TravelA
 ->middleware(['auth','travelagent'])
 ->name('transaction.detail');
 
-
-
-
-
-
-
-
-
 Auth::routes(['verify' => true]);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//Midtrans
+Route::post('/midtrans/callback', [App\Http\Controllers\MidtransController::class,'notificationHandler']);
+Route::get('/midtrans/finish', [App\Http\Controllers\MidtransController::class,'finishRedirect']);
+Route::get('/midtrans/unfinish', [App\Http\Controllers\MidtransController::class,'unfinishRedirect']);
+Route::get('/midtrans/error', [App\Http\Controllers\MidtransController::class,'errorRedirect']);

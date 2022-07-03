@@ -24,6 +24,7 @@
                         <option value="IN_CART">In Cart</option>
                         <option value="PENDING">Pending</option>
                         <option value="SUCCESS">Success</option>
+                        <option value="PAID">Paid</option>
                         <option value="CANCEL">Cancel</option>
                         <option value="FAILED">Failed</option>
                     </select>
