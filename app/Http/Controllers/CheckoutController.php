@@ -111,9 +111,9 @@ class CheckoutController extends Controller
         //Set konfigurasi midtrans
 
         // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = 'Mid-server-rDGgyGLDnGzRIkdCob7RV8vf';
+        \Midtrans\Config::$serverKey = 'SB-Mid-server-AArAx1c5Nqito7Nw8-bmodHJ';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = true;
+        \Midtrans\Config::$isProduction = false;
         // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true
