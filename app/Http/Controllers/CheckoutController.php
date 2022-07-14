@@ -25,6 +25,7 @@ class CheckoutController extends Controller
         return view('pages.checkout',([
             'item'=>$item
         ]));
+        
     }
 
 
@@ -106,6 +107,8 @@ class CheckoutController extends Controller
 
         $transaction = Transaction::with(['details','travel_package.galleries','user','user_travel'])
         ->findOrFail($id);
+        
+        $request->session()->put('key', $id);
 
 
         //Set konfigurasi midtrans
@@ -122,7 +125,7 @@ class CheckoutController extends Controller
         //buat array ke midtrans
         $midtrans_params = [
             'transaction_details' => [
-                'order_id' => 'TEST-' . $transaction->id,
+                'order_id' => 'ORDER-' . $transaction->id,
                 'gross_amount' => (int) $transaction->transaction_total,
             ],
             'customer_details'=> [

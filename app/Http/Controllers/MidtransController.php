@@ -15,7 +15,7 @@ class MidtransController extends Controller
 {
     public function notificationHandler(Request $request){
 
-        //Set konfigurasi midtrans
+   //Set konfigurasi midtrans
 
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = 'Mid-server-rDGgyGLDnGzRIkdCob7RV8vf';
@@ -40,7 +40,8 @@ class MidtransController extends Controller
         $order_id = $order[1];
 
         $transaction = Transaction::findOrFail($order_id);
-
+        
+        
         //Handle notification status midtrans
         if ($status == 'capture') {
             if($type == 'credit_card'){
@@ -49,28 +50,34 @@ class MidtransController extends Controller
                 }
                 else{
                     $transaction->transaction_status = 'PAID';
+
                 }
             }
         }
 
         elseif ($status == 'settlement') {
             $transaction->transaction_status = 'PAID';
+
         }
 
         elseif ($status == 'pending') {
             $transaction->transaction_status = 'PENDING';
+
         }
 
         elseif ($status == 'deny') {
             $transaction->transaction_status = 'FAILED';
+
         }
 
         elseif ($status == 'expire') {
             $transaction->transaction_status = 'EXPIRED';
+
         }
 
         elseif ($status == 'cancel') {
             $transaction->transaction_status = 'FAILED';
+
         }
 
         $transaction->save();
@@ -80,24 +87,31 @@ class MidtransController extends Controller
                 Mail::to($transaction->user)->send(
                     new TransactionSuccess($transaction)
                 );
-                 return view('pages.success');
             }
 
             elseif ($status == 'settlement') {
                 Mail::to($transaction->user)->send(
                     new TransactionSuccess($transaction)
                 );
-                 return view('pages.success');
+
+                Mail::to($transaction->user_travel)->send(
+                    new TransactionSuccess($transaction)
+                );
+                
             }
 
             elseif ($status == 'success') {
                 Mail::to($transaction->user)->send(
                     new TransactionSuccess($transaction)
                 );
-                 return view('pages.success');
+
+                Mail::to($transaction->user_travel)->send(
+                    new TransactionSuccess($transaction)
+                );
+
             }
              elseif ($status == 'pending') {
-                  return redirect()->route('unfinish');
+               
             }
 
             elseif ($status == 'capture' && $fraud == 'challenge') {
@@ -133,11 +147,23 @@ class MidtransController extends Controller
     }
 
   public function finishRedirect(Request $request){
-      return view('pages.success');
+    $order = $request->session()->get('key', 'default');
+      
+    $transaction = Transaction::with(['details','travel_package','user'])->findOrFail($order);
+    if ($transaction->transaction_status == 'PENDING') {
+        return view('pages.unfinish');
+    }
+    elseif ($transaction->transaction_status == 'PAID') {
+        return view('pages.success');
+    }
+    else {
+        return view('pages.error');
+        }
     }
 
     public function unfinishRedirect(Request $request){
-        return view('pages.success');
+        
+        return view('pages.unfinish');
     }
 
     public function errorRedirect(Request $request){
