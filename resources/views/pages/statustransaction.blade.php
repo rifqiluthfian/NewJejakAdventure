@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('tittle')
-Checkout Page
+Status transaction of Jejak Adventure
 @endsection
 
 @section('content')

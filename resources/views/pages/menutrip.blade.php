@@ -43,7 +43,7 @@ Menu Trip
                                 @php
                                 echo number_format("$item->price")."<br>";
                                 @endphp </div>
-                            <div class="travel-days mt-2">{{ \Carbon\Carbon::create($item->departure_date)->format('M d Y') }}</div>
+                            <div class="travel-days mt-2">{{ \Carbon\Carbon::create($item->departure_date)->format('F n,Y') }}</div>
                         </div>
                     </div>
                 </a>
