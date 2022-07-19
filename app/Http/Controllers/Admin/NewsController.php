@@ -102,6 +102,7 @@ class NewsController extends Controller
     {
         $item = News::findOrFail($id);
         $item->delete();
+        DB::delete('delete from gallerynews where news_id = ?', [$id]);
         sleep(1);
         return redirect('admin/news');
     }

@@ -169,7 +169,7 @@
                               @php
                               echo number_format("$item->price")."<br>";
                               @endphp</div>
-                            <div class="travel-days mt-2">{{ \Carbon\Carbon::create($item->departure_date)->format('F n,Y') }}</div>
+                            <div class="travel-days mt-2">{{ \Carbon\Carbon::create($item->departure_date)->format('F d,Y') }}</div>
                         </div>
                     </div>
                   </a>
@@ -194,7 +194,7 @@
                     <div class="card-news mx-auto d-flex flex-column">
                       <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : 'frontend/images/berita-bromo.png'}}" alt="">
                         <p class="judul-berita m-3"> {{$item->title}} </p>
-                        <p class="sumber-berita m-3">{{ \Carbon\Carbon::create($item->date)->format('M d Y') }}</p>
+                        <p class="sumber-berita m-3">{{ \Carbon\Carbon::create($item->date)->format('F d,Y') }}</p>
                         <p class="mx-3">{{$item->subtitle}}</p>
                     </div>
                   </a>

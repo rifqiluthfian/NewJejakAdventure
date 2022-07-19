@@ -17,9 +17,8 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Title</th>
-                                <th scope="col">Slug</th>
+                                <th scope="col">Username Travel</th>
                                 <th scope="col">Location</th>
-                                <th scope="col">About</th>
                                 <th scope="col">Deparature Date</th>
                                 <th scope="col">Duration</th>
                                 <th scope="col">Type</th>
@@ -32,9 +31,8 @@
                             <tr>
                                 <td class="text-center">{{$item->id}}</td>
                                 <td>{{ $item->title }}</td>
-                                <td>{{ $item->slug }}</td>
+                                <td>{{ $item->username }}</td>
                                 <td>{{ $item->location }}</td>
-                                <td>{{ $item->about }}</td>
                                 <td>{{ $item->departure_date }}</td>
                                 <td>{{ $item->duration }}</td>
                                 <td>{{ $item->type }}</td>

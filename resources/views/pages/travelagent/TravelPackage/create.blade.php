@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label for="About">About</label>
-                    <input type="text" name="about" id="about" placeholder="About" value="{{old('about')}}" class="form-control">
+                    <textarea type="text" name="about" id="about" placeholder="Detail your trip" value="{{old('about')}}" rows = "4"  class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="Departure_date">Departure Date</label>
@@ -38,15 +38,18 @@
                 </div>
                 <div class="form-group">
                     <label for="Duration">Duration</label>
-                    <input type="text" name="duration" id="duration" placeholder="duration" value="{{old('duration')}}" class="form-control">
+                    <input type="text" name="duration" id="duration" placeholder="exm 3D2N" value="{{old('duration')}}" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="type">type</label>
-                    <input type="text" name="type" id="type" placeholder="type" value="{{old('type')}}" class="form-control">
+                    <select id="type" name="type" class="form-control">
+                        <option value="Open Trip">Open Trip</option>
+                        <option value="Private Trip">Private Trip</option>
+                      </select>
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>
-                    <input type="text" name="price" id="price" placeholder="price" value="{{old('price')}}" class="form-control">
+                    <input type="text" name="price" id="price" placeholder="price (Just input the number,System will formating automatic)" value="{{old('price')}}" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-success btn-block">Save</button>
             </form>

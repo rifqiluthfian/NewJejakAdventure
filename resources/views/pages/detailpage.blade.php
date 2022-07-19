@@ -70,7 +70,7 @@ Details Page
               <table class="trip-information">
                 <tr>
                   <th width="50%">Schedule Trip</th>
-                  <td width="50%" class="text-right">{{ \Carbon\Carbon::create($item->departure_date)->format('F n,Y') }}</td>
+                  <td width="50%" class="text-right">{{ \Carbon\Carbon::create($item->departure_date)->format('F d,Y') }}</td>
                 </tr>
                 <tr>
                   <th width="50%">Duration Trip</th>

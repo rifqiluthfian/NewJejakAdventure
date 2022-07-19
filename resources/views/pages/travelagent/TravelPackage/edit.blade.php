@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label for="About">About</label>
-                    <input type="text" name="about" id="about" placeholder="About" value="{{$item->about}}" class="form-control">
+                    <textarea type="text" name="about" id="about" placeholder="Detail your trip" value="{{$item->about}}" rows = "4"  class="form-control">{{$item->about}}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="Departure_date">Departure Date</label>
@@ -43,7 +43,11 @@
                 </div>
                 <div class="form-group">
                     <label for="type">type</label>
-                    <input type="text" name="type" id="type" placeholder="type" value="{{$item->type}}" class="form-control">
+                    <select id="type" name="type" class="form-control">
+                        <option value="{{$item->type}}">{{$item->type}}</option>
+                        <option value="Open Trip">Open Trip</option>
+                        <option value="Private Trip">Private Trip</option>
+                      </select>
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>

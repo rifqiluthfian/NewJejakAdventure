@@ -101,6 +101,8 @@ class TravelPackageController extends Controller
     {
         $item = TravelPackage::findOrFail($id);
         $item->delete();
+        DB::delete('delete from galleries where travel_packages_id = ?', [$id]);
+        DB::delete('delete from transactions where travel_packages_id = ?', [$id]);
         sleep(1);
         return redirect()('admin/travelpackage');
     }

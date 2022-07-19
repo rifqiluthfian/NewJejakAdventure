@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Username">Username</label>
-                    <input readonly="readonly" type="text" name="username" id="username" placeholder="{{Auth::user()->username}}" value="{{Auth::user()->username}}" class="form-control">
+                    <input readonly="readonly" type="text" name="username" id="username" placeholder="{{$item->username}}" value="{{Auth::user()->username}}" class="form-control">
                    
                 </div>
                 <div class="form-group">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TravelAgent\TravelPackageRequest;
 use Illuminate\Http\Request;
 use App\Models\Travelpackage;
+use App\Models\GalleryTravel;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
@@ -108,7 +109,10 @@ class TravelPackageController extends Controller
     {
         $item = TravelPackage::findOrFail($id);
         $item->delete();
+        DB::delete('delete from galleries where travel_packages_id = ?', [$id]);
+        DB::delete('delete from transactions where travel_packages_id = ?', [$id]);
         sleep(1);
         return redirect()->route('travelpackage.index');
     }
 }
+

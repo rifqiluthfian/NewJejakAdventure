@@ -69,6 +69,9 @@ Checkout Page
                             <td class="align-middle">
                                 {{$detail->no_phone}}
                             </td>
+                            @if ($loop->first)
+      
+                            @else
                             <td class="align-middle">
                                 <a href=" {{route('checkout.remove',$detail->id)}} ">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
@@ -77,6 +80,7 @@ Checkout Page
                                     </svg>
                                 </a>
                             </td>
+                            @endif
                         </tr>
                     @empty
                         <td colspan="6" class="text-center">

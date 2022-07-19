@@ -27,7 +27,7 @@ Detail Berita
                         <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : ''}}" width="500px" alt="">
                       </div>
                       <div class="col-lg-4">
-                        <p>{{ \Carbon\Carbon::create($item->date)->format('F n,Y') }}</p><br>
+                        <p>{{ \Carbon\Carbon::create($item->date)->format('F d,Y') }}</p><br>
                         <h1>{{$item->title}}</h1><br>
                         <p> {{$item->subtitle}} </p>
           

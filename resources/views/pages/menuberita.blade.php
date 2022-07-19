@@ -31,7 +31,7 @@ Menu Berita
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
-                                    <p class="travel-days mt-2">{{ \Carbon\Carbon::create($item->date)->format('M d Y') }}</p><br>
+                                    <p class="travel-days mt-2">{{ \Carbon\Carbon::create($item->date)->format('F d,Y') }}</p><br>
                                 <h1>{{$item->title}}</h1>
                                 <p> {{$item->subtitle}} </p>
                                 </div>
