@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mail\TransactionSuccess;
+use App\Mail\NotifTravelAgent;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Mail;
 use Midtrans\Config;
@@ -106,7 +107,7 @@ class MidtransController extends Controller
                 );
 
                 Mail::to($transaction->user_travel)->send(
-                    new TransactionSuccess($transaction)
+                    new NotifTravelAgent($transaction)
                 );
 
             }

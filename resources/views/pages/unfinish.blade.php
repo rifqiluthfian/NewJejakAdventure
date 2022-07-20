@@ -13,7 +13,7 @@
 <body>
     <div class="section-success d-flex align-items-center">
         <div class="col text-center">
-        <img src="{{url('frontend/images/success.png')}}" width="360" alt="">
+        <img src="{{url('frontend/images/fail.png')}}" width="360" alt="">
         <h1>Ooops your payment has Unfinish</h1>
         <a href="{{url('/')}}" class="btn btn-home-page mt-3 px-5">
             Home Page

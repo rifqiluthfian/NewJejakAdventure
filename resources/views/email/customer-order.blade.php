@@ -166,7 +166,10 @@
                           <tbody>
                             <tr>
                               <td style="width:560px;">
-                                <img alt="" height="auto" src="{{url($data->travel_package->galleries[0]->image)}}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="560" />
+                                <img alt="" height="auto" src="{{ Storage::url
+                                ($data->travel_package->galleries[0]->image) }}" 
+                                style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" 
+                                width="560" />
                               </td>
                             </tr>
                           </tbody>
@@ -194,7 +197,9 @@
                   <tbody>
                     <tr>
                       <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
-                        <div style="font-family:Assistant,Helvetica,arial,sans-serif;font-size:15px;font-weight:bold;line-height:25px;text-align:left;color:#000000;">Hi, {{$data->user->name}} <br><br> Tiket digital kamu sudah berhasil dicetak. <br> Booking ID {{$data->id}} Silahkan tunggu sampai travel agent kami menghubungi anda.Jika selama 1x24 tidak menghubungi.Silahkan contact kami melalui email atau nomer yang tertera.Terimakasih</div>
+                        <div style="font-family:Assistant,Helvetica,arial,sans-serif;font-size:15px;font-weight:bold;line-height:25px;text-align:left;color:#000000;">Hi, {{$data->travel_package->username}} <br><br> Memberitahukan bahwa trip anda {{$data->travel_package->title}} telah dipesan. <br>Mohon segera menghubungi customer anda dan melakukan konfirmasi ke kami(admin).Jika tidak segera melakukan konfirmasi kekami dalam waktu 1x24 jam maka transaksi akan kami anggap batal.
+                          <br>Lakukan konfirmasi dengan cara Screenshoot bukti bahwa anda telah menghubungi customer kami dan kirim ke no whatsapp kami (085608537600)
+                        </div>
                       </td>
                     </tr>
                     <tr>
@@ -234,9 +239,7 @@
                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                           <tbody>
                             <tr>
-                              <td align="center" bgcolor="#6FA988" role="presentation" style="border:none;border-radius:10px;cursor:auto;mso-padding-alt:10px 25px;background:#6FA988;" valign="middle">
-                                <a href=" {{url('status_transaction/detail/'.$data->id)}} " style="display:inline-block;background:#6FA988;color:#ffffff;font-family:Assistant,Helvetica,Arial,sant-serif;font-size:18px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"> Check Detail </a>
-                              </td>
+                          
                             </tr>
                           </tbody>
                         </table>

@@ -123,7 +123,7 @@ Checkout Page
                     <tr>
                         <th width="50%">Schedule Trip</th>
                         <td width="50%" class="text-right">
-                            {{ \Carbon\Carbon::create($item->travel_package->departure_date)->format('F n,Y') }}
+                            {{ \Carbon\Carbon::create($item->travel_package->departure_date)->format('F d,Y') }}
                         </td>
                     </tr>
                     <tr>
@@ -140,22 +140,13 @@ Checkout Page
                         </td>
                     </tr>
                     <tr>
-                        <th width="50%">Sub Total</th>
+                        <th width="50%">Total</th>
                         <td width="50%" class="text-right">
-                            Rp. 
+                            <span class="text-primary">Rp. 
                                 @php
                                 echo number_format("$item->transaction_total")."<br>";
                                 @endphp
-                        </td>
-                    </tr>
-                    <tr>
-                        <th width="50%">Total (+Unique)</th>
-                        <td width="50%" class="text-right text-total">
-                        <span class="text-primary">Rp. 
-                            @php
-                            echo number_format("$item->transaction_total")."<br>";
-                            @endphp</span> +
-                            <span class="text-warning">{{mt_rand(0,99)}}</span>
+                            </span>
                         </td>
                     </tr>
                 </table>
@@ -167,7 +158,7 @@ Checkout Page
                 trip
                 </p>
                 <div class="bank">
-                    <img src="{{url('frontend/images/logo-gopay.png')}}" width="250" alt="">
+                    <img src="{{url('frontend/images/logo-qris.png')}}" width="250" alt="">
                 </div>
 
             </div>

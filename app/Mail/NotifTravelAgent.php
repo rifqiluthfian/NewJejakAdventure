@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class TransactionSuccess extends Mailable
+class NotifTravelAgent extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -33,7 +33,7 @@ class TransactionSuccess extends Mailable
 
         return $this
         ->from('jejakadventure@gmail.com','JEJAKADVENTURE')
-        ->subject('PROOF OF PAYMENT')
-        ->view('email.transaction-success');
+        ->subject('NOTIFICATION CUSTOMER NEW ORDER')
+        ->view('email.customer-order');
     }
 }
