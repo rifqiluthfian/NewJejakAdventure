@@ -19,7 +19,6 @@ class TravelPackageController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
     public function index(Request $request){
         $user = $request->user()->username;
         $items = TravelPackage::all()->where('username',$user);

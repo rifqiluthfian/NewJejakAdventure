@@ -20,6 +20,7 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Roles</th>
+                                <th scope="col">Email verified</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -31,6 +32,12 @@
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->username }}</td>
                                 <td>{{ $item->roles }}</td>
+                                <td> @if ($item->email_verified_at == null)
+                                        <h6 class="mb-0">Not Yet</h6>
+                                     @else
+                                        <h6 class="mb-0">Done</h6>
+                                     @endif
+                                </td>
                                 <td>
                                     <a href=" {{route('usermanagement.edit',$item->id)}} " class="btn btn-info">
                                         <i class="fa fa-pencil-alt"></i>

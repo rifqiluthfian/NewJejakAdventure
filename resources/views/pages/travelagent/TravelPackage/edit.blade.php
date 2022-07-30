@@ -21,17 +21,8 @@
                     <input type="text" name="title" id="title" placeholder="title" value="{{$item->title}}" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="Username">Username</label>
-                    <input readonly="readonly" type="text" name="username" id="username" placeholder="{{Auth::user()->username}}" value="{{Auth::user()->username}}" class="form-control">
-                   
-                </div>
-                <div class="form-group">
                     <label for="location">Location</label>
                     <input type="text" name="location" id="location" placeholder="Location" value="{{$item->location}}" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="About">About</label>
-                    <textarea type="text" name="about" id="about" placeholder="Detail your trip" value="{{$item->about}}" rows = "4"  class="form-control">{{$item->about}}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="Departure_date">Departure Date</label>
@@ -53,6 +44,15 @@
                     <label for="price">Price</label>
                     <input type="text" name="price" id="price" placeholder="price" value="{{$item->price}}" class="form-control">
                 </div>
+                <div class="form-group">
+                    <label for="Detail">Detail</label>
+                    <textarea type="text" name="about" id="detail" placeholder="Detail your trip" value="{{$item->about}}" rows = "4"  class="form-control">{{$item->about}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="Itinerary">Itinerary</label>
+                    <textarea type="text" name="itinerary" id="itinerary" placeholder="Detail your trip" value="{{$item->itinerary}}" rows = "4"  class="form-control">{{$item->itinerary}}</textarea>
+                </div>
+               
                 <button type="submit" class="btn btn-success btn-block">Save</button>
             </form>
         </div>

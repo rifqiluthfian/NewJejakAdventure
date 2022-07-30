@@ -21,17 +21,8 @@
                     <input type="text" name="title" id="title" placeholder="title" value="{{$item->title}}" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="Username">Username</label>
-                    <input readonly="readonly" type="text" name="username" id="username" placeholder="{{$item->username}}" value="{{Auth::user()->username}}" class="form-control">
-                   
-                </div>
-                <div class="form-group">
                     <label for="location">Location</label>
                     <input type="text" name="location" id="location" placeholder="Location" value="{{$item->location}}" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="About">About</label>
-                    <input type="text" name="about" id="about" placeholder="About" value="{{$item->about}}" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="Departure_date">Departure Date</label>
@@ -48,6 +39,14 @@
                 <div class="form-group">
                     <label for="price">Price</label>
                     <input type="text" name="price" id="price" placeholder="price" value="{{$item->price}}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="About">Detail</label>
+                    <input type="text" name="about" id="detail" placeholder="detail" value="{{$item->about}}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="About">Itinerary</label>
+                    <input type="text" name="itinerary" id="itinerary" placeholder="About" value="{{$item->itinerary}}" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-success btn-block">Save</button>
             </form>

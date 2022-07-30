@@ -29,10 +29,6 @@
                     <input type="text" name="location" id="location" placeholder="Location" value="{{old('location')}}" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="About">About</label>
-                    <textarea type="text" name="about" id="about" placeholder="Detail your trip" value="{{old('about')}}" rows = "4"  class="form-control"></textarea>
-                </div>
-                <div class="form-group">
                     <label for="Departure_date">Departure Date</label>
                     <input type="date" name="departure_date" id="departure_date" placeholder="Departure Date" value="{{old('departure_date')}}" class="form-control">
                 </div>
@@ -51,10 +47,18 @@
                     <label for="price">Price</label>
                     <input type="text" name="price" id="price" placeholder="price (Just input the number,System will formating automatic)" value="{{old('price')}}" class="form-control">
                 </div>
+                <div class="form-group">
+                    <label for="Detail">Detail</label>
+                    <textarea type="text" name="about" id="detail" placeholder="Detail your trip" value="{{old('about')}}" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="Itinerary">Itinerary</label>
+                    <textarea type="text" name="itinerary" id="itinerary" placeholder="itinerary your trip" value="{{old('itinerary')}}" class="form-control"></textarea>
+                </div>
                 <button type="submit" class="btn btn-success btn-block">Save</button>
             </form>
         </div>
     </div>
 </div>
-
 @endsection
+

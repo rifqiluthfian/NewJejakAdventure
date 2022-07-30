@@ -28,6 +28,19 @@ Route::get('/detailpage/{slug}', [App\Http\Controllers\DetailController::class, 
 Route::get('/gallery', [App\Http\Controllers\GalleryController::class,'index'])
 ->name('gallery');
 
+//User Profil
+Route::get('/profile',[App\Http\Controllers\ProfileController::class,'index'])
+->middleware(['auth'])
+->name('profile');
+
+Route::get('/profile/edit',[App\Http\Controllers\ProfileController::class,'edit'])
+->middleware(['auth'])
+->name('profile.edit');
+
+Route::put('/profile/update',[App\Http\Controllers\ProfileController::class,'update'])
+->middleware(['auth'])
+->name('profile.update');
+
 //StatusTransaction
 Route::get('/status_transaction/index', [App\Http\Controllers\StatusTransactionController::class,'index'])
 ->middleware(['auth','verified'])

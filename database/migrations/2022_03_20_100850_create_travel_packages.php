@@ -20,6 +20,7 @@ class CreateTravelPackages extends Migration
             $table->string('slug');
             $table->string('location');
             $table->longtext('about');
+            $table->longtext('itinerary');
             $table->string('departure_date');
             $table->string('duration');
             $table->string('type');

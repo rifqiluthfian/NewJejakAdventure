@@ -18,7 +18,7 @@ Details Page
             <nav>
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  Trip
+                  <a href="{{route('menutrip')}}">Trip</a>
                 </li>
                 <li class="breadcrumb-item active">
                   Detail Trip
@@ -53,12 +53,22 @@ Details Page
                   @endforeach
                 </div>
               </div>
-                  
               @endif
-              <h4 class="ml-5">About Trip</h4 >
-              <p class="mx-5">
-                {!! $item->about !!}
-              </p>
+              <div class="about-trip">
+                <h4>About trip</h4>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-toggle="tab" data-target="#detail" type="button" role="tab" aria-controls="home" aria-selected="true">Detail trip</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-toggle="tab" data-target="#itinerary" type="button" role="tab" aria-controls="profile" aria-selected="false">Itinerary trip</button>
+                  </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="detail" role="tabpanel" aria-labelledby="home-tab">{!! $item->about !!}</div>
+                  <div class="tab-pane fade" id="itinerary" role="tabpanel" aria-labelledby="profile-tab">{!! $item->itinerary !!}</div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-lg-4">

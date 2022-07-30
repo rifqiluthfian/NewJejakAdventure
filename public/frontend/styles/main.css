@@ -36,6 +36,10 @@ a:hover {
   color: #ffffff !important;
 }
 
+.user-profile{
+  margin-top: 10vh;
+}
+
 @media screen and (max-width: 992px) {
   .menu-trip-header .navbar-menu-trip {
     background-color: #86a090;
@@ -231,31 +235,27 @@ header .book-trip {
   z-index: 0;
 }
 
-.details-header .section-details-content {
-  margin-top: -100px;
-  min-height: 100vh;
-  display: block;
-}
 
-.details-header .section-details-content .breadcrumb {
+
+.section-details-content .breadcrumb {
   background-color: transparent;
   margin-top: 30px;
 }
 
-.details-header .section-details-content .breadcrumb-item {
+.section-details-content .breadcrumb-item {
   color: #fff;
 }
 
-.details-header .section-details-content .breadcrumb-item.active {
+.section-details-content .breadcrumb-item.active {
   color: #ffff;
 }
 
-.details-header .section-details-content .breadcrumb-item-berita.active {
+.section-details-content .breadcrumb-item-berita.active {
   color: #fff;
   font-size: xxx-large;
 }
 
-.details-header .section-details-content img {
+.section-details-content img {
   border-radius: 10px;
 }
 

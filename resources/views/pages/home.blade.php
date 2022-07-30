@@ -66,6 +66,7 @@
                 @endauth
                 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href=" {{route('profile')}} ">Profile</a>
                   <a class="dropdown-item" href=" {{route('statustransaction.index')}} ">Status Payment</a>
                   <a class="dropdown-item" href="{{route('faq')}}">FAQ</a>
                   @guest

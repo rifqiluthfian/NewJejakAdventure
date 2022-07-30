@@ -16,7 +16,7 @@ class TravelPackage extends Model
 
 
     protected $fillable = [
-        'username','title','slug','location','about','departure_date','duration',
+        'username','title','slug','location','about','itinerary','departure_date','duration',
         'type','price'
     ];
 

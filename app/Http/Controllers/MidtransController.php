@@ -147,20 +147,54 @@ class MidtransController extends Controller
 
     }
 
-  public function finishRedirect(Request $request){
-    $order = $request->session()->get('key', 'default');
-      
-    $transaction = Transaction::with(['details','travel_package','user'])->findOrFail($order);
-    if ($transaction->transaction_status == 'PENDING') {
-        return view('pages.unfinish');
-    }
-    elseif ($transaction->transaction_status == 'PAID') {
-        return view('pages.success');
-    }
-    else {
-        return view('pages.error');
+    public function finishRedirect(Request $request){
+        $order = $request->session()->get('key', 'default');
+          
+        $transaction = Transaction::with(['details','travel_package','user','user_travel'])->findOrFail($order);
+        if ($transaction->transaction_status == 'PENDING') {
+            return view('pages.unfinish');
         }
-    }
+        elseif ($transaction->transaction_status == 'PAID') {
+            $curl = curl_init();
+            $phone = $transaction->user_travel->no_phone;
+            $out_phone = preg_replace('/^0/', '', $phone);
+            $username_agent = $transaction->username_travel;
+            $id_order = $transaction->id;
+            $trip = $transaction->travel_package->title;
+            $body = "Halo $username_agent . Ada pesanan trip anda $trip dengan id transaksi $id_order.Silahkan cek email anda untuk konfirmasi pesanan anda. Jika ada pertanyaan hubungi admin di nomor 085608537600 atau email jejakadventure.info@gmail.com
+    Terimakasih";
+    
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.ultramsg.com/instance12672/messages/chat",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_SSL_VERIFYHOST => 0,
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "token=1kzca8lzfk06mlqm&to=+62$out_phone&body=$body&priority=10&referenceId=",
+            CURLOPT_HTTPHEADER => array(
+                "content-type: application/x-www-form-urlencoded"
+            ),
+        ));
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            
+            curl_close($curl);
+            
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              return view('pages.success');
+            }
+            
+        }
+        else {
+            return view('pages.error');
+            }
+        }
 
     public function unfinishRedirect(Request $request){
         

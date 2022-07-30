@@ -21,6 +21,31 @@
 <script type="text/javascript" src="{{ url('frontend/libraries/DataTables/js/dataTables.bootstrap5.min') }}"></script>
 <script type="text/javascript" src="{{ url('frontend/libraries/DataTables/js/jquery.dataTables.min.js') }}"></script>
 
+{{-- Ck editor --}}
+<script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#detail' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#itinerary' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#content' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
 
 <script>
     $(document).ready(function() {
