@@ -47,7 +47,7 @@ a{
     opacity: 0.9;
     z-index: 1;
     width: 100%;
-      }   
+      }
   }
 }
 
@@ -130,8 +130,6 @@ header{
 
     .card-news{
         max-width: 300px ;
-        background-color:antiquewhite ;
-        background: size;
         background-color: #fff;
         border: 2px solid #fff;
         box-shadow: 0 2px 5px 0;
@@ -269,8 +267,8 @@ header{
     img{
       border-radius: 10px;
     }
-      
-      
+
+
 
       .gallery{
         .xzoom-container{
@@ -295,7 +293,7 @@ header{
       .join-container{
         margin-top: -16px;
       }
-      
+
       .btn-join-now{
         border-radius: 0px;
         background-color: #2BB272;
@@ -311,7 +309,7 @@ header{
 
 //Menu Berita
 .menu-berita{
-  img{ 
+  img{
     width: 350px !important;
     color: white;
     padding: 0px;
@@ -459,36 +457,36 @@ header{
       margin: 10px;
       background-color: white;
       box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
-    
+
       &:hover {
         .card__caption {
           top: 50%;
           transform: translateY(-50%);
         }
-    
+
         .card__image {
           transform: translateY(-10px);
         }
-    
+
         .card__thumb {
           &::after {
             top: 0;
           }
         }
-    
+
         .card__snippet {
           margin: 20px 0;
         }
       }
-      
+
 
     }
-    
 
-    
+
+
 }
 
-@media (max-width: 992px) { 
+@media (max-width: 992px) {
   .breadcrumb-item{
     display: none;
   }
@@ -514,7 +512,7 @@ $color-box-7 : #de8b3e;
     padding: 10px;
     font-family: 'Do Hyeon', sans-serif;
     overflow: hidden;
-    
+
   .cards {
       height: 400px;
       display: block;
@@ -524,11 +522,11 @@ $color-box-7 : #de8b3e;
       background-position: center;
   }
 
-  
+
   .cards--two {
       position: relative;
       backface-visibility: hidden;
-      
+
       p {
         position: absolute;
         top: 83%;
@@ -539,44 +537,44 @@ $color-box-7 : #de8b3e;
         z-index: 8;
         transition: all .6s ease;
       }
-      
+
       &:hover {
-        
+
         p {
           left: 8%;
         }
-        
+
         img {
           transform: translateY(-15px);
         }
-        
+
         .cards--two__rect {
           top: 75%;
-          
+
           &:before {
             transform: translateY(15px);
           }
         }
-        
+
         li {
             transform: translateY(0);
         }
-        
+
         .cards--two__tri {
           right: -40%;
-          
+
           &:before {
             right: -312px;
           }
-          
-          
+
+
         }
       }
-      
+
       img {
         transition: all .2s ease;
       }
-      
+
       &__tri {
         border-top: 220px solid transparent;
         border-bottom: 190px solid transparent;
@@ -587,7 +585,7 @@ $color-box-7 : #de8b3e;
         top: 0;
         right: -100%;
         transition: all .3s ease-in-out;
-        
+
         &:before {
           border-top: 220px solid transparent;
           border-bottom: 190px solid transparent;
@@ -601,7 +599,7 @@ $color-box-7 : #de8b3e;
           transition-delay: .2s;
         }
       }
-      
+
       &__rect {
         width: 750px;
         height: 200px;
@@ -614,7 +612,7 @@ $color-box-7 : #de8b3e;
         z-index: 5;
         opacity: .9;
         transition: all .3s ease-in-out;
-        
+
         &:before {
           content: '';
           display: block;
@@ -628,14 +626,14 @@ $color-box-7 : #de8b3e;
           transition-delay: .1s;
         }
       }
-      
+
       ul {
         list-style: none;
         position: absolute;
         bottom: 0;
         left: 10px;
         z-index: 9;
-        
+
         li {
           display: inline-block;
           font-size: 16px;
@@ -643,55 +641,55 @@ $color-box-7 : #de8b3e;
           color: #fff;
           transition: all .2s ease-in-out;
           transform: translateY(100px);
-          
+
           &:nth-child(2) {
             transition-delay: .2s;
           }
-          
+
           &:nth-child(3) {
             transition-delay: .3s;
           }
-          
+
           &:nth-child(4) {
             transition-delay: .4s;
           }
         }
       }
     }
-  
+
   .cards--three {
     position: relative;
     z-index: 10;
-    
+
     &:hover {
       .cards--three__rect-1 {
         left: 10%;
-        
+
         .shadow-1 {
           left: -20%;
         }
       }
-      
+
       .cards--three__rect-2 {
         left: 60%;
-        
+
         &:before {
           left: -100%;
         }
-        
+
         &:after {
           left: 80%;
         }
-        
+
         .shadow-2 {
           left: -10%;
         }
-        
+
       }
-    
-    
+
+
     }
-    
+
     &__rect-1 {
       background: #fff;
       width: 200px;
@@ -704,14 +702,14 @@ $color-box-7 : #de8b3e;
       left: -100%;
       z-index: 8;
       transition: all .5s ease-in;
-      
+
       p {
         font-size: 20px;
         color: #fff;
         transform: skewX(20deg);
         line-height: 6rem;
       }
-      
+
      .shadow-1 {
         background: $color-box-6;
         width: 230px;
@@ -723,7 +721,7 @@ $color-box-7 : #de8b3e;
        transition: all .3s ease-in;
       }
     }
-    
+
     &__rect-2 {
       width: 100px;
       height: 70px;
@@ -735,7 +733,7 @@ $color-box-7 : #de8b3e;
       transform: skewX(-20deg);
       z-index: 8;
       transition: all .5s ease-in;
-      
+
       &::before {
         content: '';
         display: block;
@@ -748,7 +746,7 @@ $color-box-7 : #de8b3e;
         top: 10%;
         transition: all .3s ease-in;
       }
-      
+
       &::after {
         content: '';
         display: block;
@@ -762,7 +760,7 @@ $color-box-7 : #de8b3e;
         transition: all .5s ease-in;
         transition-delay: .2s;
       }
-      
+
       .shadow-2 {
         background: $color-box-3;
         width: 100%;
@@ -774,10 +772,10 @@ $color-box-7 : #de8b3e;
         transition: all .5s ease-in;
         transition-delay: .2s;
       }
-      
+
     }
-    
-    
+
+
     &__list {
     list-style: none;
     position: absolute;
@@ -785,7 +783,7 @@ $color-box-7 : #de8b3e;
     right: 7px;
     padding-top: 60px;
     transition: all .4s ease;
-      
+
       li {
         display: inline-block;
         margin: 4px;
@@ -799,22 +797,22 @@ $color-box-7 : #de8b3e;
         font-size: 12px;
         transition: all .3s ease;
         transform: translateX(500%);
-        
+
         &:nth-child(1){
           transition-delay: .2s;
         }
-        
+
         &:nth-child(2){
           transition-delay: .3s;
         }
-        
+
         &:nth-child(3){
           transition-delay: .4s;
         }
       }
     }
   }
- 
+
 }
 
 

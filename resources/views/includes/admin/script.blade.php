@@ -40,7 +40,7 @@
 </script>
 <script>
     ClassicEditor
-        .create( document.querySelector( '#content' ) )
+        .create( document.querySelector( '#contents' ) )
         .catch( error => {
             console.error( error );
         } );

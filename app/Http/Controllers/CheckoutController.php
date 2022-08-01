@@ -22,38 +22,8 @@ class CheckoutController extends Controller
     public function index(Request $request,$id){
 
         $item = Transaction::with(['details','travel_package','user'])->findOrFail($id);
-        $transaction = Transaction::with(['details','travel_package.galleries','user','user_travel'])
-        ->findOrFail($id);
-
-        // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = 'SB-Mid-server-AArAx1c5Nqito7Nw8-bmodHJ';
-        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = false;
-        // Set sanitization on (default)
-        \Midtrans\Config::$isSanitized = true;
-        // Set 3DS transaction for credit card to true
-        \Midtrans\Config::$is3ds = true;
-        
-           //buat array ke midtrans
-           $params = [
-            'transaction_details' => 
-            [
-                'order_id' => 'ORDER-' . $transaction->id,
-                'gross_amount' => (int) $transaction->transaction_total,
-            ],
-            'customer_details'=> 
-            [
-                'name' => $transaction->user->name,
-                'email' => $transaction->user->email
-            ],
-        ];
-
-        
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
-
         return view('pages.checkout',([
-            'item'=>$item,
-            'snapToken'=>$snapToken
+            'item'=>$item
         ]));
         
     }
@@ -146,7 +116,7 @@ class CheckoutController extends Controller
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = 'Mid-server-rDGgyGLDnGzRIkdCob7RV8vf';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = true;
+        \Midtrans\Config::$isProduction = false;
         // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true

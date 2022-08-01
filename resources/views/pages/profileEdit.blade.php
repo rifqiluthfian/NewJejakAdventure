@@ -83,6 +83,7 @@ User Profile Jejak Adventure
                 <div class="row">
                   <div class="col-sm-3">
                   </div>
+                </div>
                 <div class="row">
                     <div class="col-sm-12">
                       <button type="submit" class="btn btn-success btn-block">Save</button>

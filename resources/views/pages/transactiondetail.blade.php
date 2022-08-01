@@ -21,9 +21,9 @@ FaQ
                         </nav>
                     </div>
                 </div>
+            </div>
 
                 <div class="container-fluid">
-                
                     <div class="card-shadow">
                         <div class="card-body">
                             <table class="table table-bordered">
@@ -47,7 +47,7 @@ FaQ
                                     <td>Total Transaction</td>
                                     <td> {{$item->transaction_status}} </td>
                                 </tr>
-                
+
                                 <tr>
                                     <th>Data Order</th>
                                     <td>
