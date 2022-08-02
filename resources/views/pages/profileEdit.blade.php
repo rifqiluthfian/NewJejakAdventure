@@ -67,7 +67,7 @@ User Profile Jejak Adventure
                     <h6 class="mb-0">Phone</h6>
                   </div>
                   <div class="col-sm-9 text-secondary">
-                    <input type="text" name="phone" id="phone" placeholder="phone" value="{{$item->no_phone}}" class="form-control">
+                    <input type="text" name="no_phone" id="no_phone" placeholder="phone" value="{{$item->no_phone}}" class="form-control">
                   </div>
                 </div>
                 <hr>
