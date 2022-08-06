@@ -167,8 +167,8 @@
                             <tr>
                               <td style="width:560px;">
                                 <img alt="" height="auto" src="{{ Storage::url
-                                ($data->travel_package->galleries[0]->image) }}"
-                                style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
+                                ($data->travel_package->galleries[0]->image) }}" 
+                                style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" 
                                 width="560" />
                               </td>
                             </tr>
@@ -239,7 +239,7 @@
                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                           <tbody>
                             <tr>
-
+                              
                             </tr>
                           </tbody>
                         </table>

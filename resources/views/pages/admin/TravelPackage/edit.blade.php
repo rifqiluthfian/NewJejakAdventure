@@ -1,5 +1,7 @@
 @extends('layouts.admin')
-
+@section('title')
+Edit Travel Package
+@endsection
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -19,6 +21,10 @@
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" name="title" id="title" placeholder="title" value="{{$item->title}}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="Username">Username</label>
+                    <input readonly="readonly" type="text" name="username" id="username" placeholder="{{$item->username}}" value="{{$item->username}}" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="location">Location</label>
@@ -42,12 +48,13 @@
                 </div>
                 <div class="form-group">
                     <label for="About">Detail</label>
-                    <input type="text" name="about" id="detail" placeholder="detail" value="{{$item->about}}" class="form-control">
+                    <textarea type="text" name="about" id="detail" placeholder="Detail your trip" value="{{$item->about}}" rows = "4"  class="form-control">{{$item->about}}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="About">Itinerary</label>
-                    <input type="text" name="itinerary" id="itinerary" placeholder="About" value="{{$item->itinerary}}" class="form-control">
+                    <label for="Itinerary">Itinerary</label>
+                    <textarea type="text" name="itinerary" id="itinerary" placeholder="Detail your trip" value="{{$item->itinerary}}" rows = "4"  class="form-control">{{$item->itinerary}}</textarea>
                 </div>
+                
                 <button type="submit" class="btn btn-success btn-block">Save</button>
             </form>
         </div>

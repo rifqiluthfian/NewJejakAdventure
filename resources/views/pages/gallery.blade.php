@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('tittle')
+@section('title')
 Gallery Jejak Adventure
 @endsection
 @section('content')

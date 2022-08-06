@@ -1,5 +1,7 @@
 @extends('layouts.admin')
-
+@section('title')
+Index transaction
+@endsection
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -9,7 +11,7 @@
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col">
-                            <h2 class="">News JejakAdventure</h2>
+                            <h2 class="">Transaction Trip Jejak Adventure</h2>
                         </div>
                     </div>
                         <table class="table table-bordered table-responsive-sm" id="table_id">

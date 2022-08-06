@@ -1,5 +1,7 @@
 @extends('layouts.travelagent')
-
+@section('title')
+Edit Travel package
+@endsection
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -19,6 +21,11 @@
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" name="title" id="title" placeholder="title" value="{{$item->title}}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="Username">Username</label>
+                    <input readonly="readonly" type="text" name="username" id="username" placeholder="{{Auth::user()->username}}" value="{{Auth::user()->username}}" class="form-control">
+                   
                 </div>
                 <div class="form-group">
                     <label for="location">Location</label>
@@ -52,7 +59,6 @@
                     <label for="Itinerary">Itinerary</label>
                     <textarea type="text" name="itinerary" id="itinerary" placeholder="Detail your trip" value="{{$item->itinerary}}" rows = "4"  class="form-control">{{$item->itinerary}}</textarea>
                 </div>
-               
                 <button type="submit" class="btn btn-success btn-block">Save</button>
             </form>
         </div>

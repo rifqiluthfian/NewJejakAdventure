@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('tittle')
-User Profile Jejak Adventure
+@section('title')
+User Profile
 @endsection
 @section('content')
 

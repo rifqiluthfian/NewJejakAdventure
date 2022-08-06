@@ -1,5 +1,7 @@
 @extends('layouts.admin')
-
+@section('title')
+Create news
+@endsection
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -26,7 +28,7 @@
                     <label for="date">Date</label>
                     <input type="date" name="date" id="date" placeholder="date" value="{{old('date')}}" class="form-control">
                 </div>
-                <div class="form-group">
+                 <div class="form-group">
                     <label for="contents">Contents</label>
                     <textarea type="text" name="contents" id="contents" placeholder="contents" value="{{old('content')}}" class="form-control"></textarea>
                 </div>

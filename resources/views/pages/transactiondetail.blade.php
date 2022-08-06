@@ -2,8 +2,8 @@
 
 @section('content')
 
-@section('tittle')
-FaQ
+@section('title')
+Details Transaction
 @endsection
 @section('content')
     <!-- detailheader -->
@@ -21,12 +21,12 @@ FaQ
                         </nav>
                     </div>
                 </div>
-            </div>
 
                 <div class="container-fluid">
+                
                     <div class="card-shadow">
                         <div class="card-body">
-                            <table class="table table-bordered">
+                            <table class="table table-responsive-sm table-bordered">
                                 <tr>
                                     <td>ID</td>
                                     <td> {{$item->id}} </td>
@@ -44,14 +44,14 @@ FaQ
                                     <td> {{$item->transaction_total}} </td>
                                 </tr>
                                 <tr>
-                                    <td>Total Transaction</td>
+                                    <td>Status Transaction</td>
                                     <td> {{$item->transaction_status}} </td>
                                 </tr>
-
+                
                                 <tr>
                                     <th>Data Order</th>
                                     <td>
-                                        <table class="table table-bordered">
+                                        <table class="table">
                                             <tr>
                                                 <td>ID</td>
                                                 <td>Username</td>

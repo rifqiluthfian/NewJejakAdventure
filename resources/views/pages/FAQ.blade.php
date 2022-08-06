@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('tittle')
+@section('title')
 FaQ
 @endsection
 @section('content')
@@ -29,9 +29,8 @@ FaQ
                         </div>
                         <div class="panel">
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam provident quas odit itaque laborum, 
-                                facere numquam autem recusandae cumque maiores dicta. Asperiores, quidem vel. Quidem, doloremque atque. 
-                                Hic, possimus corrupti.
+                                Jejak Adventure, which is a web-based application that accommodates trusted travel agents to join the 
+                                Adventure trail to market trips. So that customers will be facilitated to book trips online and safely
                             </p>
                         </div>
 
@@ -39,13 +38,6 @@ FaQ
                             <div class="icon">
                             </div>
                             <h5>How to order trip?</h5>
-                        </div>
-                        <div class="panel">
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam provident quas odit itaque laborum, 
-                                facere numquam autem recusandae cumque maiores dicta. Asperiores, quidem vel. Quidem, doloremque atque. 
-                                Hic, possimus corrupti.
-                            </p>
                         </div>
 
                         <div class="subask">
@@ -55,9 +47,7 @@ FaQ
                         </div>
                         <div class="panel">
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam provident quas odit itaque laborum, 
-                                facere numquam autem recusandae cumque maiores dicta. Asperiores, quidem vel. Quidem, doloremque atque. 
-                                Hic, possimus corrupti.
+                                You can contact admin before 5 days earlier from departure date.
                             </p>
                         </div>
 
@@ -68,9 +58,7 @@ FaQ
                         </div>
                         <div class="panel">
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam provident quas odit itaque laborum, 
-                                facere numquam autem recusandae cumque maiores dicta. Asperiores, quidem vel. Quidem, doloremque atque. 
-                                Hic, possimus corrupti.
+                                Of course you can, the way is that you can contact the admin first, to register as a travel agent.
                             </p>
                         </div>
 
@@ -82,9 +70,8 @@ FaQ
                         </div>
                         <div class="panel">
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam provident quas odit itaque laborum, 
-                                facere numquam autem recusandae cumque maiores dicta. Asperiores, quidem vel. Quidem, doloremque atque. 
-                                Hic, possimus corrupti.
+                                 You can go to the travel package page then click "add travel". Then fill in your trip form according to the input.
+                                Then to add photos to your travel package, you can add them in the travel gallery menu.
                             </p>
                         </div>
 
@@ -95,9 +82,7 @@ FaQ
                         </div>
                         <div class="panel">
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam provident quas odit itaque laborum, 
-                                facere numquam autem recusandae cumque maiores dicta. Asperiores, quidem vel. Quidem, doloremque atque. 
-                                Hic, possimus corrupti.
+                                You can open it in the transaction menu.
                             </p>
                         </div>
 
@@ -108,9 +93,8 @@ FaQ
                         </div>
                         <div class="panel">
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam provident quas odit itaque laborum, 
-                                facere numquam autem recusandae cumque maiores dicta. Asperiores, quidem vel. Quidem, doloremque atque. 
-                                Hic, possimus corrupti.
+                                If you have contacted our user who has ordered, then please send proof if you have contacted
+                                our user to admin. After the admin has confirmed your payment will be processed.
                             </p>
                         </div>
                     </div>

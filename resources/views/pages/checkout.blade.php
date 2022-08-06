@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('tittle')
+@section('title')
 Checkout Page
 @endsection
 
@@ -12,19 +12,19 @@ Checkout Page
         <div class="container">
         <div class="row">
             <div class="col-sm-d-none p-0">
-                <nav>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="{{route('menutrip')}}">Trip</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="{{url()->previous()}}">Detail Trip</a>
-                        </li>
-                        <li class="breadcrumb-item active">
-                            Checkout
-                        </li>
-                    </ol>
-                </nav>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{{route('menutrip')}}">Trip</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="{{url()->previous()}}">Detail Trip</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        Checkout
+                    </li>
+                </ol>
+            </nav>
             </div>
         </div>
         <div class="row">

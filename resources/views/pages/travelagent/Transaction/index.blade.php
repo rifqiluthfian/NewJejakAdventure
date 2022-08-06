@@ -1,5 +1,7 @@
 @extends('layouts.travelagent')
-
+@section('title')
+Index transaction
+@endsection
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -12,7 +14,7 @@
                             <h2 class="">Transaction</h2>
                         </div>
                     </div>
-                    <table class="table table-responsive-sm table-bordered" id="table_id">
+                    <table class="table table-responsive-sm" id="table_id">
                         <thead>
                             <tr>
                                 <th scope="col">Id</th>

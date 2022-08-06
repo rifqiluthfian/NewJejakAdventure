@@ -1,5 +1,7 @@
 @extends('layouts.travelagent')
-
+@section('title')
+Add picture travel package
+@endsection
 @section('content')
 <div class="container-fluid">
     <div class="row">

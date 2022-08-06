@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('tittle')
-Status transaction of Jejak Adventure
+@section('title')
+Status transaction
 @endsection
 
 @section('content')
@@ -30,7 +30,7 @@ Status transaction of Jejak Adventure
             <div class="row">
                 <div class="container">
                     <div class="card-body table-css">
-                        <table class="table table-responsive-sm table-css mt-4" id="table_id">
+                        <table class="table table-responsive-lg table-css mt-4" id="table_id">
                           <thead class="thead-light">
                             <tr>
                               <th scope="col">Id</th>

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('tittle')
+@section('title')
 Details Page
 @endsection
 @push('prepend-style')
@@ -53,6 +53,7 @@ Details Page
                   @endforeach
                 </div>
               </div>
+                  
               @endif
               <div class="about-trip">
                 <h4>About trip</h4>

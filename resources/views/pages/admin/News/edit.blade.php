@@ -1,5 +1,7 @@
 @extends('layouts.admin')
-
+@section('title')
+Edit news
+@endsection
 @section('content')
 <div class="container-fluid">
     <div class="row">

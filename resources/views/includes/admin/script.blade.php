@@ -31,6 +31,7 @@
             console.error( error );
         } );
 </script>
+
 <script>
     ClassicEditor
         .create( document.querySelector( '#itinerary' ) )
@@ -38,6 +39,7 @@
             console.error( error );
         } );
 </script>
+
 <script>
     ClassicEditor
         .create( document.querySelector( '#contents' ) )

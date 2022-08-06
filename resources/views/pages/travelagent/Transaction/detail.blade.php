@@ -1,5 +1,7 @@
 @extends('layouts.travelagent')
-
+@section('title')
+Detail Transaction
+@endsection
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -31,7 +33,7 @@
                     <td> {{$item->transaction_total}} </td>
                 </tr>
                 <tr>
-                    <td>Total Transaction</td>
+                    <td>Status Transaction</td>
                     <td> {{$item->transaction_status}} </td>
                 </tr>
 

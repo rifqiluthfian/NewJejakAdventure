@@ -1,5 +1,7 @@
 @extends('layouts.admin')
-
+@section('title')
+Create gallery
+@endsection
 @section('content')
 <div class="container-fluid">
     <div class="row">

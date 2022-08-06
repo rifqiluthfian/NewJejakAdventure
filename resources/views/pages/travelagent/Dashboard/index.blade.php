@@ -1,5 +1,7 @@
 @extends('layouts.travelagent')
-
+@section('title')
+Index Transaction
+@endsection
 @section('content')
     <!-- Begin Page Content -->
     <div class="container-fluid">

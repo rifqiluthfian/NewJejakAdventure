@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('tittle')
+@section('title')
 Menu Trip
 @endsection
 @section('content')

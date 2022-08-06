@@ -1,5 +1,7 @@
 @extends('layouts.admin')
-
+@section('title')
+Index usermanagement
+@endsection
 @section('content')
 <div class="container-fluid">
     <div class="row">

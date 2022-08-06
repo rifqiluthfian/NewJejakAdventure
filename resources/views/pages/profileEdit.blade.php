@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('tittle')
-User Profile Jejak Adventure
+@section('title')
+Edit Profile
 @endsection
 @section('content')
 
@@ -58,7 +58,7 @@ User Profile Jejak Adventure
                       <h6 class="mb-0">No identity</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" name="noIdentity" id="noIdentity" placeholder="noIdentity" value="{{$item->no_identity}}" class="form-control">
+                      <input type="text" name="no_identity" id="no_identity" placeholder="noIdentity" value="{{$item->no_identity}}" class="form-control">
                     </div>
                 </div>
                 <hr>
@@ -83,7 +83,6 @@ User Profile Jejak Adventure
                 <div class="row">
                   <div class="col-sm-3">
                   </div>
-                </div>
                 <div class="row">
                     <div class="col-sm-12">
                       <button type="submit" class="btn btn-success btn-block">Save</button>

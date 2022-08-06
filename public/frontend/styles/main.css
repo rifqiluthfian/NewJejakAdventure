@@ -433,6 +433,27 @@ header .book-trip {
   padding-bottom: 20px;
 }
 
+.input-rupiah {
+  position: relative;
+}
+.input-rupiah.left input {
+  padding-left:30px;
+}
+
+.input-rupiah:before {
+  position: absolute;
+  top: 0;
+  content:"Rp.";
+}
+.input-rupiah.left:before {
+  left: 5px;
+}
+.input-price{
+  padding:5px 20px;
+  border:solid 1px #ccc;
+  border-radius:5px;
+  width: 100%;
+}
 
 
 @media (max-width: 992px) {

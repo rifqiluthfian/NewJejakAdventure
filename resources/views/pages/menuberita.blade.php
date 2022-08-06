@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('tittle')
+@section('title')
 Menu Berita
 @endsection
 @section('content')
@@ -45,26 +45,28 @@ Menu Berita
         </main>
         <!-- tutupdetailheader -->
 
-        <div class="container menu-berita">
-            <div class="row">
-                @foreach ($items as $item)
-                <div class="col-sm-6 col-md-4 col-lg-4 my-4">
-                    <a href="{{route('detailberita',$item->id)}}">
-                        <div class="card-berita mx-auto d-flex flex-column">
-                            <div class="images-berita mx-auto">
-                                <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : 'frontend/images/berita-bromo.png'}}" alt="">
-                            </div>
-                            <div class="text-trip ml-3">
-                                <p class="travel-days mt-2">{{ \Carbon\Carbon::create($item->date)->format('M d,Y') }}</p><br>
-                                <h3 style="font-weight: bold;"> {{$item->title}} </h3>
-                                <p> {{$item->subtitle}} </p>
-                            </div>
+        <div class="container menu-berita mt-4">
+        <div class="row">
+            @foreach ($items as $item) 
+            <div class="col-sm-6 col-md-4 col-lg-4 my-4">
+                <a href="{{route('detailberita',$item->id)}}">
+                    <div class="card-berita mx-auto d-flex flex-column">
+                        <div class="images-berita mx-auto">
+                            <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : 'frontend/images/berita-bromo.png'}}" alt="">
                         </div>
-                    </a>
-                </div>
-                @endforeach
+                        <div class="text-trip ml-3">
+                            <p class="travel-days mt-2">{{ \Carbon\Carbon::create($item->date)->format('M d,Y') }}</p><br>
+                            <h3 style="font-weight: bold;"> {{$item->title}} </h3>
+                            <p> {{$item->subtitle}} </p>                            
+                        </div>
+                    </div>
+                </a>
             </div>
+            @endforeach
         </div>
+    </div>
     <!-- Batas Row -->
+    </div>
+</div>
         <!-- tutupmenutrip --
 @endsection
