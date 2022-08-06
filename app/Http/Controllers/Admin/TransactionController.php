@@ -24,7 +24,7 @@ class TransactionController extends Controller
             'details','travel_package','user'
         ])->get();
        
-        return view('pages.admin.Transaction.index',
+        return view('pages.admin.transaction.index',
         [ 'items' =>$items]);
     }
 
@@ -67,7 +67,7 @@ class TransactionController extends Controller
             'details','travel_package','user'
         ])->findOrFail($id);
         
-        return view ('pages.admin.Transaction.detail',[
+        return view ('pages.admin.transaction.detail',[
             'item' => $item
         ]);
     }

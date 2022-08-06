@@ -5,8 +5,7 @@ namespace App\Http\Controllers\TravelAgent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TravelAgent\TravelPackageRequest;
 use Illuminate\Http\Request;
-use App\Models\Travelpackage;
-use App\Models\GalleryTravel;
+use App\Models\TravelPackage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
@@ -18,6 +17,7 @@ class TravelPackageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
 
     public function index(Request $request){
         $user = $request->user()->username;
@@ -49,7 +49,6 @@ class TravelPackageController extends Controller
         $data = $request->all();
         
         $data['slug'] = Str::slug($request->title);
-        $data['price']= Str::of($request->price)->replace('.', '');
 
         TravelPackage::create($data);
         return redirect('travelagent/travelpackage');
@@ -90,10 +89,9 @@ class TravelPackageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
         $data = $request->all();
+        
         $data['slug'] = Str::slug($request->title);
-        $data['price']= Str::of($request->price)->replace('.', '');
 
         $item = TravelPackage::findOrFail($id);
         $item->update($data);
@@ -109,11 +107,10 @@ class TravelPackageController extends Controller
     public function destroy($id)
     {
         $item = TravelPackage::findOrFail($id);
-        $item->delete();
         DB::delete('delete from galleries where travel_packages_id = ?', [$id]);
         DB::delete('delete from transactions where travel_packages_id = ?', [$id]);
+        $item->delete();
         sleep(1);
         return redirect()->route('travelpackage.index');
     }
 }
-

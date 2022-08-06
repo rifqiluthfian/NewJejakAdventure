@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TravelAgent\TravelPackageRequest;
 use Illuminate\Http\Request;
-use App\Models\Travelpackage;
+use App\Models\TravelPackage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
@@ -85,7 +85,6 @@ class TravelPackageController extends Controller
         $data = $request->all();
         
         $data['slug'] = Str::slug($request->title);
-        $data['price']= Str::of($request->price)->replace('.', '');
 
         $item = TravelPackage::findOrFail($id);
         $item->update($data);
@@ -105,6 +104,6 @@ class TravelPackageController extends Controller
         DB::delete('delete from galleries where travel_packages_id = ?', [$id]);
         DB::delete('delete from transactions where travel_packages_id = ?', [$id]);
         sleep(1);
-        return redirect()('admin/travelpackage');
+        return redirect('admin/travelpackage');
     }
 }

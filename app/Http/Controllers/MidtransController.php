@@ -155,8 +155,8 @@ class MidtransController extends Controller
     }
     elseif ($transaction->transaction_status == 'PAID') {
         $curl = curl_init();
-        $token = "42v3s31gw7bkynvf";
-        $instance = "instance13400";
+        $token = "0sax7tielb20yqn4";
+        $instance = "instance13669";
         $phone = $transaction->user_travel->no_phone;
         $out_phone = preg_replace('/^0/', '', $phone);
         $username_agent = $transaction->username_travel;

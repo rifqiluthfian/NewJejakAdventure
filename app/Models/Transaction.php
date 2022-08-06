@@ -51,5 +51,9 @@ class Transaction extends Model
     {
         return $this->belongsTo(User::class, 'username_travel', 'username');
     }
+
+    public function scopeTransactionStatusPending($query){
+        return $query->where('transaction_status', '=','PENDING');
+    }
 }
 

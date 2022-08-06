@@ -36,5 +36,4 @@ class TravelPackage extends Model
             fn ($query, $title) => $query->where('title', 'LIKE', "%".$title."%")
         );
     }
-    
 }
