@@ -9,6 +9,7 @@ use App\Models\GalleryTravel;
 use App\Models\TravelPackage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 
 class GalleryTravelController extends Controller
@@ -52,9 +53,13 @@ class GalleryTravelController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $this->validate($request,[
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:5000'
+        ]);
         $data['image'] = $request->file('image')->store(
             'assets/gallery','public'
         );
+      
         GalleryTravel::create($data);
         return redirect()->route('gallery.index');
     }
@@ -97,6 +102,10 @@ class GalleryTravelController extends Controller
     public function update(Request $request ,$id)
     {
         $data = $request->all();
+
+        $this->validate($request,[
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:5000'
+        ]);
         
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store(

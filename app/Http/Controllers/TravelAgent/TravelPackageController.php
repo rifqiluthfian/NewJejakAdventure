@@ -47,9 +47,8 @@ class TravelPackageController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        
         $data['slug'] = Str::slug($request->title);
-
+        $data['price']= Str::of($request->price)->replace('.', '');
         TravelPackage::create($data);
         return redirect('travelagent/travelpackage');
     }
@@ -92,7 +91,7 @@ class TravelPackageController extends Controller
         $data = $request->all();
         
         $data['slug'] = Str::slug($request->title);
-
+        $data['price']= Str::of($request->price)->replace('.', '');
         $item = TravelPackage::findOrFail($id);
         $item->update($data);
         return redirect('travelagent/travelpackage');

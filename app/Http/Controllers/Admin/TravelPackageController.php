@@ -85,7 +85,7 @@ class TravelPackageController extends Controller
         $data = $request->all();
         
         $data['slug'] = Str::slug($request->title);
-
+        $data['price']= Str::of($request->price)->replace('.', '');
         $item = TravelPackage::findOrFail($id);
         $item->update($data);
         return redirect('admin/travelpackage');

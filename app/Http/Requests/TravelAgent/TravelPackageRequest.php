@@ -3,6 +3,7 @@
 namespace App\Http\Requests\TravelAgent;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Validator;
 
 class TravelPackageRequest extends FormRequest
 {
@@ -24,15 +25,16 @@ class TravelPackageRequest extends FormRequest
     public function rules()
     {
         return [
+            'title' => 'required|unique:posts|max:255',
             'username' => 'required|max:225',
-            'title' => 'required|max:225',
-            'slug' => 'required|max:225',
             'location' => 'required|max:225',
-            'about' => 'required|max:225',
             'departure_date'=> 'required|date',
             'duration' => 'required|max:225',
             'type' => 'required|max:225',
-            'price'=> 'required|integer'
+            'price'=> 'required|integer',
+            'detail' => 'required|max:225',
+            'itinerary' => 'required|max:225',
         ];
     }
+
 }

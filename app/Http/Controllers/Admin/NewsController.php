@@ -45,6 +45,9 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:5000'
+        ]);
         $data = $request->all();
 
         News::create($data);
@@ -85,6 +88,9 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:5000'
+        ]);
         $data = $request->all();
 
         $item = News::findOrFail($id);
