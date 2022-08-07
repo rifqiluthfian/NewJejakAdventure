@@ -108,6 +108,10 @@ Route::get('/admin', [App\Http\Controllers\Admin\DashboardController::class,'ind
 ->middleware(['auth','admin'])
 ->name('admin');
 
+Route::get('/filter', [App\Http\Controllers\Admin\DashboardController::class,'filter_transaction'])
+->middleware(['auth','admin'])
+->name('dashboard.filter');
+
 //Transaction Admin
 Route::get('/admin/transaction/index', [App\Http\Controllers\Admin\TransactionController::class,'index'])
 ->middleware(['auth','admin'])

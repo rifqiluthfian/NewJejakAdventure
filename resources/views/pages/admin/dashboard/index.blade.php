@@ -9,6 +9,26 @@ Dashboard Admin
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
         </div>
+        <form action="{{ route('admin') }}" method="GET">
+            <div class="form-row">
+                <div class="col">
+                    <label for="start_date">Start date</label>
+                    <input type="date" class="form-control" placeholder="start_date" name="start_date"
+                            id="start_date">
+                </div>
+                <div class="col">
+                    <label for="end_date">End date</label>
+                    <input type="date" class="form-control" placeholder="end_date" name="end_date"
+                            id="end_date">
+                </div>
+            </div>
+            <div class="col-md-2" style="margin-top: 24px;">
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary" value="Submit">
+                </div>
+             </div>
+        </form>
+
         <!-- Content Row -->
         <div class="row">
             <!-- Earnings (Monthly) Card Example -->
