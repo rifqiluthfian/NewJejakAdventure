@@ -11,7 +11,7 @@ class DashboardController extends Controller
 {
 
     public function index(Request $request){
-        $user = $request->user()->username;
+        $user = $request->user()->travelagent_name;
         
         if(!empty($request->start_date && $request->end_date))
         {
@@ -27,19 +27,19 @@ class DashboardController extends Controller
             ->get();
 
             return view('pages.travelagent.dashboard.index',[
-                'travel_package' => $travel->where('username', $user)->count(),
-                'transaction' => $items->where('username_travel', $user)->count(),
-                'pending' => $items->where('username', $user)->where('transaction_status','PENDING')->count(),
-                'success' => $items->where('username', $user)->where('transaction_status','SUCCESS')->count()
+                'travel_package' => $travel->where('travelagent_name', $user)->count(),
+                'transaction' => $items->where('travelagent_name', $user)->count(),
+                'pending' => $items->where('travelagent_name', $user)->where('transaction_status','PENDING')->count(),
+                'success' => $items->where('travelagent_name', $user)->where('transaction_status','SUCCESS')->count()
               ]);
 
         }
 
-        $user = $request->user()->username;
-        $travel_package = TravelPackage::where('username', $user)->count();
-        $transaction = Transaction::where('username_travel', $user)->count();
-        $pending = Transaction::where('username_travel', $user)->where('transaction_status', 'PENDING')->count();
-        $success = Transaction::where('username_travel', $user)->where('transaction_status', 'SUCCESS')->count();
+        $user = $request->user()->travelagent_name;
+        $travel_package = TravelPackage::where('travelagent_name', $user)->count();
+        $transaction = Transaction::where('travelagent_name', $user)->count();
+        $pending = Transaction::where('travelagent_name', $user)->where('transaction_status', 'PENDING')->count();
+        $success = Transaction::where('travelagent_name', $user)->where('transaction_status', 'SUCCESS')->count();
 
         return view('pages.travelagent.dashboard.index',[
             'travel_package' => $travel_package,

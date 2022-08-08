@@ -20,10 +20,10 @@ class TransactionController extends Controller
 
 
     public function index(Request $request){
-        $user = $request->user()->username;
+        $user = $request->user()->travelagent_name;
         $items = Transaction::with([
             'details','travel_package','user'
-        ])->where('username_travel', $user)->get();
+        ])->where('travelagent_name', $user)->get();
        
         return view('pages.travelagent.transaction.index',
         [ 'items' =>$items]);

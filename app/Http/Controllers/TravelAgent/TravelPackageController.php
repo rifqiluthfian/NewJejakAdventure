@@ -20,8 +20,8 @@ class TravelPackageController extends Controller
 
 
     public function index(Request $request){
-        $user = $request->user()->username;
-        $items = TravelPackage::all()->where('username',$user);
+        $user = $request->user()->travelagent_name;
+        $items = TravelPackage::all()->where('travelagent_name',$user);
        
         return view('pages.travelagent.travelpackage.index',
         [ 'items' =>$items]);

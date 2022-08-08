@@ -32,7 +32,7 @@ Details Page
             <div class="card card-details">
               <h1 class="ml-5 mt-3"> {{$item->title}} </h1>
               <p class="ml-5 ">
-                {{$item->username}}
+                {{$item->travelagent_name}}
               </p>
 
               @if ($item->galleries->count())

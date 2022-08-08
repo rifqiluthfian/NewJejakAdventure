@@ -30,12 +30,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href=" {{route('gallery')}} ">Gallery</a>
                 </li>
-                @if (!Auth::guest() && Auth::user()->roles == 'TRAVELAGENT')
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('travelagent')}}">Travel Agent</a>
-                </li>
-  
-                @endif
                 @guest
                 <li class="nav-item bg-dark" style="width : 20%;">
                     <a class="nav-link text-center" href="{{url('login')}}">Login</a>
@@ -54,9 +48,15 @@
                   </a>
                   @endauth
                   
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <div class="dropdown-menu" style="font-size: 13px" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href=" {{route('profile')}} ">Profile</a>
                     <a class="dropdown-item" href=" {{route('statustransaction.index')}} ">Status Payment</a>
+                    @if (!Auth::guest() && Auth::user()->roles == 'TRAVELAGENT')
+                    <a class="dropdown-item" href="{{route('travelagent')}}">Travel Agent</a>
+                    @else
+                    <a class="dropdown-item" href=" {{route('registerta')}} " class="btn btn-success">Wants become Travel Agent?</a>
+                    <a class="dropdown-item" href=" {{route('registerta.status')}} " class="btn btn-success">Status Register Travel Agent</a>
+                    @endif
                     <a class="dropdown-item" href="{{route('faq')}}">FAQ</a>
                     @guest
                     <form class="form-inline my-lg-0 d-none d-lg-block">
@@ -74,16 +74,43 @@
                               Logout
                           </button>
                       </form>
-                    
                     @endauth
                   </div>
                 </li>
-  
-                
             </ul>
         </div>
     </nav>
   </div>
   <!--Tutup Navbar -->
-        </section>
-        </main>
+</section>
+</main>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Privacy Policy</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        Body Privacy Policy
+        </div>
+        <div class="checkbox">
+            <form action='http://webisite.com' class="mx-4" method='post' onSubmit="return false;">
+                <p>
+                 <span style="text-align: center">
+                 <input type ="checkbox" name="agree" value="anything">
+                I Agree To And Understand The Charges That Will Be Processed To My Credit Card</span></p>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <a href=" {{route('registerta')}} " class="btn btn-success">Save changes</a>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- Button trigger modal -->

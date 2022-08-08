@@ -26,6 +26,8 @@ Menu Trip
     </div>
     <!--Tutup Filter Paket Trip-->
 
+
+
     <!-- menutrip -->
     <div class="container menu-trip">
         <h3 class="title-menu text-center">Explore The World With Jejak Adventure</h3>
@@ -49,7 +51,7 @@ Menu Trip
                 </a>
                 <div class="text-trip ml-3">
                     <h3 style="font-weight: bold;">{{$item->title}}</h3>
-                    <p> {{$item->username}} </p>
+                    <p> {{$item->travelagent_name}} </p>
                 </div>
             </div>
             @endforeach

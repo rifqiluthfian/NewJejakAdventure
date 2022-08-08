@@ -22,10 +22,7 @@ Edit Travel Package
                     <label for="title">Title</label>
                     <input type="text" name="title" id="title" placeholder="title" value="{{$item->title}}" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label for="Username">Username</label>
-                    <input readonly="readonly" type="text" name="username" id="username" placeholder="{{$item->username}}" value="{{$item->username}}" class="form-control">
-                </div>
+         
                 <div class="form-group">
                     <label for="location">Location</label>
                     <input type="text" name="location" id="location" placeholder="Location" value="{{$item->location}}" class="form-control">
@@ -44,7 +41,7 @@ Edit Travel Package
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>
-                    <input type="text" name="price" id="price" placeholder="price" value="{{$item->price}}" class="form-control">
+                    <input type="text" name="price" id="rupiah" placeholder="price" value="{{$item->price}}" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="About">Detail</label>
@@ -62,3 +59,31 @@ Edit Travel Package
 </div>
 
 @endsection
+
+<script type="text/javascript">
+		
+    var rupiah = document.getElementById('rupiah');
+    rupiah.addEventListener('keyup', function(e){
+        // tambahkan 'Rp.' pada saat form di ketik
+        // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+        rupiah.value = formatRupiah(this.value, 'Rp. ');
+    });
+
+    /* Fungsi formatRupiah */
+    function formatRupiah(angka, prefix){
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        split   		= number_string.split(','),
+        sisa     		= split[0].length % 3,
+        rupiah     		= split[0].substr(0, sisa),
+        ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+
+        // tambahkan titik jika yang di input sudah menjadi angka ribuan
+        if(ribuan){
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+</script>

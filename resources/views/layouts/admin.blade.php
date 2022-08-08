@@ -53,6 +53,10 @@
                     <i class="fas fa-fw fa-dollar-sign"></i>
                     <span>Transaction</span>
                 </a>
+                <a class="nav-link" href="{{route('documents.index')}}">
+                    <i class="fas fa-fw fa-file"></i>
+                    <span>Documents</span>
+                </a>
                 <a class="nav-link" href="{{{route('usermanagement')}}}">
                     <i class="fas fa-fw fa-user"></i>
                     <span>User Management</span>

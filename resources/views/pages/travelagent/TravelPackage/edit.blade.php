@@ -23,8 +23,8 @@ Edit Travel package
                     <input type="text" name="title" id="title" placeholder="title" value="{{$item->title}}" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="Username">Username</label>
-                    <input readonly="readonly" type="text" name="username" id="username" placeholder="{{Auth::user()->username}}" value="{{Auth::user()->username}}" class="form-control">
+                    <label for="Username">Travel Agent Name</label>
+                    <input readonly="readonly" type="text" name="travelagent_name" id="travelagent_name" placeholder="{{Auth::user()->travelagent_name}}" value="{{Auth::user()->travelagent_name}}" class="form-control">
                    
                 </div>
                 <div class="form-group">
@@ -49,7 +49,7 @@ Edit Travel package
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>
-                    <input type="text" name="price" id="price" placeholder="price" value="{{$item->price}}" class="form-control">
+                    <input type="text" name="price" id="rupiah" placeholder="price" value="{{$item->price}}" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="Detail">Detail</label>

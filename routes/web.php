@@ -22,6 +22,22 @@ Route::get('/menutrip', [App\Http\Controllers\MenuTripController::class, 'index'
 Route::get('/faq', [App\Http\Controllers\FaqController::class, 'index'])
 ->name('faq');
 
+Route::get('/jointravelagent', [App\Http\Controllers\RegisterTravelAgentController::class, 'index'])
+->middleware(['auth'])
+->name('registerta');
+Route::post('/jointravelagent/store', [App\Http\Controllers\RegisterTravelAgentController::class,'store'])
+->middleware(['auth'])
+->name('registerta.store');
+Route::get('/jointravelagent/status', [App\Http\Controllers\RegisterTravelAgentController::class,'status'])
+->middleware(['auth'])
+->name('registerta.status');
+Route::put('/jointravelagent/update',[App\Http\Controllers\RegisterTravelAgentController::class,'update'])
+->middleware(['auth'])
+->name('registerta.update');
+Route::get('/jointravelagent/success',[App\Http\Controllers\RegisterTravelAgentController::class,'success'])
+->middleware(['auth'])
+->name('registerta.success');
+
 Route::get('/detailpage/{slug}', [App\Http\Controllers\DetailController::class, 'index'])
 ->name('detailpage');
 
@@ -111,6 +127,17 @@ Route::get('/admin', [App\Http\Controllers\Admin\DashboardController::class,'ind
 Route::get('/filter', [App\Http\Controllers\Admin\DashboardController::class,'filter_transaction'])
 ->middleware(['auth','admin'])
 ->name('dashboard.filter');
+
+//Documents Admin
+Route::get('/admin/documents', [App\Http\Controllers\Admin\DocumentsController::class,'index'])
+->middleware(['auth','admin'])
+->name('documents.index');
+Route::get('/admin/documents/edit/{id}', [App\Http\Controllers\Admin\DocumentsController::class,'edit'])
+->middleware(['auth','admin'])
+->name('documents.edit');
+Route::put('/admin/documents/update/{id}', [App\Http\Controllers\Admin\DocumentsController::class,'update'])
+->middleware(['auth','admin'])
+->name('documents.update');
 
 //Transaction Admin
 Route::get('/admin/transaction/index', [App\Http\Controllers\Admin\TransactionController::class,'index'])

@@ -19,6 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'name',
+        'travelagent_name',
         'no_phone',
         'no_identity',
         'email',
@@ -45,4 +46,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+       //Relation document user
+       public function documents(){
+        return $this->hasMany(Documents::class,'users_id','id');
+    }
 }
