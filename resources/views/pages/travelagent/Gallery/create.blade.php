@@ -39,7 +39,7 @@ Add picture travel package
                 </div>
                 <div class="form-group">
                     <label for="Username">Username</label>
-                    <input readonly="readonly" type="text" name="username" id="username" placeholder="{{Auth::user()->username}}" value="{{Auth::user()->username}}" class="form-control">
+                    <input readonly="readonly" type="text" name="travelagent_name" id="travelagent_name" placeholder="{{Auth::user()->travelagent_name}}" value="{{Auth::user()->travelagent_name}}" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="image">Image</label>

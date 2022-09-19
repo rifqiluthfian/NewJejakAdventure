@@ -35,7 +35,7 @@ Index gallery travel package
                                 <td>{{ $item->travel_package->title }}</td>
                                 <td>
                                     <img src="{{Storage::url($item->image)}}" alt="" width="200" class="img-thumbnail">
-                                </td>
+                                </td> 
                                 <td>
                                     <a href=" {{route('gallery.edit',$item->id)}} " class="btn btn-info">
                                         <i class="fa fa-pencil-alt"></i>

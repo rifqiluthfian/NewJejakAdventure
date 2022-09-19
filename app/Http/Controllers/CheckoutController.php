@@ -35,7 +35,7 @@ class CheckoutController extends Controller
         $transaction = Transaction::create([
             'travel_packages_id'=> $id,
             'username'=> Auth::user()->username,
-            'username_travel'=> $travel_package->username,
+            'travelagent_name'=> $travel_package->travelagent_name,
             'users_id'=>Auth::user()->id,
             'transaction_total' => $travel_package->price,
             'transaction_status'=>'IN_CART'

@@ -22,8 +22,8 @@ class GalleryTravelController extends Controller
 
 
     public function index(Request $request){
-        $user = $request->user()->username;
-        $items = GalleryTravel::all()->where('username', $user);
+        $user = $request->user()->travelagent_name;
+        $items = GalleryTravel::all()->where('travelagent_name', $user);
        
         return view('pages.travelagent.gallery.index',
         [ 'items' =>$items]);
@@ -37,8 +37,8 @@ class GalleryTravelController extends Controller
      */
     public function create(Request $request)
     {
-        $user = $request->user()->username;
-        $travel_packages = DB::select('select * from travel_packages WHERE username = :username AND deleted_at IS NULL', ['username' => $user]);
+        $user = $request->user()->travelagent_name;
+        $travel_packages = DB::select('select * from travel_packages WHERE travelagent_name = :travelagent_name AND deleted_at IS NULL', ['travelagent_name' => $user]);
         return view ('pages.travelagent.gallery.create',[
             'travel_packages' => $travel_packages
         ]);
@@ -83,8 +83,8 @@ class GalleryTravelController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $user = $request->user()->username;
-        $travel_packages = DB::select('select * from travel_packages WHERE username = :username AND deleted_at IS NULL', ['username' => $user]);
+        $user = $request->user()->travelagent_name;
+        $travel_packages = DB::select('select * from travel_packages WHERE travelagent_name = :travelagent_name AND deleted_at IS NULL', ['travelagent_name' => $user]);
         $item = GalleryTravel::findOrFail($id);
         return view ('pages.travelagent.gallery.edit',[
             'item' => $item,

@@ -39,6 +39,8 @@ Register Travel Agent
                                     <div class="col">
                                         <label for="image">Identity (KTP/SIM)</label>
                                         <input type="file" name="img_identity" placeholder="image" class="form-control">
+                                        <small>Max size foto : 2Mb</small><br>
+                                        <small>Support PNG , JPG , Jpeg , Jfif</small>
                                     </div>
                                     <div class="col my-auto text-center">
                                       
@@ -50,6 +52,8 @@ Register Travel Agent
                                     <div class="col">
                                         <label for="no_rekening">No rekening</label>
                                         <input type="file" name="no_rekening" placeholder="image" class="form-control">
+                                        <small>Max size foto : 2Mb</small><br>
+                                        <small>Support PNG , JPG , Jpeg , Jfif</small>
                                     </div>
                                     <div class="col my-auto text-center">
                                     
@@ -62,6 +66,8 @@ Register Travel Agent
                                         <label for="certificate">Certificate</label>
                                         <input type="file" name="certificate" placeholder="image" class="form-control">
                                         <small>*Fill blanks if you dont have it</small>
+                                        <small>Max size foto : 2Mb</small><br>
+                                        <small>Support PNG , JPG , Jpeg , Jfif</small>
                                     </div>
                                     <div class="col my-auto text-center">
                                         
@@ -74,6 +80,8 @@ Register Travel Agent
                                     <div class="col">
                                         <label for="profil_instagram">Profil Instagram</label>
                                         <input type="file" name="profile_instagram" placeholder="image" class="form-control">
+                                        <small>Max size foto : 2Mb</small><br>
+                                        <small>Support PNG , JPG , Jpeg , Jfif</small>
                                     </div>
                                     <div class="col my-auto text-center">
                                       

@@ -14,7 +14,7 @@
   <section class="atas">
 <!-- Navbar -->
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-trasnparent">
+  <nav class="navbar navbar-expand-lg navbar-light bg-trasnparent navbar-css">
       <a class="navbar-brand" href="{{route('home')}}">
           <img src="frontend/images/logo.png" width="200" alt="">
       </a>
@@ -28,7 +28,7 @@
       </button>
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav p-3 ">
+          <ul class="navbar-nav p-3">
               <li class="nav-item">
                   <a class="nav-link active" href="{{route('home')}}">Home</a>
               </li>
@@ -41,12 +41,6 @@
               <li class="nav-item">
                   <a class="nav-link" href=" {{route('gallery')}} ">Gallery</a>
               </li>
-              @if (!Auth::guest() && Auth::user()->roles == 'TRAVELAGENT')
-              <li class="nav-item">
-                  <a class="nav-link" href="{{route('travelagent')}}">Travel Agent</a>
-              </li>
-
-              @endif
               @guest
               <li class="nav-item bg-dark" style="width : 20%;">
                   <a class="nav-link text-center" href="{{url('login')}}">Login</a>
@@ -65,9 +59,15 @@
                 </a>
                 @endauth
                 
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <div class="dropdown-menu" style="font-size: 13px" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href=" {{route('profile')}} ">Profile</a>
                   <a class="dropdown-item" href=" {{route('statustransaction.index')}} ">Status Payment</a>
+                  @if (!Auth::guest() && Auth::user()->roles == 'TRAVELAGENT')
+                  <a class="dropdown-item" href="{{route('travelagent')}}">Travel Agent</a>
+                  @else
+                  <a class="dropdown-item" href=" {{route('registerta')}} " class="btn btn-success">Wants become Travel Agent?</a>
+                  <a class="dropdown-item" href=" {{route('registerta.status')}} " class="btn btn-success">Status Register Travel Agent</a>
+                  @endif
                   <a class="dropdown-item" href="{{route('faq')}}">FAQ</a>
                   @guest
                   <form class="form-inline my-lg-0 d-none d-lg-block">
@@ -85,12 +85,9 @@
                             Logout
                         </button>
                     </form>
-                  
                   @endauth
                 </div>
               </li>
-
-              
           </ul>
       </div>
   </nav>
@@ -176,7 +173,7 @@
                   </a>
                     <div class="text-trip ml-3">
                         <h3 style="font-weight: bold;"> {{$item->title}} </h3>
-                        <p> {{$item->username}} </p>
+                        <p> {{$item->travelagent_name}} </p>
                     </div>
                 </div>
                 @endforeach
