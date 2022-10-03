@@ -17,7 +17,7 @@ class GalleryTravel extends Model
     protected $table = 'galleries';
 
     protected $fillable = [
-        'travel_packages_id','username','image'
+        'travel_packages_id','travelagent_name','image'
     ];
 
     protected $hidden = [

@@ -43,7 +43,9 @@ Add travel package
                     <select id="type" name="type" class="form-control">
                         <option value="Open Trip">Open Trip</option>
                         <option value="Private Trip">Private Trip</option>
-                      </select>
+                    </select>
+                    <small>Open trip : more 5 member</small>
+                    <small>Private trip : less than 5 member</small>
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>
