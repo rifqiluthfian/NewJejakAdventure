@@ -31,10 +31,10 @@ class TravelPackage extends Model
     }
 
     //filtering data destination
-    public function scopeFilter($query, array $filters){
-        $query->when(
-            $filters['title'] ?? false,
-            fn ($query, $title) => $query->where('title', 'LIKE', "%".$title."%")
-        );
-    }
+    // public function scopeFilter($query, array $filters){
+    //     $query->when(
+    //         $filters['title'] ?? false,
+    //         fn ($query, $title) => $query->where('title', 'LIKE', "%".$title."%")
+    //     );
+    // }
 }
