@@ -34,7 +34,7 @@ Status transaction
                           <thead class="thead-light">
                             <tr>
                               <th scope="col">Id</th>
-                              <th scope="col">Travel</th>
+                              <th scope="col">Title Trip</th>
                               <th scope="col">Travel Agent</th>
                               <th scope="col">Total</th>
                               <th scope="col">Status</th>
@@ -46,7 +46,7 @@ Status transaction
                               <tr>
                                   <td class="text-center">{{$item->id}}</td>
                                   <td>{{ $item->travel_package->title }}</td>
-                                  <td>{{ $item->travel_package->username }}</td>
+                                  <td>{{ $item->travel_package->travelagent_name }}</td>
                                   <td>Rp. 
                                       @php
                                       echo number_format("$item->transaction_total")."<br>";
