@@ -16,10 +16,27 @@ class TravelPackage extends Model
 
     protected $table = 'travel_packages';
 
-    protected $fillable = [
-        'travelagent_name','title','slug','location','about','itinerary','departure_date','duration',
-        'type','price'
-    ];
+    // protected $fillable = [
+    //     'jamaah_uuid',
+    //     'fullname',
+    //     'occupation',
+    //     'placeofbirth',
+    //     'dateofbirth',
+    //     'gender',
+    //     'address',
+    //     'postalcode',
+    //     'kelurahan',
+    //     'kecamatan',
+    //     'provinsi',
+    //     'kabupaten',
+    //     'nik',
+    //     'phone',
+    //     'fathername',
+    //     'planscheduledate',
+    //     'nationality',
+    //     'hajj_status',
+    //     'marriage_status'
+    // ];
 
     protected $hidden = [
 
@@ -31,10 +48,10 @@ class TravelPackage extends Model
     }
 
     //filtering data destination
-    public function scopeFilter($query, array $filters){
-        $query->when(
-            $filters['title'] ?? false,
-            fn ($query, $title) => $query->where('title', 'LIKE', "%".$title."%")
-        );
-    }
+    // public function scopeFilter($query, array $filters){
+    //     $query->when(
+    //         $filters['title'] ?? false,
+    //         fn ($query, $title) => $query->where('title', 'LIKE', "%".$title."%")
+    //     );
+    // }
 }

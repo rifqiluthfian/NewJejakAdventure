@@ -22,7 +22,7 @@ class NewsController extends Controller
         $items = News::all();
        
         return view('pages.admin.news.index',
-        ['items' =>$items]);
+        ['items' => $items]);
     }
 
 
