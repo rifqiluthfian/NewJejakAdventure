@@ -77,7 +77,7 @@ Documents Edit Admin
                         </div>
                         <div class="col my-auto">
                             <label for="profile_instagram">Status</label>
-                            <select name="profile_instagram" required class="form-control">
+                            <select name="status_profile_instagram" required class="form-control">
                                 <option value=" {{$item->status_profile_instagram}} ">
                                     {{$item->status_profile_instagram}}
                                 </option>

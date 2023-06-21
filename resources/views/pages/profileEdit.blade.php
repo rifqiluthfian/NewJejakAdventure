@@ -58,7 +58,7 @@ Edit Profile
                       <h6 class="mb-0">No identity</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" name="no_identity" id="no_identity" placeholder="noIdentity" value="{{$item->no_identity}}" class="form-control">
+                      <input type="text" name="no_identity" readonly id="no_identity" placeholder="noIdentity" value="{{$item->no_identity}}" class="form-control">
                     </div>
                 </div>
                 <hr>
@@ -76,7 +76,7 @@ Edit Profile
                     <h6 class="mb-0">Email</h6>
                   </div>
                   <div class="col-sm-9 text-secondary">
-                    <input type="text" name="email" id="email" placeholder="email" value="{{$item->email}}" class="form-control">
+                    <input type="text" name="email" id="email" readonly placeholder="email" value="{{$item->email}}" class="form-control">
                   </div>
                 </div>
                 <hr>

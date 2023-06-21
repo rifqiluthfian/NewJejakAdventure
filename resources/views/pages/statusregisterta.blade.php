@@ -79,6 +79,16 @@ Register Travel Agent
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="row my-4">
+                                    <div class="col mt-auto">
+                                        <label for="status_pengumpulan"> <b>Status Pengumpulan</b> </label><br>
+                                    </div>
+                                    <div class="col my-auto text-center">
+                                        {{$status_pengumpulan}}
+                                    </div>
+                                </div>
+                            </div>
                             <button type="submit" class="btn btn-success d-none">Update</button>
                         </form>
                     </div>

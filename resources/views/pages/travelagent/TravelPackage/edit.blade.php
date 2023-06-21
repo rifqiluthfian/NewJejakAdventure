@@ -45,9 +45,9 @@ Edit Travel package
                         <option value="{{$item->type}}">{{$item->type}}</option>
                         <option value="Open Trip">Open Trip</option>
                         <option value="Private Trip">Private Trip</option>
-                      </select>
-                      <small>Open trip : more 5 member</small>
-                      <small>Private trip : less than 5 member</small>
+                    </select>
+                    <small>Open trip : more 5 member</small><br>
+                    <small>Private trip : less than 5 member</small>
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>

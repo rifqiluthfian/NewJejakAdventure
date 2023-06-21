@@ -34,7 +34,7 @@ Status transaction
                           <thead class="thead-light">
                             <tr>
                               <th scope="col">Id</th>
-                              <th scope="col">Title Trip</th>
+                              <th scope="col">Trip Title</th>
                               <th scope="col">Travel Agent</th>
                               <th scope="col">Total</th>
                               <th scope="col">Status</th>

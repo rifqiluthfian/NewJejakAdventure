@@ -38,6 +38,8 @@ Edit Travel Package
                 <div class="form-group">
                     <label for="type">type</label>
                     <input type="text" name="type" id="type" placeholder="type" value="{{$item->type}}" class="form-control">
+                    <small>Open trip : more 5 member</small><br>
+                    <small>Private trip : less than 5 member</small>
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>

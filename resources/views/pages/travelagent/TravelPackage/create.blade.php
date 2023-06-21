@@ -44,7 +44,7 @@ Add travel package
                         <option value="Open Trip">Open Trip</option>
                         <option value="Private Trip">Private Trip</option>
                     </select>
-                    <small>Open trip : more 5 member</small>
+                    <small>Open trip : more 5 member</small><br>
                     <small>Private trip : less than 5 member</small>
                 </div>
                 <div class="form-group">
