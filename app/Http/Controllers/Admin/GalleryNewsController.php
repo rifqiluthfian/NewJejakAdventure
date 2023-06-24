@@ -49,15 +49,13 @@ class GalleryNewsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:5000'
-        ]);
         $data['news_id'] = $request->news_id;
         $data['image'] = $request->file('image')->store(
             'assets/gallery','public'
         );
         GalleryNews::create($data);
         return redirect()->route('gallerynews.index');
+        
     }
 
     /**
@@ -96,9 +94,6 @@ class GalleryNewsController extends Controller
      */
     public function update(Request $request ,$id)
     {
-        $this->validate($request,[
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:5000'
-        ]);
         $data = $request->all();
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store(

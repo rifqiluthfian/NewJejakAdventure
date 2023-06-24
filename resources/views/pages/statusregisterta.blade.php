@@ -3,6 +3,7 @@
 Register Travel Agent
 @endsection
 @section('content')
+
     <!-- detailheader -->
     <main class="details-header">
         <section class="section-details-content">

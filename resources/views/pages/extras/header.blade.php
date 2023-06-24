@@ -1,7 +1,4 @@
 <!-- Navbar -->
-    <main>
-        <section class="menu-trip-header">
-<!-- Navbar -->
 <div class="navbarWrapper mx-0 position-relative" style="background-color: rgba(51, 51, 51, 0.9);">
       <nav class="navbar navbar-expand-lg bg-trasnparent navbar-css">
         <a class="navbar-brand" href="{{route('home')}}">
@@ -77,35 +74,3 @@
       </nav>
     </div>
     <!--Tutup Navbar -->
-</section>
-</main>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Privacy Policy</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        Body Privacy Policy
-        </div>
-        <div class="checkbox">
-            <form action='http://webisite.com' class="mx-4" method='post' onSubmit="return false;">
-                <p>
-                 <span style="text-align: center">
-                 <input type ="checkbox" name="agree" value="anything">
-                I Agree To And Understand The Charges That Will Be Processed To My Credit Card</span></p>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <a href=" {{route('registerta')}} " class="btn btn-success">Save changes</a>
-        </div>
-    </div>
-    </div>
-</div>
-<!-- Button trigger modal -->

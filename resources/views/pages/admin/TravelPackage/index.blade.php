@@ -33,7 +33,7 @@ Index travel package
                             <tr>
                                 <td class="text-center">{{$item->id}}</td>
                                 <td>{{ $item->title }}</td>
-                                <td>{{ $item->username }}</td>
+                                <td>{{ $item->travelagent_name }}</td>
                                 <td>{{ $item->location }}</td>
                                 <td>{{ $item->departure_date }}</td>
                                 <td>{{ $item->duration }}</td>

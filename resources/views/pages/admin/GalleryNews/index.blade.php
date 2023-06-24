@@ -36,7 +36,7 @@ Index gallery news
                                         <td class="text-center">{{$item->id}}</td>
                                         <td>{{ $item->news_item->title }}</td>
                                         <td>
-                                            <img src="{{Storage::url($item->image)}}" alt="" width="200" class="img-thumbnail">
+                                            <img src="{{ Storage::url( $item->image) }}" alt="" width="200" class="img-thumbnail">
                                         </td>
                                         <td>
                                             <a href=" {{route('gallerynews.edit',$item->id)}} " class="btn btn-info">

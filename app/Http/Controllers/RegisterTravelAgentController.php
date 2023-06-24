@@ -62,7 +62,8 @@ class RegisterTravelAgentController extends Controller
             'status_identity' => Documents::where('users_id', $id)->value('status_identity'),
             'status_nomer_rekening' => Documents::where('users_id', $id)->value('status_nomer_rekening'),
             'status_certificate' => Documents::where('users_id', $id)->value('status_certificate'),
-            'status_profile_instagram' => Documents::where('users_id', $id)->value('status_profile_instagram')
+            'status_profile_instagram' => Documents::where('users_id', $id)->value('status_profile_instagram'),
+            'status_pengumpulan' => Documents::where('users_id', $id)->value('status_pengumpulan')
           ]);
     }
 

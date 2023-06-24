@@ -7,7 +7,7 @@ Login/Register
     <div class="row align-middle justify-content-center" style="margin-top: 10%">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header" style="background-color:#2bb272;">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -55,7 +55,7 @@ Login/Register
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" style="background: #333333;border: none!important;">
                                     {{ __('Login') }}
                                 </button>
 

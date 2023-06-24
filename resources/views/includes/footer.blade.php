@@ -89,7 +89,7 @@
     
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2022 Copyright:
+        © 2023 Copyright:
         <a class="text-reset fw-bold" href="https://jejakadventure.com/">Jejakadventure.com</a>
     </div>
     <!-- Copyright -->

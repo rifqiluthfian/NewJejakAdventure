@@ -31,7 +31,7 @@ Index transaction
                                 <tr>
                                     <td class="text-center">{{$item->id}}</td>
                                     <td>{{ $item->travel_package->title }}</td>
-                                    <td>{{ $item->travel_package->username }}</td>
+                                    <td>{{ $item->travel_package->travelagent_name }}</td>
                                     <td>{{ $item->user->name }}</td>
                                     <td>Rp. 
                                         @php

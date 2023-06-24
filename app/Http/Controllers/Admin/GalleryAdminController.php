@@ -25,9 +25,6 @@ class GalleryAdminController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:5000'
-        ]);
         $data['title'] = $request->title;
         $data['description'] = $request->description;
         $data['image'] = $request->file('image')->store(
@@ -48,9 +45,6 @@ class GalleryAdminController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:5000'
-        ]);
         $data = $request->all();
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store(

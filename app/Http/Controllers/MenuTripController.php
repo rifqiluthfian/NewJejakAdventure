@@ -9,6 +9,10 @@ use Carbon\Carbon;
 class MenuTripController extends Controller
 {
     public function index(Request $request){
+
+        // print_r($request->tgl_bulan_dr);
+        // exit();
+
         
         if(!empty($request->tgl_bulan_dr && $request->tgl_bulan_sd && $request->title))
         {

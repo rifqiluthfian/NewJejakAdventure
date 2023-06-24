@@ -14,11 +14,12 @@ Menu Trip
                 <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_dr" id="tgl_bulan_dr">
             </div>
             <div class="col mt-4">
-                <h6 for="tgl_bulan_sampai">To Date</h6>
+                <h6 for="tgl_bulan_sampai">Until Date</h6>
                 <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd" id="tgl_bulan_sd">
             </div>
+            
             <div class="col mt-4">
-                <button type="submit" class="btn btn-success mt-4">Cari</button>
+                <button type="submit" class="btn btn-success mt-4 shadow">Search</button>
             </div>
             </div>
         </form>
@@ -31,7 +32,7 @@ Menu Trip
     <!-- menutrip -->
     <div class="container menu-trip">
         <h3 class="title-menu text-center">Explore The World With Jejak Adventure</h3>
-        <div class="row col-sm-justify-content-center">
+        <div class="row justify-content-center">
             @foreach ($items as $item)
             <div class="col-sm-6 col-md-4 col-lg-4 my-4">
                 <a href="{{route('detailpage',$item->slug)}}">

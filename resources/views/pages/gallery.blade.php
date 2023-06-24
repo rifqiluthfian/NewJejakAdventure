@@ -21,13 +21,6 @@ Gallery Jejak Adventure
                 <div class="row justify-content-center gallery-body">
                     <div class="container-fluid">
                         <h2 class="text-center my-4">Gallery Of Jejak Adventure</h2>
-                        <div class="row">
-                            <div class="col">
-                                <div class="year">
-                                    <h2 class="text-center my-4">2022</h2>
-                                </div>
-                            </div>
-                        </div>
     
                         <div class="row">
                             @foreach ($items as $item)
@@ -37,8 +30,8 @@ Gallery Jejak Adventure
                                         <div class="center-crop">
                                             <img src="{{ Storage::url( $item->image) }}" width="800" alt="" class="card__image"> 
                                         </div>
-                                        <figcaption class="card__caption">
-                                            <h2 class="card__title text-white"> {{$item->title}} </h2>
+                                        <figcaption class="card__caption text-center">
+                                            <h2 class="card__title text-white text-center"> {{$item->title}} </h2>
                                             <p class="card__snippet">{{$item->description}}</p>
                                         </figcaption>
                                     </figure>
