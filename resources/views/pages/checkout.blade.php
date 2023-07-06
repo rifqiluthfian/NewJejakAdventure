@@ -14,15 +14,7 @@ Checkout Page
             <div class="col-sm-d-none p-0">
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="{{route('menutrip')}}">Trip</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="{{url()->previous()}}">Detail Trip</a>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        Checkout
-                    </li>
+                   
                 </ol>
             </nav>
             </div>
@@ -43,7 +35,7 @@ Checkout Page
                 <p class="ml-5 text-muted">
                 Trip To {{$item->travel_package->title}},{{$item->travel_package->location}}
                 </p>
-                <div class="attendee">
+                <div class="attendee overflow-scroll">
                 <table class="table table-responsive-sm text-center">
                     <thead>
                     <tr>
@@ -163,7 +155,7 @@ Checkout Page
 
             </div>
                 <div class="join-container">
-                    <a href="{{route('checkout.success',$item->id)}}" class="btn btn-block btn-join-now mt-3 py-2">
+                    <a href="{{route('checkout.success',$item->id)}}" class="btn btn-block btn-join-now mt-3 w-100 rounded-bottom py-2">
                         Process Payment
                     </a>
                 </div>

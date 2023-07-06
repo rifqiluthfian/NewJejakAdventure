@@ -313,6 +313,12 @@ Route::get('/travelagent/transaction/detail/{id}', [App\Http\Controllers\TravelA
 ->middleware(['auth','travelagent'])
 ->name('transaction.detail');
 
+// Rating
+
+Route::post('/rate/{id}', [App\Http\Controllers\RatingController::class, 'rate'])
+->middleware('auth')
+->name('rating.put');
+
 Auth::routes(['verify' => true]);
 
 Auth::routes();

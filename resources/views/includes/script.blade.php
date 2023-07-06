@@ -1,7 +1,13 @@
+{{-- DataTables --}}
+<script type="text/javascript" src="{{ url('frontend/scripts/jquery-3.5.1.js') }}"></script>
+<!-- <script type="text/javascript" src="{{ url('frontend/libraries/DataTables/js/dataTables.min.js') }}"></script> -->
+<!-- <script type="text/javascript" src="{{ url('frontend/libraries/DataTables/js/jquery.dataTables.min.js') }}"></script> -->
+
 <script src="{{url('frontend/libraries/jquery/jquery-3.3.1.slim.min.js')}}"></script>
-<script src="{{url('frontend/libraries/retina/retina.min.js')}}"></script>
+<!-- <script src="{{url('frontend/libraries/retina/retina.min.js')}}"></script> -->
 <script src="{{url('frontend/libraries/xzoom/xzoom.min.js')}}"></script>
-<script src="{{url('frontend/libraries/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{url('frontend/libraries/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{url('frontend/libraries/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
 <script>
     $(document).ready(function(){
@@ -29,7 +35,7 @@
                 panel.style.maxHeight = panel.scrollHeight + 'px';
             }
         })
-    }   
+    }
 </script>
 
 
@@ -51,18 +57,15 @@
 
 
 
-{{-- DataTables --}}
-<script type="text/javascript" src="{{ url('frontend/scripts/jquery-3.5.1.js') }}"></script>
-<script type="text/javascript" src="{{ url('frontend/libraries/DataTables/js/dataTables.bootstrap5.min') }}"></script>
-<script type="text/javascript" src="{{ url('frontend/libraries/DataTables/js/jquery.dataTables.min.js') }}"></script>
 
 
-<script>
+
+<!-- <script>
     $(document).ready(function() {
     $('#table_id').DataTable();
 } );
 
-</script>
+</script> -->
 
 
 

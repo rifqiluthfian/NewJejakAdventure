@@ -5,11 +5,11 @@
 <div class="navbarWrapper mx-0 position-relative" style="background-color: rgba(51, 51, 51, 0.9);">
       <nav class="navbar navbar-expand-lg bg-trasnparent navbar-css">
         <a class="navbar-brand" href="{{route('home')}}">
-          <img src="frontend/images/logo.png" width="200" alt="">
+          <img src="{{url('frontend/images/logo.png')}}" width="200" alt="">
         </a>
 
         <button class="navbar-toggler bg-light navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav">
-          <span class="navbar-toggler-icon"><img src="frontend/images/menu.png" style="width:100%" alt=""></span>
+          <span class="navbar-toggler-icon"><img src="{{url('frontend/images/menu.png')}}" style="width:100%" alt=""></span>
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">

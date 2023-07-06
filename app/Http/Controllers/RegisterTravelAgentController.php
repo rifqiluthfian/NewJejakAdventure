@@ -14,8 +14,23 @@ use Illuminate\Support\Facades\Auth;
 class RegisterTravelAgentController extends Controller
 {
     public function index(Request $request){
+        $id = Auth::user()->id;
+        $items = Documents::all()->where('users_id', $id);
+       
+        $data = [
+        'travelagent_name' => User::where('id', $id)->value('travelagent_name'),
+        'no_identity' => Documents::where('users_id', $id)->value('identity'),
+        'no_rekening' => Documents::where('users_id', $id)->value('nomer_rekening'),
+        'certificate' => Documents::where('users_id', $id)->value('certificate'),
+        'profile_instagram' => Documents::where('users_id', $id)->value('profile_instagram'),
+        'status_identity' => Documents::where('users_id', $id)->value('status_identity'),
+        'status_nomer_rekening' => Documents::where('users_id', $id)->value('status_nomer_rekening'),
+        'status_certificate' => Documents::where('users_id', $id)->value('status_certificate'),
+        'status_profile_instagram' => Documents::where('users_id', $id)->value('status_profile_instagram'),
+        'status_pengumpulan' => Documents::where('users_id', $id)->value('status_pengumpulan')];
 
-        return view('pages.registerta');
+
+        return view('pages.registerta',$data);
     }
 
     public function store(Request $request){

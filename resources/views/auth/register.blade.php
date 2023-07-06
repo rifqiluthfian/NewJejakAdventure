@@ -1,6 +1,7 @@
 @extends('layouts.app')
-
-
+@section('title')
+Register Jejak Adventure
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center"style="padding-top: 12%">

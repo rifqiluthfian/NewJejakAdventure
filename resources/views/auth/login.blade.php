@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('tittle')
-Login/Register
+@section('title')
+Login Jejak Adventure
 @endsection
 @section('content')
 <div class="container">

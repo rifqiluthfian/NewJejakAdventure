@@ -19,8 +19,8 @@ Register Travel Agent
                         </nav>
                     </div>
                 </div>
-                <div class="row faq-body">
-                    <div class="container-fluid">
+                <div class="row faq-body mt-5">
+                    <div class="container-fluid w-100">
                         <h3 class="font-weight-bold my-4 text-center">Status Form document</h3>
                         <form action="{{route('registerta.update')}}" method="POST" enctype="multipart/form-data">
                             @method('PUT')

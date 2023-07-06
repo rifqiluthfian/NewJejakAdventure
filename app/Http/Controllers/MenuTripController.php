@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TravelPackage;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class MenuTripController extends Controller
 {
@@ -13,47 +14,51 @@ class MenuTripController extends Controller
         // print_r($request->tgl_bulan_dr);
         // exit();
 
-        
+        $notYetRatedByUser = Auth::user() ? Auth::user()->notYetRated : null;
+
+        $travels = Auth::user() ?
+            TravelPackage::with(['galleries', 'lastTransaction'])->withCount('notYetRated') :
+            TravelPackage::with(['galleries']);
+
         if(!empty($request->tgl_bulan_dr && $request->tgl_bulan_sd && $request->title))
         {
-            $items = TravelPackage::whereBetween('departure_date', array($request->tgl_bulan_dr, $request->tgl_bulan_sd))
-            ->filter(request(['title']))
-            ->with(['galleries'])
-            ->get();
+            $items = $travels->whereBetween('departure_date', array($request->tgl_bulan_dr, $request->tgl_bulan_sd))
+                ->filter(request(['title']))
+                ->get();
         }
 
-        elseif (!empty($request->tgl_bulan_dr && $request->tgl_bulan_sd)) 
+        elseif (!empty($request->tgl_bulan_dr && $request->tgl_bulan_sd))
         {
-            $items = TravelPackage::whereBetween('departure_date', array($request->tgl_bulan_dr,$request->tgl_bulan_sd))
-            ->get();
+            $items = $travels->whereBetween('departure_date', array($request->tgl_bulan_dr,$request->tgl_bulan_sd))
+                ->get();
         }
 
-        elseif (!empty($request->tgl_bulan_dr && $request->title) ) 
+        elseif (!empty($request->tgl_bulan_dr && $request->title) )
         {
-            $items = TravelPackage::where('departure_date', ($request->tgl_bulan_dr))
-            ->filter(request(['title']))
-            ->get();
+            $items = $travels->where('departure_date', ($request->tgl_bulan_dr))
+                ->filter(request(['title']))
+                ->get();
         }
-        elseif (!empty($request->tgl_bulan_dr)) 
+        elseif (!empty($request->tgl_bulan_dr))
         {
-            $items = TravelPackage::where('departure_date', ($request->tgl_bulan_dr))
-            ->get();
+            $items = $travels->where('departure_date', ($request->tgl_bulan_dr))
+                ->get();
         }
 
-        elseif (!empty($request->title)) 
+        elseif (!empty($request->title))
         {
-            $items = TravelPackage::with(['galleries'])
-            ->filter(request(['title']))
-            ->get();
+            $items = $travels->filter(request(['title']))
+                ->get();
         }
 
         else
         {
-            $items = TravelPackage::with(['galleries'])->get();
+            $items = $travels->get();
         }
-        
+
         return view('pages.menutrip',[
-            'items' => $items
+            'items' => $items,
+            'notYetRatedByUser' => $notYetRatedByUser
         ]);
     }
 }
