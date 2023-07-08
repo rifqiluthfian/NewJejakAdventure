@@ -24,7 +24,7 @@ Details Transaction
 
                 <div class="container-fluid">
                 
-                    <div class="card-shadow">
+                    <div class="card-shadow mt-5">
                         <div class="card-body">
                             <table class="table table-responsive-sm table-bordered">
                                 <tr>

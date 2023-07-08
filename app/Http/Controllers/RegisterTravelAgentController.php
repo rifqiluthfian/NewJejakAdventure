@@ -29,6 +29,8 @@ class RegisterTravelAgentController extends Controller
         'status_profile_instagram' => Documents::where('users_id', $id)->value('status_profile_instagram'),
         'status_pengumpulan' => Documents::where('users_id', $id)->value('status_pengumpulan')];
 
+        //         print_r($data);
+        // exit();
 
         return view('pages.registerta',$data);
     }
@@ -57,10 +59,15 @@ class RegisterTravelAgentController extends Controller
         $data['profile_instagram'] = $request->file('profile_instagram')->store(
             'assets/gallery','public'
         );
+        $data['status_pengumpulan'] = $request->status_pengumpulan;
       
         $item = User::findOrFail($id);
         $item->update($name);
         Documents::create($data);
+
+        // print_r($data);
+        // exit();
+
         return redirect()->route('registerta.success');
     }
 
@@ -108,6 +115,18 @@ class RegisterTravelAgentController extends Controller
         $item->update($data);
 
         return redirect()->route('registerta.status');
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255'],
+            'no_phone' => ['required', 'string','min:9','max:13'],
+            'no_identity' => ['required', 'integer','min:16'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
     }
 
     public function success(){
