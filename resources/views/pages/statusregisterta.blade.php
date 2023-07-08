@@ -19,9 +19,14 @@ Register Travel Agent
                     </nav>
                 </div>
             </div>
-            <div class="row faq-body mt-5">
-                <div class="container-fluid w-100">
-                    <h3 class="font-weight-bold my-4 text-center">Status Form document</h3>
+            <div class="row faq-body mt-5 px-lg-5">
+                <div class="container-fluid w-100 px-lg-5">
+                    <h3 class="font-weight-bold my-4 text-center">Status Form document
+                        @if ($status_pengumpulan == 'PENDING')
+                        <span style="color:orange!important;"> {{$status_pengumpulan}}</span>
+                        @endif
+                    </h3>
+
 
                     @if ($status_pengumpulan == NULL)
                     <!-- APABILA SUDAH MELAKUKAN PENGUMPULAN -->
@@ -36,66 +41,64 @@ Register Travel Agent
                         @method('PUT')
                         @csrf
                         <div class="form-group">
-                            <div class="row">
+                            <div class="row text-center">
                                 <div class="col">
                                     <label for="image"> <b>Travel Agent name</b></label><br>
                                     <h4>{{$travelagent_name}}</h4>
                                 </div>
-                                <div class="col my-auto text-center">
-                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col">
+                            <div class="row justify-content-center">
+                                <div class="col col-lg-5">
                                     <label for="image"> <b>Identity (KTP/SIM)</b></label><br>
                                     <img src="{{Storage::url($no_identity)}}" alt="" width="200" class="img-thumbnail">
                                 </div>
-                                <div class="col my-auto text-center">
+                                <div class="col col-lg-2 my-auto text-center">
                                     {{$status_identity}}
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col">
+                            <div class="row justify-content-center">
+                                <div class="col col-lg-5">
                                     <label for="no_rekening"><b>Buku Tabungan</b></label><br>
                                     <img src="{{Storage::url($no_rekening)}}" alt="" width="200" class="img-thumbnail">
                                 </div>
-                                <div class="col my-auto text-center">
+                                <div class="col col-lg-2  my-auto text-center">
                                     {{$status_nomer_rekening}}
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col">
+                            <div class="row justify-content-center">
+                                <div class="col col-lg-5">
                                     <label for="certificate"> <b>Certificate</b> </label><br>
                                     <img src="{{Storage::url($certificate)}}" alt="" width="200" class="img-thumbnail">
                                     <br><small>*Fill blanks if you dont have it</small>
                                 </div>
-                                <div class="col my-auto text-center">
+                                <div class="col col-lg-2 my-auto text-center">
                                     {{$status_certificate}}
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col">
+                            <div class="row justify-content-center">
+                                <div class="col col-lg-5">
                                     <label for="profil_instagram"> <b>Profile Instagram</b> </label><br>
                                     <img src="{{Storage::url($profile_instagram)}}" alt="" width="200" class="img-thumbnail">
                                 </div>
-                                <div class="col my-auto text-center">
+                                <div class="col col-lg-2 my-auto text-center">
                                     {{$status_profile_instagram}}
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row my-4">
-                                <div class="col mt-auto">
+                            <div class="row justify-content-center my-4">
+                                <div class="col col-lg-5 mt-auto">
                                     <label for="status_pengumpulan"> <b>Status Pengumpulan</b> </label><br>
                                 </div>
-                                <div class="col my-auto text-center">
+                                <div class="col col-lg-2 my-auto text-center">
                                     {{$status_pengumpulan}}
                                 </div>
                             </div>

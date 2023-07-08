@@ -138,6 +138,9 @@ Route::get('/admin/documents/edit/{id}', [App\Http\Controllers\Admin\DocumentsCo
 Route::put('/admin/documents/update/{id}', [App\Http\Controllers\Admin\DocumentsController::class,'update'])
 ->middleware(['auth','admin'])
 ->name('documents.update');
+Route::delete('/admin/documents/delete/{id}', [App\Http\Controllers\Admin\DocumentsController::class,'destroy'])
+->middleware(['auth','admin'])
+->name('documents.delete');
 
 //Transaction Admin
 Route::get('/admin/transaction/index', [App\Http\Controllers\Admin\TransactionController::class,'index'])

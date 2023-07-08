@@ -3,11 +3,17 @@
 Index travel package
 @endsection
 @section('content')
+
+<style>
+    div.dataTables_wrapper div.dataTables_filter {
+        overflow: hidden;
+    }
+    </style>
 <div class="container-fluid">
     <div class="row">
         <div class="col">
             <span id="ct" class="mt-3 d-block text-right"></span>
-            <div class="card my-5 shadow-sm">
+            <div class="card my-5 shadow-sm overflow-hidden">
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col">
@@ -15,7 +21,7 @@ Index travel package
                         </div>
                         <div class="col text-right">
                             <a href="{{route('travelpackage.create')}}" class="btn btn-second ml-2">
-                                <i class="las la-plus"></i> Add Travel
+                                <i class="las la-plus"></i> Add Package
                             </a>
                         </div>
                     </div>

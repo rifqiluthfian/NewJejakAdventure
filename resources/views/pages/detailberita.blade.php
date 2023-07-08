@@ -22,15 +22,13 @@ Detail Berita
                 </div>
                 <div class="row justify-content-center">
                   <div class="col-lg-10 pl-lg-0">
-                    <div class="row">
+                    <div class="row mb-5 mt-5">
                       <div class="col border-right my-auto text-center">
-                        <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : ''}}" width="500px" alt="">
+                        <img src="{{$item->galleriesnews->count() ? Storage::url($item->galleriesnews->first()->image) : ''}}" style="width:100%;" alt="">
                       </div>
                       <div class="col-lg-4">
                         <p>{{ \Carbon\Carbon::create($item->date)->format('F d,Y') }}</p><br>
                         <h1>{{$item->title}}</h1><br>
-                        <p> {{$item->subtitle}} </p>
-          
                       </div>
                     </div>
                   </div>
@@ -41,9 +39,9 @@ Detail Berita
           </main>
           <!-- tutupdetailheader -->
   
-          <main class="container content-berita">
+          <main class=" px-5 container content-berita">
             <p>
-              {{$item->contents}}
+            {!! $item->contents !!}
             </p>
           </main>
   

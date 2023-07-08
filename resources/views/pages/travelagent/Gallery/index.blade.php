@@ -3,12 +3,17 @@
 Index gallery travel package
 @endsection
 @section('content')
+<style>
+    div.dataTables_wrapper div.dataTables_filter {
+        overflow: hidden;
+    }
+    </style>
 <div class="container-fluid">
     <div class="row">
         <div class="col">
             <span id="ct" class="mt-3 d-block text-right"></span>
             <div class="card my-5 shadow-sm">
-                <div class="card-body">
+                <div class="card-body overflow-hidden">
                     <div class="row mb-3">
                         <div class="col">
                             <h2 class="">Gallery Travel Package</h2>

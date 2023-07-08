@@ -34,5 +34,12 @@ class DocumentsController extends Controller
         $item->update($data);
         return redirect()->route('documents.index')->with('success', 'User Berhasil Diubah');
     }
+    public function destroy($id)
+    {
+        $item = Documents::findOrFail($id);
+        $item->delete();
+        sleep(1);
+        return redirect('admin/documents');
+    }
 
 }
