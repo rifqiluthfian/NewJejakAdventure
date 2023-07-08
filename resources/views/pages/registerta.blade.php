@@ -28,6 +28,13 @@ Register Travel Agent
                 </div>
             </div>
             <!-- END -->
+            @elseif ($status_pengumpulan == 'DENIED')
+            <div class="row faq-body mt-5">
+                <div class="container-fluid w-100 text-center">
+                    <h3 class="font-weight-bold my-4 text-center">Your document has been denied by our team. Please contact us for more information.</h3>
+                    <img src="{{url('frontend/images/cs.png')}}" width="250" alt="">
+                </div>
+            </div>
             @else
 
             <!-- START FORM -->

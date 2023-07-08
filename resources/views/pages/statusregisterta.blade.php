@@ -24,8 +24,18 @@ Register Travel Agent
                     <h3 class="font-weight-bold my-4 text-center">Status Form document
                         @if ($status_pengumpulan == 'PENDING')
                         <span style="color:orange!important;"> {{$status_pengumpulan}}</span>
+                        @elseif ($status_pengumpulan == 'DENIED')
+                        <span style="color:red!important;"> {{$status_pengumpulan}}</span>
                         @endif
                     </h3>
+                    @if ($status_pengumpulan == 'DENIED')
+                    <div class="row faq-body mt-5">
+                        <div class="container-fluid w-100 text-center">
+                            <h3 class="font-weight-bold my-4 text-center">Your document has been denied by our team. Please contact us for more information.</h3>
+                        </div>
+                    </div>
+                    @endif
+                    
 
 
                     @if ($status_pengumpulan == NULL)
@@ -36,6 +46,7 @@ Register Travel Agent
                         </div>
                     </div>
                     <!-- END -->
+                    
                     @else
                     <form action="{{route('registerta.update')}}" method="POST" enctype="multipart/form-data">
                         @method('PUT')
@@ -96,7 +107,7 @@ Register Travel Agent
                         <div class="form-group">
                             <div class="row justify-content-center my-4">
                                 <div class="col col-lg-5 mt-auto">
-                                    <label for="status_pengumpulan"> <b>Status Pengumpulan</b> </label><br>
+                                    <label for="status_pengumpulan"> <b>Status Document</b> </label><br>
                                 </div>
                                 <div class="col col-lg-2 my-auto text-center">
                                     {{$status_pengumpulan}}
