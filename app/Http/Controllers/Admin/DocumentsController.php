@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Documents;
@@ -11,6 +12,8 @@ class DocumentsController extends Controller
 {
     public function index(Request $request){
         $items = Documents::all();
+
+        
         return view('pages.admin.documents.index',
         [ 'items' =>$items]);
        
@@ -18,6 +21,8 @@ class DocumentsController extends Controller
 
     public function edit(Request $request,$id){
         $items = Documents::findOrFail($id);
+
+        // dd($items);
         return view ('pages.admin.documents.edit',[
             'item' => $items,
         ]);
@@ -32,6 +37,11 @@ class DocumentsController extends Controller
     
         $item = Documents::findOrFail($id);
         $item->update($data);
+
+        if ($request->status_pengumpulan === 'APPROVE') {
+            $users_id = User::findOrFail($item->users_id);
+            $users_id->updateRole('TRAVELAGENT'); // Ganti dengan peran yang diinginkan
+        }
         return redirect()->route('documents.index')->with('success', 'User Berhasil Diubah');
     }
     public function destroy($id)

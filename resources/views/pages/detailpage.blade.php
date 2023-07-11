@@ -3,6 +3,12 @@
 Details Page
 @endsection
 @push('prepend-style')
+@php
+$currentDate = date('Y-m-d');
+$departureDate = $item->departure_date;
+$lockDate = date('Y-m-d', strtotime('-7 days', strtotime($departureDate)));
+
+@endphp
 <link rel="stylesheet" href="{{url('frontend/libraries/xzoom/xzoom.css')}}">
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -85,6 +91,7 @@ Details Page
 
             <hr>
             <h4>Information about trip</h4>
+            <p style="font-size:0.9rem" class="text-danger">* Tidak dapat dipesan setelah H-7 sebelum keberangkatan.</p>
             <table class="trip-information">
               <tr>
                 <th width="50%">Schedule Trip</th>
@@ -105,19 +112,32 @@ Details Page
           </div>
           <div class="join-container">
             @auth
+            @if ($currentDate >= $lockDate)
+            <a href="#" class="btn btn-block btn-secondary mt-3 py-2 w-100 rounded-bottom">
+            Maaf, waktu pemesanan untuk paket perjalanan ini telah berakhir.
+            </a>
+            @else
             <form action=" {{route('checkout.process',$item->id)}} " method="POST">
               @csrf
               <button class="btn btn-block btn-join-now mt-3 py-2 w-100 rounded-bottom" type="submit">
                 Join Now
               </button>
             </form>
+            @endif
             @endauth
 
             @guest
+            @if ($currentDate >= $lockDate)
+            <a href="#" class="btn btn-block btn-secondary mt-3 py-2 w-100 rounded-bottom">
+            Maaf, waktu pemesanan untuk paket perjalanan ini telah berakhir.
+            </a>
+            @else
             <a href="{{route('login')}}" class="btn btn-block btn-join-now mt-3 py-2 w-100 rounded-bottom">
               Login Or Register To Join
             </a>
+            @endif
             @endguest
+            
           </div>
         </div>
       </div>

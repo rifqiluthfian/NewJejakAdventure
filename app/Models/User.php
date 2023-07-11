@@ -52,9 +52,15 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Documents::class,'users_id','id');
     }
 
+
     public function notYetRated() {
         return $this->hasMany(Transaction::class, 'users_id', 'id')
             ->where('transaction_status', 'SUCCESS')
-            ->where('rating', 0);
+            ->whereNull('rating');
+    }
+     public function updateRole($newRole)
+    {
+        $this->roles = $newRole;
+        $this->save();
     }
 }

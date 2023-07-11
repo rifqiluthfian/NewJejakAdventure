@@ -13,7 +13,7 @@ class HomeController extends Controller
 
         $notYetRatedByUser = Auth::user() ? Auth::user()->notYetRated : null;
 
-        $items = TravelPackage::with(['galleries'])->take(3)->get();
+        $items = TravelPackage::with(['galleries'])->orderBy('departure_date', 'desc')->latest()->take(3)->get();
 
         $news = News::with(['galleriesnews'])->latest()->take(3)->get();
 

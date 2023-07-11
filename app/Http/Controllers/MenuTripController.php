@@ -53,7 +53,7 @@ class MenuTripController extends Controller
 
         else
         {
-            $items = $travels->get();
+            $items = $travels->orderBy('departure_date', 'desc')->latest()->get();
         }
 
         return view('pages.menutrip',[

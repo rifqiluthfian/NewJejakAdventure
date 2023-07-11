@@ -11,6 +11,7 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "laravel/ui": "^3.4",
         "midtrans/midtrans-php": "^2.5"
     },
     "require-dev": {
@@ -18,7 +19,6 @@
         "fakerphp/faker": "^1.9.1",
         "jn-jairo/laravel-ngrok": "^2.0",
         "laravel/sail": "^1.0.1",
-        "laravel/ui": "^3.4",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
         "phpunit/phpunit": "^9.5.10"
