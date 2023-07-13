@@ -16,15 +16,11 @@ class StatusTransactionController extends Controller
     {
         $user = $request->user()->username;
         
-        // $now = Carbon::now();
-
-        // $transactionss = Transaction::join('travel_packages', 'transactions.travel_packages_id', '=', 'travel_packages.id')
-        //     ->where('transactions.transaction_status', 'PAID')
-        //     ->get();
-            // ->where('transactions.updated_at', '>', 'travel_packages.departure_date')
-            // ->update(['transactions.transaction_status' => 'SUCCESS']);
+        $transactionss = Transaction::join('travel_packages', 'transactions.travel_packages_id', '=', 'travel_packages.id')
+        ->where('transactions.transaction_status', 'PAID')
+        ->whereColumn('transactions.updated_at', '>=', 'travel_packages.departure_date')
+        ->update(['transactions.transaction_status' => 'SUCCESS']);
         
-            // dd($transactionss);
 
         $transactions = Transaction::where('transaction_status', 'PENDING')
             ->where('username', $user)
@@ -35,8 +31,6 @@ class StatusTransactionController extends Controller
             $transaction->transaction_status = 'FAILED';
             $transaction->save();
         }
-
-        
 
        
         $items = Transaction::with([
